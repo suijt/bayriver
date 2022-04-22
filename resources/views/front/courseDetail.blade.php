@@ -42,6 +42,7 @@
                         <div class="left-col__program-info">
                             <ul class="program-info-list">
                                 <li><strong>Course Duration</strong><span>{{$course->duration ?? 'N/A'}}</span> </li>
+                                <li><strong>Practicum Duration</strong><span>{{$course->practicum_duration ?? 'N/A'}}</span> </li>
                                 <li><strong>Study Options</strong><span>{{$course->study_option ?? 'N/A'}}</span> </li>
                                 <li><strong>Workplacement </strong><span>{{$course->work_placement ?? 'N/A'}}</span> </li>
                                 <li><strong>Credential </strong><span>{{$course->credential ?? 'N/A'}}</span> </li>

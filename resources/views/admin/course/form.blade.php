@@ -57,10 +57,20 @@
                 </div>
                 <div class="form-group row mt-5">
                     <div class="col">
-                        <label>Practicum Duration
+                        <label>Duration
                         </label>
                         <input type="text" class="form-control @error('duration') is-invalid @enderror" placeholder="Enter Course Duration" name="duration" value="@if(isset($course)){{$course->duration}}@else{{old('duration')}}@endif" />
                         @error('duration')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <div class="col">
+                        <label>Practicum Duration
+                        </label>
+                        <input type="text" class="form-control @error('practicum_duration') is-invalid @enderror" placeholder="Enter Course Duration" name="practicum_duration" value="@if(isset($course)){{$course->practicum_duration}}@else{{old('practicum_duration')}}@endif" />
+                        @error('practicum_duration')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
