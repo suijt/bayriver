@@ -3,25 +3,24 @@
 @section('title', 'Homepage')
 
 @section('content')
-<main class="site-content">
-    @if($sliders->isNotEmpty())
-    <section class="banner-section">
-        <div class="slider">
-            @foreach ($sliders as $slider)
-            <div class="slider-item" style="background-image: url({{asset($slider->image_path)}})">
 
-                <div class="slider-content">
-                    <div class="container">
-                        <h1>{{$slider->title}} </h1>
-                        {!! $slider->description !!}
-                        @if($slider->button_text)
-                        <a href="{{$slider->button_link}}" class="button button--white">{{$slider->button_text}}</a>
-                        @endif
+<main class="site-content">
+    @if($countries->isNotEmpty())
+    <section class="country-banner" style="background-image: url({{asset('assets/front/images/intl-banner2.jpg')}});">
+        <div class="country-banner__content">
+            <div class="container">
+                <h1>Future Students</h1>
+                <div class="country-items flex-container">
+                    @foreach($countries as $country)
+                    <div class="country-item">
+                        <a class="country-item__thumbnail" href="{{route('international.detail',$country->slug)}}"><img src="{{asset($country->image_path)}}" alt="{{$country->title}}"> </a>
+                        <h3><a href="{{route('international.detail',$country->slug)}}"> {{$country->title}}</a></h3>
                     </div>
+                    @endforeach
                 </div>
             </div>
-            @endforeach
         </div>
+
     </section>
     @endif
     @if($highlights->isNotEmpty())
@@ -33,10 +32,11 @@
     </div>
     @endforeach
     @endif
-    @if($courses)
+
+    @if($courses->isNotEmpty())
     <section class="featured-program">
         <div class="container">
-            <h2>Featured Courses</h2>
+            <h2>Featured International Courses</h2>
             <div class="featured-program__sliderholder">
                 @foreach ($courses as $course)
                 <div class="featured-program__item">
@@ -53,16 +53,17 @@
         </div>
     </section>
     @endif
+
     <section class="book-appointment">
         <div class="book-appointment__left">
             <div class="book-appointment__left-holder">
-                <div class="book-appointment__bkimage" style="background-image: url({{asset('assets/front/images/getstarted.jpg')}});">
+                <div class="book-appointment__bkimage" style="background-image: url('images/intl-std.jpg');">
 
                 </div>
                 <div class="book-appointment__left-inner">
                     <span class="top-border"></span>
                     <span class="bottom-border"></span>
-                    <img class="book-app__icon" src="{{asset('assets/front/images/getstarted4.jpg')}}" alt="">
+                    <img class="book-app__icon" src="images/getstarted4.jpg" alt="">
 
                     <h2>"Try our robot to help in selecting best career for you" or "Find your dream career"</h2>
                     <p> Join us now to start admission process</p>
@@ -73,7 +74,7 @@
         <div class="book-appointment__right">
             <div class="book-appointment__right-holder">
                 <div class="book-appointment__right-inner">
-                    <h2>Ready To Book An Appointment</h2>
+                    <h2>INTERNATIONAL STUDENTS<br /> Ready To Book An Appointment</h2>
                     <form id="contact" name="contact" method="mail.php">
                         <div class="form-item">
                             <!-- <label for="name">Name</label>-->
@@ -121,11 +122,12 @@
         </div>
     </section>
     @endif
+
     <section class="featured-block flex-container">
 
         <div class="featured-block__col1">
             <div class="featured-block__col1-content">
-                <h2>Why Study at Bay River College</h2>
+                <h2>INTERNATIONAL STUDENTS <br />Why Study at Bay River College</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda atque blanditiis delectus iste
                     laudantium nisi, optio quam quo sit soluta! Cum est, incidunt nam natus officia officiis quod recusandae repellat?</p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda atque blanditiis delectus iste
@@ -136,7 +138,7 @@
             </div>
             <!--featured-block__col1-content-->
         </div>
-        <div class="featured-block__col2" style="background-image: url({{asset('assets/front/images/why-bay river3.png')}});">
+        <div class="featured-block__col2" style="background-image: url('images/why-bay river3.png');">
             <div class="featured-block__col2-content">
                 <h2>Our Features</h2>
                 <div class="featured-block__holder">
@@ -262,6 +264,7 @@
         </div>
     </section>
     @endif
+
 
 </main>
 @endsection

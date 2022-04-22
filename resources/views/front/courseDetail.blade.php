@@ -4,7 +4,7 @@
 
 @section('content')
 <main class="site-content">
-    <section class="inner-banner" style="background-image: url({{asset($course->banner_image_path)}});">
+    <section class="inner-banner" style="background-image: url({{asset($course->banner_image_path)}})">
         <div class="inner-banner__content">
             <div class="container">
                 <h1>{{$course->title}}</h1>
@@ -52,7 +52,7 @@
                             </ul>
                         </div>
                         <!--left-col__programinfo-->
-                        <div class="left-col__learningoutcome" style="background-image: url({{asset('assets/front/images/slider5.jpg')}};">
+                        <div class="left-col__learningoutcome" style="background-image: url({{asset('assets/front/images/slider5.jpg')}}">
                             {!! $course->learning_outcome !!}
                         </div>
                         <!--left-col__programinfo-->
@@ -64,44 +64,26 @@
 
                     <div class="right-col">
 
-
                         <figure>
                             <img src="{{asset($course->secondary_image_path)}}" alt="">
                         </figure>
+                        @if($clients->isNotEmpty())
                         <section class="logo-carousel">
 
                             <h2 class="section-class"> Our Associates & Partner</h2>
                             <ul class="partners-carousel partners-carousel__secondary">
-                                <li>
-                                    <a href="#" class="partner-carousel__thumbnail" target="_blank"> <img src="{{asset('assets/front/images/comptia.png')}}" alt="Campsite Calgary"></a>
-
-                                </li>
+                                @foreach ($clients as $client)
 
                                 <li>
-                                    <a href="#" class="partner-carousel__thumbnail" target="_blank"> <img src="{{asset('assets/front/images/ipa-canada.jpg')}}" alt="Campsite Calgary"></a>
+                                    <a href="{{$client->caption}}" class="partner-carousel__thumbnail" target="_blank"> <img src="{{asset($client->image_path)}}" alt="{{$client->title}}"></a>
 
                                 </li>
-                                <li>
-                                    <a href="#" class="partner-carousel__thumbnail" target="_blank"> <img src="{{asset('assets/front/images/comptia.png')}}" alt="Campsite Calgary"></a>
-
-                                </li>
-                                <li>
-                                    <a href="#" class="partner-carousel__thumbnail" target="_blank"> <img src="{{asset('assets/front/images/ipa-canada.jpg')}}" alt="Campsite Calgary"></a>
-
-                                </li>
-                                <li>
-                                    <a href="#" class="partner-carousel__thumbnail" target="_blank"> <img src="{{asset('assets/front/images/comptia.png')}}" alt="Campsite Calgary"></a>
-
-                                </li>
-                                <li>
-                                    <a href="#" class="partner-carousel__thumbnail" target="_blank"> <img src="{{asset('assets/front/images/ipa-canada.jpg')}}" alt="Campsite Calgary"></a>
-
-                                </li>
-
+                                @endforeach
 
                             </ul>
 
                         </section>
+                        @endif
                         <!--logo-carousel-->
                         <div class="book-appointment__right">
                             <div class="book-appointment__right-holder">
@@ -198,64 +180,35 @@
                         <!--ADVISOR book-appointment__right-->
                     </div>
                 </div>
-
+                @if($relatedCourses->isNotEmpty())
                 <section class="related-course">
                     <div class="container">
                         <h2>Related Courses </h2>
                         <div class="related-course__holder flex-container">
+                            @foreach ($relatedCourses as $relCourse)
                             <div class="related-course__item">
                                 <div class="related-course__item-inner">
-                                    <figure class="related-course__item-image" style="background-image: url({{asset('asset/front/images/slider4.jpg')}});">
-                                        <img src="{{asset('asset/front/images/slider4.jpg')}}" alt="Images"> <!-- seo purpose only -->
+                                    <figure class="related-course__item-image" style="background-image: url({{asset($relCourse->image_path)}})">
+                                        <img src="{{asset($relCourse->image_path)}}" alt="{{$relCourse->title}}"> <!-- seo purpose only -->
                                     </figure>
                                     <div class="related-course__item-content">
-                                        <h3>Course Title Goes here</h3>
+                                        <h3>{{$relCourse->title}}</h3>
 
-                                        <p> hasdjkasd asdjkasdjk jkasdjkasdhj asdjkjkasd asdjkasdh asdasdjkasdjk asdjkasdjk </p>
-                                        <a class="button button--white" href="#">Read More</a>
+                                        <p> {{$relCourse->caption}} </p>
+                                        <a class="button button--white" href="{{route('course.detail',$relCourse->slug)}}">Read More</a>
                                     </div>
                                 </div>
                                 <!--related-course__item-inner-->
                             </div>
-                            <!--related-course__item-->
-                            <div class="related-course__item">
-                                <div class="related-course__item-inner">
-                                    <figure class="related-course__item-image" style="background-image: url({{asset('asset/front/images/slider6.jpg')}});">
-                                        <img src="{{asset('asset/front/images/slider6.jpg')}}" alt="Images"> <!-- seo purpose only -->
-                                    </figure>
-                                    <div class="related-course__item-content">
-                                        <h3>Course Title Goes here</h3>
 
-                                        <p> hasdjkasd asdjkasdjk jkasdjkasdhj asdjkjkasd asdjkasdh asdasdjkasdjk asdjkasdjk </p>
-                                        <a class="button button--white" href="#">Read More</a>
-                                    </div>
-                                </div>
-                                <!--related-course__item-inner-->
-                            </div>
-                            <!--related-course__item-->
-                            <div class="related-course__item">
-                                <div class="related-course__item-inner">
-                                    <figure class="related-course__item-image" style="background-image: url({{asset('asset/front/images/slider5.jpg')}});">
-                                        <img src="{{asset('asset/front/images/slider5.jpg')}}" alt="Images"> <!-- seo purpose only -->
-                                    </figure>
-                                    <div class="related-course__item-content">
-                                        <h3>Course Title Goes here</h3>
-
-                                        <p> hasdjkasd asdjkasdjk jkasdjkasdhj asdjkjkasd asdjkasdh asdasdjkasdjk asdjkasdjk </p>
-                                        <a class="button button--white" href="#">Read More</a>
-                                    </div>
-                                </div>
-                                <!--related-course__item-inner-->
-                            </div>
-                            <!--related-course__item-->
-
+                            @endforeach
 
                         </div>
                         <!--related-course__holder-->
                     </div>
 
                 </section>
-
+                @endif
             </div>
             <!--overview course-nav__detail-item-->
             <div class="course-nav__detail-item">
@@ -273,63 +226,30 @@
                             {!! $course->prerequisite_subdesc !!}
 
                         </div>
+                        @if($featuredNews->isNotEmpty())
                         <!--left-col__programinfo-->
                         <div class="pre-news__holder">
                             <h2> News & Events</h2>
                         </div>
                         <div class="prenews flex-container">
+                            @foreach ($featuredNews as $news)
 
                             <div class="prenews-item">
                                 <div class="prenews-item__inner">
-                                    <a href="#" class="prenews-item__image" style="background-image: url({asset('assests/front/images/slider5.jpg')}});">
+                                    <a href="#" class="prenews-item__image" style="background-image: url({asset($news->image_path)}});">
                                     </a>
                                     <div class="prenews-item__content">
-                                        <h3><a href="#">News 1 dsajkdsajkfdj asdkj</a> </h3>
-                                        <p> ajksj adjkajkadhk adjk adjhsdajkasd adsjkdajkad adskjadsjkdajkasdkjasdjksdajk </p>
+                                        <h3><a href="#">{{$news->title}}</a> </h3>
+                                        <p> {{$news->caption}} </p>
                                     </div>
                                     <!--prenews-item__content-->
                                 </div>
                             </div>
-                            <!--prenews-item__inner-->
-                            <div class="prenews-item">
-                                <div class="prenews-item__inner">
-                                    <a href="#" class="prenews-item__image" style="background-image: url({{asset('assests/front/images/slider5.jpg')}});">
-                                    </a>
-                                    <div class="prenews-item__content">
-                                        <h3><a href="#">News 2 dsajkdsajkfdj asdkj</a> </h3>
-                                        <p> ajksj adjkajkadhk adjk adjhsdajkasd adsjkdajkad adskjadsjkdajkasdkjasdjksdajk </p>
-                                    </div>
-                                    <!--prenews-item__content-->
-                                </div>
-                            </div>
-                            <!--prenews-item__inner-->
-                            <div class="prenews-item">
-                                <div class="prenews-item__inner">
-                                    <a href="#" class="prenews-item__image" style="background-image: url({{asset('assests/front/images/slider5.jpg')}});">
-                                    </a>
-                                    <div class="prenews-item__content">
-                                        <h3><a href="#">News 3 dsajkdsajkfdj asdkj</a> </h3>
-                                        <p> ajksj adjkajkadhk adjk adjhsdajkasd adsjkdajkad adskjadsjkdajkasdkjasdjksdajk </p>
-                                    </div>
-                                    <!--prenews-item__content-->
-                                </div>
-                            </div>
-                            <!--prenews-item__inner-->
-                            <div class="prenews-item">
-                                <div class="prenews-item__inner">
-                                    <a href="#" class="prenews-item__image" style="background-image: url({{asset('assests/front/images/slider5.jpg')}});">
-                                    </a>
-                                    <div class="prenews-item__content">
-                                        <h3><a href="#">News 4 dsajkdsajkfdj asdkj</a> </h3>
-                                        <p> ajksj adjkajkadhk adjk adjhsdajkasd adsjkdajkad adskjadsjkdajkasdkjasdjksdajk </p>
-                                    </div>
-                                    <!--prenews-item__content-->
-                                </div>
-                            </div>
-                            <!--prenews-item__inner-->
+                            @endforeach
 
                         </div>
                         <!--prenews-->
+                        @endif
                     </div>
 
                     <div class="right-col">
@@ -338,132 +258,75 @@
                         <figure>
                             <img src="{{asset($course->icon_image_path)}}" alt="">
                         </figure>
-
+                        @if($testimonials->isNotEmpty())
                         <div class="right-col__testimonial">
-                            <h2> What Are Students Say?</h2>
+                            <h2> What Our Students Say?</h2>
                             <div class="student-review">
+                                @foreach ($testimonials as $testimonial)
                                 <div class="student-review__item">
-                                    <p> Best College! professional instructors. Practicum included. I got the job. Iam happy</p>
-                                    <h4 class="student-review__std"> Benjamin Johnson, </h4>
+                                    {!! $testimonial->description !!}
+                                    <h4 class="student-review__std"> {{$testimonial->title}} </h4>
                                 </div>
-                                <!--student-review__item-->
-
-                                <div class="student-review__item">
-                                    <p> Best College! professional instructors. Practicum included. I got the job. Iam happy</p>
-                                    <h4 class="student-review__std"> Benjamin Johnson, </h4>
-                                </div>
-                                <!--student-review__item-->
-
-                                <div class="student-review__item">
-                                    <p> Best College! professional instructors. Practicum included. I got the job. Iam happy</p>
-                                    <h4 class="student-review__std"> Benjamin Johnson, </h4>
-                                </div>
-                                <!--student-review__item-->
-
+                                @endforeach
                             </div>
-
-
                         </div>
+                        @endif
                         <!--right-col__testimonial-->
                         <div class="right-col__testimonial-video">
                             <iframe width="560" height="315" src="https://www.youtube.com/embed/{{$course->video_link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
 
+                        @if($clients->isNotEmpty())
                         <section class="logo-carousel">
 
                             <h2 class="section-class"> Our Associates & Partner</h2>
                             <ul class="partners-carousel partners-carousel__secondary">
-                                <li>
-                                    <a href="#" class="partner-carousel__thumbnail" target="_blank"> <img src="{{asset('assets/front/images/comptia.png')}}" alt="Campsite Calgary"></a>
-
-                                </li>
+                                @foreach ($clients as $client)
 
                                 <li>
-                                    <a href="#" class="partner-carousel__thumbnail" target="_blank"> <img src="{{asset('assets/front/images/ipa-canada.jpg')}}" alt="Campsite Calgary"></a>
+                                    <a href="{{$client->caption}}" class="partner-carousel__thumbnail" target="_blank"> <img src="{{asset($client->image_path)}}" alt="{{$client->title}}"></a>
 
                                 </li>
-                                <li>
-                                    <a href="#" class="partner-carousel__thumbnail" target="_blank"> <img src="{{asset('assets/front/images/comptia.png')}}" alt="Campsite Calgary"></a>
-
-                                </li>
-                                <li>
-                                    <a href="#" class="partner-carousel__thumbnail" target="_blank"> <img src="{{asset('assets/front/images/ipa-canada.jpg')}}" alt="Campsite Calgary"></a>
-
-                                </li>
-                                <li>
-                                    <a href="#" class="partner-carousel__thumbnail" target="_blank"> <img src="{{asset('assets/front/images/comptia.png')}}" alt="Campsite Calgary"></a>
-
-                                </li>
-                                <li>
-                                    <a href="#" class="partner-carousel__thumbnail" target="_blank"> <img src="{{asset('assets/front/images/ipa-canada.jpg')}}" alt="Campsite Calgary"></a>
-
-                                </li>
-
+                                @endforeach
 
                             </ul>
 
                         </section>
+                        @endif
                         <!--logo-carousel-->
 
                     </div>
                 </div>
 
+                @if($relatedCourses->isNotEmpty())
                 <section class="related-course">
                     <div class="container">
                         <h2>Related Courses </h2>
                         <div class="related-course__holder flex-container">
+                            @foreach ($relatedCourses as $relCourse)
                             <div class="related-course__item">
                                 <div class="related-course__item-inner">
-                                    <figure class="related-course__item-image" style="background-image: url(asset('asset/front/images/slider4.jpg')}});">
-                                        <img src="{{asset('assets/front/images/slider4.jpg')}}" alt="Images"> <!-- seo purpose only -->
+                                    <figure class="related-course__item-image" style="background-image: url({{asset($relCourse->image_path)}})">
+                                        <img src="{{asset($relCourse->image_path)}}" alt="{{$relCourse->title}}"> <!-- seo purpose only -->
                                     </figure>
                                     <div class="related-course__item-content">
-                                        <h3>Course Title Goes here</h3>
+                                        <h3>{{$relCourse->title}}</h3>
 
-                                        <p> hasdjkasd asdjkasdjk jkasdjkasdhj asdjkjkasd asdjkasdh asdasdjkasdjk asdjkasdjk </p>
-                                        <a class="button button--white" href="#">Read More</a>
+                                        <p> {{$relCourse->caption}} </p>
+                                        <a class="button button--white" href="{{route('course.detail',$relCourse->slug)}}">Read More</a>
                                     </div>
                                 </div>
                                 <!--related-course__item-inner-->
                             </div>
-                            <!--related-course__item-->
-                            <div class="related-course__item">
-                                <div class="related-course__item-inner">
-                                    <figure class="related-course__item-image" style="background-image: url(asset('asset/front/images/slider6.jpg')}});">
-                                        <img src="{{asset('assets/front/images/slider6.jpg')}}" alt="Images"> <!-- seo purpose only -->
-                                    </figure>
-                                    <div class="related-course__item-content">
-                                        <h3>Course Title Goes here</h3>
 
-                                        <p> hasdjkasd asdjkasdjk jkasdjkasdhj asdjkjkasd asdjkasdh asdasdjkasdjk asdjkasdjk </p>
-                                        <a class="button button--white" href="#">Read More</a>
-                                    </div>
-                                </div>
-                                <!--related-course__item-inner-->
-                            </div>
-                            <!--related-course__item-->
-                            <div class="related-course__item">
-                                <div class="related-course__item-inner">
-                                    <figure class="related-course__item-image" style="background-image: url(asset('asset/front/images/slider5.jpg')}});">
-                                        <img src="{{asset('assets/front/images/slider5.jpg')}}" alt="Images"> <!-- seo purpose only -->
-                                    </figure>
-                                    <div class="related-course__item-content">
-                                        <h3>Course Title Goes here</h3>
-
-                                        <p> hasdjkasd asdjkasdjk jkasdjkasdhj asdjkjkasd asdjkasdh asdasdjkasdjk asdjkasdjk </p>
-                                        <a class="button button--white" href="#">Read More</a>
-                                    </div>
-                                </div>
-                                <!--related-course__item-inner-->
-                            </div>
-                            <!--related-course__item-->
-
+                            @endforeach
 
                         </div>
                         <!--related-course__holder-->
                     </div>
 
                 </section>
+                @endif
             </div>
             <!--prerequesite course-nav__detail-item-->
             <div class="course-nav__detail-item">
@@ -498,130 +361,74 @@
                         <!--table-of-contents-->
 
 
+                        @if($testimonials->isNotEmpty())
                         <div class="right-col__testimonial">
-                            <h2> What Are Students Say?</h2>
+                            <h2> What Our Students Say?</h2>
                             <div class="student-review">
+                                @foreach ($testimonials as $testimonial)
                                 <div class="student-review__item">
-                                    <p> Best College! professional instructors. Practicum included. I got the job. Iam happy</p>
-                                    <h4 class="student-review__std"> Benjamin Johnson, </h4>
+                                    {!! $testimonial->description !!}
+                                    <h4 class="student-review__std"> {{$testimonial->title}} </h4>
                                 </div>
-                                <!--student-review__item-->
-
-                                <div class="student-review__item">
-                                    <p> Best College! professional instructors. Practicum included. I got the job. Iam happy</p>
-                                    <h4 class="student-review__std"> Benjamin Johnson, </h4>
-                                </div>
-                                <!--student-review__item-->
-
-                                <div class="student-review__item">
-                                    <p> Best College! professional instructors. Practicum included. I got the job. Iam happy</p>
-                                    <h4 class="student-review__std"> Benjamin Johnson, </h4>
-                                </div>
-                                <!--student-review__item-->
-
+                                @endforeach
                             </div>
-
-
                         </div>
+                        @endif
                         <!--right-col__testimonial-->
                         <div class="right-col__testimonial-video">
                             <iframe width="560" height="315" src="https://www.youtube.com/embed/{{$course->video_link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
 
+                        @if($clients->isNotEmpty())
                         <section class="logo-carousel">
 
                             <h2 class="section-class"> Our Associates & Partner</h2>
                             <ul class="partners-carousel partners-carousel__secondary">
-                                <li>
-                                    <a href="#" class="partner-carousel__thumbnail" target="_blank"> <img src="{{asset('assets/front/images/comptia.png')}}" alt="Campsite Calgary"></a>
-
-                                </li>
+                                @foreach ($clients as $client)
 
                                 <li>
-                                    <a href="#" class="partner-carousel__thumbnail" target="_blank"> <img src="{{asset('assets/front/images/ipa-canada.jpg')}}" alt="Campsite Calgary"></a>
+                                    <a href="{{$client->caption}}" class="partner-carousel__thumbnail" target="_blank"> <img src="{{asset($client->image_path)}}" alt="{{$client->title}}"></a>
 
                                 </li>
-                                <li>
-                                    <a href="#" class="partner-carousel__thumbnail" target="_blank"> <img src="{{asset('assets/front/images/comptia.png')}}" alt="Campsite Calgary"></a>
-
-                                </li>
-                                <li>
-                                    <a href="#" class="partner-carousel__thumbnail" target="_blank"> <img src="{{asset('assets/front/images/ipa-canada.jpg')}}" alt="Campsite Calgary"></a>
-
-                                </li>
-                                <li>
-                                    <a href="#" class="partner-carousel__thumbnail" target="_blank"> <img src="{{asset('assets/front/images/comptia.png')}}" alt="Campsite Calgary"></a>
-
-                                </li>
-                                <li>
-                                    <a href="#" class="partner-carousel__thumbnail" target="_blank"> <img src="{{asset('assets/front/images/ipa-canada.jpg')}}" alt="Campsite Calgary"></a>
-
-                                </li>
-
+                                @endforeach
 
                             </ul>
 
                         </section>
+                        @endif
                         <!--logo-carousel-->
 
                     </div>
                 </div>
+                @if($relatedCourses->isNotEmpty())
                 <section class="related-course">
                     <div class="container">
                         <h2>Related Courses </h2>
                         <div class="related-course__holder flex-container">
+                            @foreach ($relatedCourses as $relCourse)
                             <div class="related-course__item">
                                 <div class="related-course__item-inner">
-                                    <figure class="related-course__item-image" style="background-image: url(asset('asset/front/images/slider4.jpg')}});">
-                                        <img src="{{asset('assets/front/images/slider4.jpg')}}" alt="Images"> <!-- seo purpose only -->
+                                    <figure class="related-course__item-image" style="background-image: url({{asset($relCourse->image_path)}})">
+                                        <img src="{{asset($relCourse->image_path)}}" alt="{{$relCourse->title}}"> <!-- seo purpose only -->
                                     </figure>
                                     <div class="related-course__item-content">
-                                        <h3>Course Title Goes here</h3>
+                                        <h3>{{$relCourse->title}}</h3>
 
-                                        <p> hasdjkasd asdjkasdjk jkasdjkasdhj asdjkjkasd asdjkasdh asdasdjkasdjk asdjkasdjk </p>
-                                        <a class="button button--white" href="#">Read More</a>
+                                        <p> {{$relCourse->caption}} </p>
+                                        <a class="button button--white" href="{{route('course.detail',$relCourse->slug)}}">Read More</a>
                                     </div>
                                 </div>
                                 <!--related-course__item-inner-->
                             </div>
-                            <!--related-course__item-->
-                            <div class="related-course__item">
-                                <div class="related-course__item-inner">
-                                    <figure class="related-course__item-image" style="background-image: url(asset('asset/front/images/slider6.jpg')}});">
-                                        <img src="{{asset('assets/front/images/slider6.jpg')}}" alt="Images"> <!-- seo purpose only -->
-                                    </figure>
-                                    <div class="related-course__item-content">
-                                        <h3>Course Title Goes here</h3>
 
-                                        <p> hasdjkasd asdjkasdjk jkasdjkasdhj asdjkjkasd asdjkasdh asdasdjkasdjk asdjkasdjk </p>
-                                        <a class="button button--white" href="#">Read More</a>
-                                    </div>
-                                </div>
-                                <!--related-course__item-inner-->
-                            </div>
-                            <!--related-course__item-->
-                            <div class="related-course__item">
-                                <div class="related-course__item-inner">
-                                    <figure class="related-course__item-image" style="background-image: url(asset('asset/front/images/slider5.jpg')}});">
-                                        <img src="{{asset('assets/front/images/slider5.jpg')}}" alt="Images"> <!-- seo purpose only -->
-                                    </figure>
-                                    <div class="related-course__item-content">
-                                        <h3>Course Title Goes here</h3>
-
-                                        <p> hasdjkasd asdjkasdjk jkasdjkasdhj asdjkjkasd asdjkasdh asdasdjkasdjk asdjkasdjk </p>
-                                        <a class="button button--white" href="#">Read More</a>
-                                    </div>
-                                </div>
-                                <!--related-course__item-inner-->
-                            </div>
-                            <!--related-course__item-->
-
+                            @endforeach
 
                         </div>
                         <!--related-course__holder-->
                     </div>
 
                 </section>
+                @endif
             </div>
             <!--financial course-nav__detail-item-->
 
@@ -656,130 +463,74 @@
                         </div>
                         <!--table-of-contents-->
 
+                        @if($testimonials->isNotEmpty())
                         <div class="right-col__testimonial">
-                            <h2> What Are Students Say?</h2>
+                            <h2> What Our Students Say?</h2>
                             <div class="student-review">
+                                @foreach ($testimonials as $testimonial)
                                 <div class="student-review__item">
-                                    <p> Best College! professional instructors. Practicum included. I got the job. Iam happy</p>
-                                    <h4 class="student-review__std"> Benjamin Johnson, </h4>
+                                    {!! $testimonial->description !!}
+                                    <h4 class="student-review__std"> {{$testimonial->title}} </h4>
                                 </div>
-                                <!--student-review__item-->
-
-                                <div class="student-review__item">
-                                    <p> Best College! professional instructors. Practicum included. I got the job. Iam happy</p>
-                                    <h4 class="student-review__std"> Benjamin Johnson, </h4>
-                                </div>
-                                <!--student-review__item-->
-
-                                <div class="student-review__item">
-                                    <p> Best College! professional instructors. Practicum included. I got the job. Iam happy</p>
-                                    <h4 class="student-review__std"> Benjamin Johnson, </h4>
-                                </div>
-                                <!--student-review__item-->
-
+                                @endforeach
                             </div>
-
-
                         </div>
+                        @endif
                         <!--right-col__testimonial-->
                         <div class="right-col__testimonial-video">
                             <iframe width="560" height="315" src="https://www.youtube.com/embed/{{$course->video_link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
 
+                        @if($clients->isNotEmpty())
                         <section class="logo-carousel">
 
                             <h2 class="section-class"> Our Associates & Partner</h2>
                             <ul class="partners-carousel partners-carousel__secondary">
-                                <li>
-                                    <a href="#" class="partner-carousel__thumbnail" target="_blank"> <img src="{{asset('assets/front/images/comptia.png')}}" alt="Campsite Calgary"></a>
-
-                                </li>
+                                @foreach ($clients as $client)
 
                                 <li>
-                                    <a href="#" class="partner-carousel__thumbnail" target="_blank"> <img src="{{asset('assets/front/images/ipa-canada.jpg')}}" alt="Campsite Calgary"></a>
+                                    <a href="{{$client->caption}}" class="partner-carousel__thumbnail" target="_blank"> <img src="{{asset($client->image_path)}}" alt="{{$client->title}}"></a>
 
                                 </li>
-                                <li>
-                                    <a href="#" class="partner-carousel__thumbnail" target="_blank"> <img src="{{asset('assets/front/images/comptia.png')}}" alt="Campsite Calgary"></a>
-
-                                </li>
-                                <li>
-                                    <a href="#" class="partner-carousel__thumbnail" target="_blank"> <img src="{{asset('assets/front/images/ipa-canada.jpg')}}" alt="Campsite Calgary"></a>
-
-                                </li>
-                                <li>
-                                    <a href="#" class="partner-carousel__thumbnail" target="_blank"> <img src="{{asset('assets/front/images/comptia.png')}}" alt="Campsite Calgary"></a>
-
-                                </li>
-                                <li>
-                                    <a href="#" class="partner-carousel__thumbnail" target="_blank"> <img src="{{asset('assets/front/images/ipa-canada.jpg')}}" alt="Campsite Calgary"></a>
-
-                                </li>
-
+                                @endforeach
 
                             </ul>
 
                         </section>
+                        @endif
                         <!--logo-carousel-->
 
                     </div>
                 </div>
+                @if($relatedCourses->isNotEmpty())
                 <section class="related-course">
                     <div class="container">
                         <h2>Related Courses </h2>
                         <div class="related-course__holder flex-container">
+                            @foreach ($relatedCourses as $relCourse)
                             <div class="related-course__item">
                                 <div class="related-course__item-inner">
-                                    <figure class="related-course__item-image" style="background-image: url(asset('asset/front/images/slider4.jpg')}});">
-                                        <img src="{{asset('assets/front/images/slider4.jpg')}}" alt="Images"> <!-- seo purpose only -->
+                                    <figure class="related-course__item-image" style="background-image: url({{asset($relCourse->image_path)}})">
+                                        <img src="{{asset($relCourse->image_path)}}" alt="{{$relCourse->title}}"> <!-- seo purpose only -->
                                     </figure>
                                     <div class="related-course__item-content">
-                                        <h3>Course Title Goes here</h3>
+                                        <h3>{{$relCourse->title}}</h3>
 
-                                        <p> hasdjkasd asdjkasdjk jkasdjkasdhj asdjkjkasd asdjkasdh asdasdjkasdjk asdjkasdjk </p>
-                                        <a class="button button--white" href="#">Read More</a>
+                                        <p> {{$relCourse->caption}} </p>
+                                        <a class="button button--white" href="{{route('course.detail',$relCourse->slug)}}">Read More</a>
                                     </div>
                                 </div>
                                 <!--related-course__item-inner-->
                             </div>
-                            <!--related-course__item-->
-                            <div class="related-course__item">
-                                <div class="related-course__item-inner">
-                                    <figure class="related-course__item-image" style="background-image: url(asset('asset/front/images/slider6.jpg')}});">
-                                        <img src="{{asset('assets/front/images/slider6.jpg')}}" alt="Images"> <!-- seo purpose only -->
-                                    </figure>
-                                    <div class="related-course__item-content">
-                                        <h3>Course Title Goes here</h3>
 
-                                        <p> hasdjkasd asdjkasdjk jkasdjkasdhj asdjkjkasd asdjkasdh asdasdjkasdjk asdjkasdjk </p>
-                                        <a class="button button--white" href="#">Read More</a>
-                                    </div>
-                                </div>
-                                <!--related-course__item-inner-->
-                            </div>
-                            <!--related-course__item-->
-                            <div class="related-course__item">
-                                <div class="related-course__item-inner">
-                                    <figure class="related-course__item-image" style="background-image: url(asset('asset/front/images/slider5.jpg')}});">
-                                        <img src="{{asset('assets/front/images/slider5.jpg')}}" alt="Images"> <!-- seo purpose only -->
-                                    </figure>
-                                    <div class="related-course__item-content">
-                                        <h3>Course Title Goes here</h3>
-
-                                        <p> hasdjkasd asdjkasdjk jkasdjkasdhj asdjkjkasd asdjkasdh asdasdjkasdjk asdjkasdjk </p>
-                                        <a class="button button--white" href="#">Read More</a>
-                                    </div>
-                                </div>
-                                <!--related-course__item-inner-->
-                            </div>
-                            <!--related-course__item-->
-
+                            @endforeach
 
                         </div>
                         <!--related-course__holder-->
                     </div>
 
                 </section>
+                @endif
             </div>
             <!--industrial-acceptance course-nav__detail-item-->
         </div>

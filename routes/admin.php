@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\Inquiry\InquiryController;
 use App\Http\Controllers\Admin\Setting\SettingController;
 use App\Http\Controllers\Admin\Category\CategoryController;
 use App\Http\Controllers\Admin\Course\CourseController;
+use App\Http\Controllers\Admin\News\NewsController;
 use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
@@ -34,6 +35,11 @@ Route::group([
     $router->resource('testimonial', TestimonialController::class);
     $router->get('testimonial/{id}/destroy', [TestimonialController::class, 'destroy'])->name('testimonial.destroy');
     $router->get('testimonial-data', [TestimonialController::class, 'getAllData'])->name('testimonial.data');
+
+    //News
+    $router->resource('news', NewsController::class);
+    $router->get('news/{id}/destroy', [NewsController::class, 'destroy'])->name('news.destroy');
+    $router->get('news-data', [NewsController::class, 'getAllData'])->name('news.data');
 
     //Team
     $router->resource('team', TeamController::class);

@@ -53,6 +53,7 @@ class CourseService extends Service
             $data['is_program'] = (isset($data['is_program']) ? $data['is_program'] : '') == 'on' ? 'yes' : 'no';
             $data['is_affiliated'] = (isset($data['is_affiliated']) ? $data['is_affiliated'] : '') == 'on' ? 'yes' : 'no';
             $data['is_continious'] = (isset($data['is_continious']) ? $data['is_continious'] : '') == 'on' ? 'yes' : 'no';
+            $data['is_international'] = (isset($data['is_international']) ? $data['is_international'] : '') == 'on' ? 'yes' : 'no';
             $data['created_by'] = Auth::user()->id;
             $course = $this->course->create($data);
             return $course;
@@ -102,7 +103,12 @@ class CourseService extends Service
      */
     public function featuredCourse()
     {
-        return $this->course->whereStatus('active')->whereIsFeatured('yes')->orderBy('order', 'asc')->get();
+        return $this->course->whereStatus('active')->whereIsFeatured('yes')->whereIsInternational('no')->orderBy('order', 'asc')->get();
+    }
+
+    public function featuredIntCourse()
+    {
+        return $this->course->whereStatus('active')->whereIsFeatured('yes')->whereIsInternational('yes')->orderBy('order', 'asc')->get();
     }
 
     /**
@@ -131,6 +137,12 @@ class CourseService extends Service
         }
     }
 
+    public function getRelatedCourses($course)
+    {
+        $courseCat = $course->category;
+        // dd($courseCat,$course);
+        return $this->course->whereCategoryId($courseCat->id)->whereNotIn('id', [$course->id])->whereStatus('active')->orderBy('order', 'asc')->get();
+    }
 
     public function update($courseId, array $data)
     {
@@ -140,6 +152,7 @@ class CourseService extends Service
             $data['is_program'] = (isset($data['is_program']) ? $data['is_program'] : '') == 'on' ? 'yes' : 'no';
             $data['is_affiliated'] = (isset($data['is_affiliated']) ? $data['is_affiliated'] : '') == 'on' ? 'yes' : 'no';
             $data['is_continious'] = (isset($data['is_continious']) ? $data['is_continious'] : '') == 'on' ? 'yes' : 'no';
+            $data['is_international'] = (isset($data['is_international']) ? $data['is_international'] : '') == 'on' ? 'yes' : 'no';
             $data['last_updated_by'] = Auth::user()->id;
             $course = $this->course->find($courseId);
             $course = $course->update($data);

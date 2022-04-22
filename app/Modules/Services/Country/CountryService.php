@@ -2,7 +2,9 @@
 
 namespace App\Modules\Services\Country;
 
+use App\Modules\Models\Category\Category;
 use App\Modules\Models\Country\Country;
+use App\Modules\Models\Course\Course;
 use App\Modules\Services\Service;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -11,10 +13,14 @@ use Yajra\DataTables\Facades\DataTables;
 class CountryService extends Service
 {
     protected $country;
+    protected $course;
+    protected $category;
 
-    public function __construct(Country $country)
+    public function __construct(Country $country, Course $course, Category $category)
     {
         $this->country = $country;
+        $this->course = $course;
+        $this->category = $category;
     }
 
 
@@ -166,6 +172,16 @@ class CountryService extends Service
     public function getBySlug($slug)
     {
         return $this->country->whereSlug($slug)->first();
+    }
+
+
+    public function getInternationalCourses($slug)
+    {
+        $country = $this->getBySlug($slug);
+        $courseCatID = $this->course->whereCountryId($country->id)->pluck('category_id');
+        $categories = $this->category->whereIn('id', $courseCatID)->get();
+        // dd($categories);
+        return $categories;
     }
 
     function uploadFile($file)

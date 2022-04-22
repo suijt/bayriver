@@ -1059,6 +1059,11 @@ textarea:focus {
 .news-event__item-description h3 a{
     color: #002147;
 }
+
+.news-event__item-description p{
+    color: #002147;
+}
+
 .news-event__item-category{
     list-style: none;
     margin: 0;

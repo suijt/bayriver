@@ -80,8 +80,8 @@
                     <div class="col">
                         <label>Course Description
                         </label>
-                        <textarea class="kt_docs_tinymce_hidden form-control @error('course_dec') is-invalid @enderror" name="course_dec">@if(isset($country)){{$country->course_dec}}@else{{old('course_dec')}}@endif</textarea>
-                        @error('course_dec')
+                        <textarea class="kt_docs_tinymce_hidden form-control @error('course_desc') is-invalid @enderror" name="course_desc">@if(isset($country)){{$country->course_desc}}@else{{old('course_desc')}}@endif</textarea>
+                        @error('course_desc')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -211,7 +211,7 @@
                     @enderror
                     <div class="col-lg-12 col-xl-12">
                         <!--begin::Image input-->
-                        <div class="image-input image-input-circle" data-kt-image-input="true" style="background-image: url({{asset('assets/admin/media/svg/avatars/007-boy-2.svg')}})">
+                        <div class="image-input image-input-circle" data-kt-image-input="true" style="background-image: url({{asset($country->image_path)}})">
                             <!--begin::Image preview wrapper-->
                             <div class="image-input-wrapper w-125px h-125px" @if(isset($country->image))
                                 style="background-image:url({{asset($country->image_path) }})"
@@ -253,7 +253,7 @@
                     @enderror
                     <div class="col-lg-12 col-xl-12">
                         <!--begin::Image input-->
-                        <div class="image-input image-input-circle" data-kt-image-input="true" style="background-image: url({{asset('assets/admin/media/svg/avatars/007-boy-2.svg')}})">
+                        <div class="image-input image-input-circle" data-kt-image-input="true" style="background-image: url({{asset($country->banner_image_path)}})">
                             <!--begin::Image preview wrapper-->
                             <div class="image-input-wrapper w-125px h-125px" @if(isset($country->banner_image))
                                 style="background-image:url({{asset($country->banner_image_path) }})"
@@ -295,7 +295,7 @@
                     @enderror
                     <div class="col-lg-12 col-xl-12">
                         <!--begin::Image input-->
-                        <div class="image-input image-input-circle" data-kt-image-input="true" style="background-image: url({{asset('assets/admin/media/svg/avatars/007-boy-2.svg')}})">
+                        <div class="image-input image-input-circle" data-kt-image-input="true" style="background-image: url({{asset($country->secondary_image_path)}})">
                             <!--begin::Image preview wrapper-->
                             <div class="image-input-wrapper w-125px h-125px" @if(isset($country->secondary_image))
                                 style="background-image:url({{asset($country->secondary_image_path) }})"

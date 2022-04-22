@@ -45,12 +45,12 @@ class Country extends Model
 
     function getSecondaryImagePathAttribute()
     {
-        return $this->path . '/' . $this->image;
+        return $this->path . '/' . $this->secondary_image;
     }
 
     function getBannerImagePathAttribute()
     {
-        return $this->path . '/' . $this->image;
+        return $this->path . '/' . $this->banner_image;
     }
 
     function getImagePathAttribute()

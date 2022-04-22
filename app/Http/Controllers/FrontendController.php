@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Mail\InquiryMail;
 use App\Modules\Models\Inquiry\Inquiry;
+use App\Modules\Models\News\News;
 use App\Modules\Services\Client\ClientService;
+use App\Modules\Services\Country\CountryService;
 use App\Modules\Services\Course\CourseService;
+use App\Modules\Services\News\NewsService;
 use App\Modules\Services\Slider\SliderService;
 use App\Modules\Services\Team\TeamService;
 use App\Modules\Services\Testimonial\TestimonialService;
@@ -20,19 +23,25 @@ class FrontendController extends Controller
     protected $testimonial;
     protected $client;
     protected $course;
+    protected $news;
+    protected $country;
 
     public function __construct(
         SliderService $slider,
         TeamService $team,
         TestimonialService $testimonial,
         ClientService $client,
-        CourseService $course
+        CourseService $course,
+        NewsService $news,
+        CountryService $country
     ) {
         $this->slider = $slider;
         $this->team = $team;
         $this->testimonial = $testimonial;
         $this->client = $client;
         $this->course = $course;
+        $this->news = $news;
+        $this->country = $country;
     }
 
     public function index()
@@ -42,7 +51,17 @@ class FrontendController extends Controller
         $testimonials = $this->testimonial->frontAll();
         $clients = $this->client->frontAll();
         $courses = $this->course->featuredCourse();
-        return view('front.index', compact('sliders', 'teams', 'testimonials', 'clients', 'courses'));
+        $mostFeaturedNews = $this->news->getMostFeatured();
+        if ($mostFeaturedNews) {
+            $featuredNews = $this->news->featuredList('news', 2, $mostFeaturedNews->id);
+        } else {
+            $featuredNews = collect();
+        }
+
+        $featuredEvents = $this->news->featuredList('event', 3);
+        $highlights = $this->news->highlightList();
+
+        return view('front.index', compact('sliders', 'teams', 'testimonials', 'clients', 'courses', 'featuredNews', 'featuredEvents', 'mostFeaturedNews', 'highlights'));
     }
 
     public function about()
@@ -59,7 +78,41 @@ class FrontendController extends Controller
     public function courseDetail($slug = null)
     {
         $course = $this->course->findBySlug($slug);
-        return view('front.courseDetail', compact('course'));
+        $clients = $this->client->frontAll();
+        $testimonials = $this->testimonial->frontAll();
+        $relatedCourses = $this->course->getRelatedCourses($course);
+        $featuredNews = $this->news->featuredList('news', 4);
+        return view('front.courseDetail', compact('course', 'clients', 'relatedCourses', 'testimonials', 'featuredNews'));
+    }
+
+    public function internationalCourses()
+    {
+        $countries = $this->country->frontAll();
+        $courses = $this->course->featuredIntCourse();
+        $clients = $this->client->frontAll();
+        $courses = $this->course->featuredCourse();
+        $mostFeaturedNews = $this->news->getMostFeatured();
+        if ($mostFeaturedNews) {
+            $featuredNews = $this->news->featuredList('news', 2, $mostFeaturedNews->id);
+        } else {
+            $featuredNews = collect();
+        }
+
+        $featuredEvents = $this->news->featuredList('event', 3);
+        $highlights = $this->news->highlightList();
+
+        return view('front.international-list', compact('countries', 'courses', 'clients', 'featuredNews', 'featuredEvents', 'mostFeaturedNews', 'highlights'));
+    }
+
+    public function internationalDetail($slug = null)
+    {
+        $country = $this->country->getBySlug($slug);
+        $clients = $this->client->frontAll();
+        $featuredCourses = $this->course->featuredIntCourse();
+        $testimonials = $this->testimonial->frontAll();
+        $featuredNews = $this->news->featuredList('news', 4);
+        $internationalCourseCat = $this->country->getInternationalCourses($slug);
+        return view('front.international-detail', compact('country', 'clients', 'testimonials', 'featuredNews', 'internationalCourseCat', 'featuredCourses'));
     }
 
     public function contact()

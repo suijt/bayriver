@@ -2,6 +2,7 @@
 
 namespace App\Modules\Models\Category;
 
+use App\Modules\Models\Course\Course;
 use App\Modules\Models\User\User;
 use App\Modules\Models\SubCategory\SubCategory;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -76,5 +77,10 @@ class Category extends Model
     function subCategories()
     {
         return $this->hasMany(SubCategory::class);
+    }
+
+    function courses()
+    {
+        return $this->hasMany(Course::class);
     }
 }
