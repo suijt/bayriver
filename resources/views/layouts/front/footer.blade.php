@@ -2,14 +2,14 @@
     <div class="site-footer__primary">
         <div class="container flex-container">
             <div class="footer-col col1">
-                <a class="footer-logo" href="#"><img src="images/logo.png" alt="Logo"></a>
-                <h3>Bay River College</h3>
-
-
-                <ul class="social-media">
-                    <li><a href="https://facebook.com" target="_blank"> <i class="fab fa-twitter"></i></a></li>
-                    <li><a href="" target="_blank"> <i class="fab fa-facebook-f"></i></a> </li>
-                    <li><a href="" target="_blank"> <i class="fab fa-instagram"></i></a> </li>
+                @if(!empty(config('settings.site_footer_image')))
+                <a class="footer-logo" href="{{config('settings.site_footer_logo_link')}}"><img src="{{asset(config('settings.site_footer_image_image_path'))}}" alt="Logo"></a>
+                @endif
+                    <h3>{{config('settings.site_footer_title')}}</h3>
+                    <ul class="social-media">
+                    <li><a href="{{config('settings.site_footer_icon_1_link')}}" target="_blank"> <i class="fab fa-twitter"></i></a></li>
+                    <li><a href="{{config('settings.site_footer_icon_2_link')}}" target="_blank"> <i class="fab fa-facebook-f"></i></a> </li>
+                    <li><a href="{{config('settings.site_footer_icon_3_link')}}" target="_blank"> <i class="fab fa-instagram"></i></a> </li>
 
                 </ul>
             </div>
@@ -18,20 +18,18 @@
             <div class="footer-col col2">
                 <!--   <h3>Highlights</h3>-->
                 <ul class="footer-menu">
-                    <li> <a href="#">Disclaimer </a> </li>
-                    <li> <a href="#">Privacy Statement </a> </li>
-                    <li> <a href="#">Cookies Policy </a> </li>
-                    <li> <a href="#">Trademarks </a> </li>
+                    @foreach (pages() as $page)
+                    <li> <a href="{{route('page.index', $page->slug)}}">{{$page->name}} </a> </li>
+                    @endforeach
                 </ul>
 
             </div><!-- footer-col col1-->
             <div class="footer-col col3">
                 <!--    <h3>Admission & Career</h3>-->
                 <ul class="footer-menu">
-                    <li> <a href="#">Almuni</a> </li>
-                    <li> <a href="#">Career </a> </li>
-                    <li> <a href="#">Student Service</a> </li>
-                    <li> <a href="#">News & Events</a> </li>
+                    @foreach (active_page() as $page)
+                        <li> <a href="{{route('page.index', $page->slug)}}">{{$page->name}} </a> </li>
+                    @endforeach
                 </ul>
 
             </div>
@@ -41,11 +39,11 @@
 
                     <li>
                         <i class="fa-solid fa-map-location"></i>
-                        <address class="footer-contact__detail"> <a href="#"> 3516 26 St NE.</br>Calgary, AB T1Y 4T7</a>
+                        <address class="footer-contact__detail"> <a href="#"> {{config('settings.site_footer_state_number')}}</br>{{config('settings.site_footer_state')}}</a>
                         </address>
                     </li>
-                    <li><i class="fa-solid fa-phone"></i> <a class="footer-contact__detail" href="tel:14444"> 403-457-6400</a> </li>
-                    <li><i class="fa-solid fa-envelope"></i> <a class="footer-contact__detail" href="mailto:info@gis.com"> admissions@bayrivercollege.ca</a> </li>
+                    <li><i class="fa-solid fa-phone"></i> <a class="footer-contact__detail" href="tel:14444">{{config('settings.site_footer_number')}}</a> </li>
+                    <li><i class="fa-solid fa-envelope"></i> <a class="footer-contact__detail" href="mailto:info@gis.com">{{config('settings.site_footer_email')}}</a> </li>
                 </ul>
             </div>
         </div>
@@ -54,12 +52,12 @@
     <div class="site-footer__secondary">
         <div class="container flex-container">
             <div class="copyright">
-                <p>Copyright (C): Bay River College {{date('Y')}} </p>
+                <p>{{config('settings.site_footer_bottom_left')}} </p>
 
             </div>
             <!--copyright-->
             <div class="footer-credit">
-                <p>Powered By: <a href="https://globaliTechsystems.com" target="_blank">Global iTech Systems</a></p>
+                <p>Powered By: <a href="{{config('settings.site_footer_bottom_right_link')}}" target="_blank">{{config('settings.site_footer_bottom_right')}}</a></p>
 
             </div>
             <!--copyright-->

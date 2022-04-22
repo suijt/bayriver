@@ -25,3 +25,4 @@ Route::middleware('visitor')->group(function () {
     Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 });
 Route::post('/contact', [FrontendController::class, 'contactSubmit'])->name('contact.submit');
+Route::get('/{slug}',[FrontendController::class,'Page'])->name('page.index');

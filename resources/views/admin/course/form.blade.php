@@ -45,7 +45,7 @@
                 </div>
                 <div class="form-group row mt-5">
                     <div class="col">
-                        <label>Description
+                        <label>Overview
                         </label>
                         <textarea class="kt_docs_tinymce_hidden form-control @error('description') is-invalid @enderror" name="description">@if(isset($course)){{$course->description}}@else{{old('description')}}@endif</textarea>
                         @error('description')
@@ -57,7 +57,7 @@
                 </div>
                 <div class="form-group row mt-5">
                     <div class="col">
-                        <label>Duration
+                        <label>Practicum Duration
                         </label>
                         <input type="text" class="form-control @error('duration') is-invalid @enderror" placeholder="Enter Course Duration" name="duration" value="@if(isset($course)){{$course->duration}}@else{{old('duration')}}@endif" />
                         @error('duration')
@@ -70,9 +70,10 @@
                         <label>Study Option
                         </label>
                         <select name="study_option" id="" class="form-control">
-                            <option value="online" @if(isset($course) && $course->study_option == 'online') selected @endif>Online</option>
-                            <option value="in_class" @if(isset($course) && $course->study_option == 'in_class') selected @endif>In Class</option>
-                            <option value="hybrid" @if(isset($course) && $course->study_option == 'hybrid') selected @endif>Hybrid</option>
+                            <option value="Online" @if(isset($course) && $course->study_option == 'online') selected @endif>Online/In Person</option>
+                            <option value="Online/In Person" @if(isset($course) && $course->study_option == 'online') selected @endif>Online/In Person</option>
+                            <option value="In Class" @if(isset($course) && $course->study_option == 'in_class') selected @endif>In Class</option>
+                            <option value="Hybrid" @if(isset($course) && $course->study_option == 'hybrid') selected @endif>Hybrid</option>
                         </select>
                         @error('study_option')
                         <span class="invalid-feedback" role="alert">
@@ -149,7 +150,7 @@
                 </div>
                 <div class="form-group row mt-5">
                     <div class="col">
-                        <label>Primary features
+                        <label>Learing Outcome
                         </label>
                         <textarea class="kt_docs_tinymce_hidden form-control @error('learning_outcome') is-invalid @enderror" name="learning_outcome">@if(isset($course)){{$course->learning_outcome}}@else{{old('learning_outcome')}}@endif</textarea>
                         @error('learning_outcome')
@@ -161,7 +162,7 @@
                 </div>
                 <div class="form-group row mt-5">
                     <div class="col">
-                        <label>Secondary features
+                        <label>Who Can Apply
                         </label>
                         <textarea class="kt_docs_tinymce_hidden form-control @error('learning_features') is-invalid @enderror" name="learning_features">@if(isset($course)){{$course->learning_features}}@else{{old('learning_features')}}@endif</textarea>
                         @error('learning_features')

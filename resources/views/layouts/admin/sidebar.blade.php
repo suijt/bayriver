@@ -49,14 +49,7 @@
                     <a class="menu-link {{ request()->is('admin/slider') || request()->is('admin/slider/*')
                         ? " active" : "" }}" href="{{route('admin.slider.index')}}">
                         <span class="menu-icon">
-                            <!--begin::Svg Icon | path: icons/duotone/Design/Difference.svg-->
-                            <span class="svg-icon svg-icon-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                    <path d="M6,9 L6,15 C6,16.6568542 7.34314575,18 9,18 L15,18 L15,18.8181818 C15,20.2324881 14.2324881,21 12.8181818,21 L5.18181818,21 C3.76751186,21 3,20.2324881 3,18.8181818 L3,11.1818182 C3,9.76751186 3.76751186,9 5.18181818,9 L6,9 Z M17,16 L17,10 C17,8.34314575 15.6568542,7 14,7 L8,7 L8,6.18181818 C8,4.76751186 8.76751186,4 10.1818182,4 L17.8181818,4 C19.2324881,4 20,4.76751186 20,6.18181818 L20,13.8181818 C20,15.2324881 19.2324881,16 17.8181818,16 L17,16 Z" fill="#000000" fill-rule="nonzero" />
-                                    <path d="M9.27272727,9 L13.7272727,9 C14.5522847,9 15,9.44771525 15,10.2727273 L15,14.7272727 C15,15.5522847 14.5522847,16 13.7272727,16 L9.27272727,16 C8.44771525,16 8,15.5522847 8,14.7272727 L8,10.2727273 C8,9.44771525 8.44771525,9 9.27272727,9 Z" fill="#000000" opacity="0.3" />
-                                </svg>
-                            </span>
-                            <!--end::Svg Icon-->
+                            <i class="bi bi-images fs-3"></i>
                         </span>
                         <span class="menu-title">Slider Management</span>
                     </a>
@@ -66,14 +59,8 @@
                         <a class="menu-link {{ request()->is('admin/client') || request()->is('admin/client/*')
                         ? " active" : "" }}" href="{{route('admin.client.index')}}">
                             <span class="menu-icon">
-                                <!--begin::Svg Icon | path: icons/duotone/Design/Difference.svg-->
-                                <span class="svg-icon svg-icon-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                        <path d="M6,9 L6,15 C6,16.6568542 7.34314575,18 9,18 L15,18 L15,18.8181818 C15,20.2324881 14.2324881,21 12.8181818,21 L5.18181818,21 C3.76751186,21 3,20.2324881 3,18.8181818 L3,11.1818182 C3,9.76751186 3.76751186,9 5.18181818,9 L6,9 Z M17,16 L17,10 C17,8.34314575 15.6568542,7 14,7 L8,7 L8,6.18181818 C8,4.76751186 8.76751186,4 10.1818182,4 L17.8181818,4 C19.2324881,4 20,4.76751186 20,6.18181818 L20,13.8181818 C20,15.2324881 19.2324881,16 17.8181818,16 L17,16 Z" fill="#000000" fill-rule="nonzero" />
-                                        <path d="M9.27272727,9 L13.7272727,9 C14.5522847,9 15,9.44771525 15,10.2727273 L15,14.7272727 C15,15.5522847 14.5522847,16 13.7272727,16 L9.27272727,16 C8.44771525,16 8,15.5522847 8,14.7272727 L8,10.2727273 C8,9.44771525 8.44771525,9 9.27272727,9 Z" fill="#000000" opacity="0.3" />
-                                    </svg>
-                                </span>
-                                <!--end::Svg Icon-->
+                                <i class="bi bi-briefcase fs-3"></i>
+
                             </span>
                             <span class="menu-title">Clients/Partners</span>
                         </a>
@@ -84,14 +71,8 @@
                         <a class="menu-link {{ request()->is('admin/testimonial') || request()->is('admin/testimonial/*')
                         ? " active" : "" }}" href="{{route('admin.testimonial.index')}}">
                             <span class="menu-icon">
-                                <!--begin::Svg Icon | path: icons/duotone/Design/Difference.svg-->
-                                <span class="svg-icon svg-icon-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                        <path d="M6,9 L6,15 C6,16.6568542 7.34314575,18 9,18 L15,18 L15,18.8181818 C15,20.2324881 14.2324881,21 12.8181818,21 L5.18181818,21 C3.76751186,21 3,20.2324881 3,18.8181818 L3,11.1818182 C3,9.76751186 3.76751186,9 5.18181818,9 L6,9 Z M17,16 L17,10 C17,8.34314575 15.6568542,7 14,7 L8,7 L8,6.18181818 C8,4.76751186 8.76751186,4 10.1818182,4 L17.8181818,4 C19.2324881,4 20,4.76751186 20,6.18181818 L20,13.8181818 C20,15.2324881 19.2324881,16 17.8181818,16 L17,16 Z" fill="#000000" fill-rule="nonzero" />
-                                        <path d="M9.27272727,9 L13.7272727,9 C14.5522847,9 15,9.44771525 15,10.2727273 L15,14.7272727 C15,15.5522847 14.5522847,16 13.7272727,16 L9.27272727,16 C8.44771525,16 8,15.5522847 8,14.7272727 L8,10.2727273 C8,9.44771525 8.44771525,9 9.27272727,9 Z" fill="#000000" opacity="0.3" />
-                                    </svg>
-                                </span>
-                                <!--end::Svg Icon-->
+                                <i class="bi bi-back fs-3"></i>
+
                             </span>
                             <span class="menu-title">Testimonials/Reviews</span>
                         </a>
@@ -102,14 +83,7 @@
                         <a class="menu-link {{ request()->is('admin/category') || request()->is('admin/category/*')
                         ? " active" : "" }}" href="{{route('admin.category.index')}}">
                             <span class="menu-icon">
-                                <!--begin::Svg Icon | path: icons/duotone/Design/Difference.svg-->
-                                <span class="svg-icon svg-icon-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                        <path d="M6,9 L6,15 C6,16.6568542 7.34314575,18 9,18 L15,18 L15,18.8181818 C15,20.2324881 14.2324881,21 12.8181818,21 L5.18181818,21 C3.76751186,21 3,20.2324881 3,18.8181818 L3,11.1818182 C3,9.76751186 3.76751186,9 5.18181818,9 L6,9 Z M17,16 L17,10 C17,8.34314575 15.6568542,7 14,7 L8,7 L8,6.18181818 C8,4.76751186 8.76751186,4 10.1818182,4 L17.8181818,4 C19.2324881,4 20,4.76751186 20,6.18181818 L20,13.8181818 C20,15.2324881 19.2324881,16 17.8181818,16 L17,16 Z" fill="#000000" fill-rule="nonzero" />
-                                        <path d="M9.27272727,9 L13.7272727,9 C14.5522847,9 15,9.44771525 15,10.2727273 L15,14.7272727 C15,15.5522847 14.5522847,16 13.7272727,16 L9.27272727,16 C8.44771525,16 8,15.5522847 8,14.7272727 L8,10.2727273 C8,9.44771525 8.44771525,9 9.27272727,9 Z" fill="#000000" opacity="0.3" />
-                                    </svg>
-                                </span>
-                                <!--end::Svg Icon-->
+                                <i class="bi bi-grid-3x2-gap fs-3"></i>
                             </span>
                             <span class="menu-title">Category Management</span>
                         </a>
@@ -120,14 +94,8 @@
                         <a class="menu-link {{ request()->is('admin/country') || request()->is('admin/country/*')
                         ? " active" : "" }}" href="{{route('admin.country.index')}}">
                             <span class="menu-icon">
-                                <!--begin::Svg Icon | path: icons/duotone/Design/Difference.svg-->
-                                <span class="svg-icon svg-icon-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                        <path d="M6,9 L6,15 C6,16.6568542 7.34314575,18 9,18 L15,18 L15,18.8181818 C15,20.2324881 14.2324881,21 12.8181818,21 L5.18181818,21 C3.76751186,21 3,20.2324881 3,18.8181818 L3,11.1818182 C3,9.76751186 3.76751186,9 5.18181818,9 L6,9 Z M17,16 L17,10 C17,8.34314575 15.6568542,7 14,7 L8,7 L8,6.18181818 C8,4.76751186 8.76751186,4 10.1818182,4 L17.8181818,4 C19.2324881,4 20,4.76751186 20,6.18181818 L20,13.8181818 C20,15.2324881 19.2324881,16 17.8181818,16 L17,16 Z" fill="#000000" fill-rule="nonzero" />
-                                        <path d="M9.27272727,9 L13.7272727,9 C14.5522847,9 15,9.44771525 15,10.2727273 L15,14.7272727 C15,15.5522847 14.5522847,16 13.7272727,16 L9.27272727,16 C8.44771525,16 8,15.5522847 8,14.7272727 L8,10.2727273 C8,9.44771525 8.44771525,9 9.27272727,9 Z" fill="#000000" opacity="0.3" />
-                                    </svg>
-                                </span>
-                                <!--end::Svg Icon-->
+                                <i class="bi bi-globe fs-3"></i>
+
                             </span>
                             <span class="menu-title">Country Management</span>
                         </a>
@@ -138,14 +106,8 @@
                         <a class="menu-link {{ request()->is('admin/course') || request()->is('admin/course/*')
                         ? " active" : "" }}" href="{{route('admin.course.index')}}">
                             <span class="menu-icon">
-                                <!--begin::Svg Icon | path: icons/duotone/Design/Difference.svg-->
-                                <span class="svg-icon svg-icon-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                        <path d="M6,9 L6,15 C6,16.6568542 7.34314575,18 9,18 L15,18 L15,18.8181818 C15,20.2324881 14.2324881,21 12.8181818,21 L5.18181818,21 C3.76751186,21 3,20.2324881 3,18.8181818 L3,11.1818182 C3,9.76751186 3.76751186,9 5.18181818,9 L6,9 Z M17,16 L17,10 C17,8.34314575 15.6568542,7 14,7 L8,7 L8,6.18181818 C8,4.76751186 8.76751186,4 10.1818182,4 L17.8181818,4 C19.2324881,4 20,4.76751186 20,6.18181818 L20,13.8181818 C20,15.2324881 19.2324881,16 17.8181818,16 L17,16 Z" fill="#000000" fill-rule="nonzero" />
-                                        <path d="M9.27272727,9 L13.7272727,9 C14.5522847,9 15,9.44771525 15,10.2727273 L15,14.7272727 C15,15.5522847 14.5522847,16 13.7272727,16 L9.27272727,16 C8.44771525,16 8,15.5522847 8,14.7272727 L8,10.2727273 C8,9.44771525 8.44771525,9 9.27272727,9 Z" fill="#000000" opacity="0.3" />
-                                    </svg>
-                                </span>
-                                <!--end::Svg Icon-->
+                                <i class="bi bi-folder fs-3"></i>
+
                             </span>
                             <span class="menu-title">Course Management</span>
                         </a>
@@ -156,14 +118,8 @@
                         <a class="menu-link {{ request()->is('admin/news') || request()->is('admin/news/*')
                         ? " active" : "" }}" href="{{route('admin.news.index')}}">
                             <span class="menu-icon">
-                                <!--begin::Svg Icon | path: icons/duotone/Design/Difference.svg-->
-                                <span class="svg-icon svg-icon-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                        <path d="M6,9 L6,15 C6,16.6568542 7.34314575,18 9,18 L15,18 L15,18.8181818 C15,20.2324881 14.2324881,21 12.8181818,21 L5.18181818,21 C3.76751186,21 3,20.2324881 3,18.8181818 L3,11.1818182 C3,9.76751186 3.76751186,9 5.18181818,9 L6,9 Z M17,16 L17,10 C17,8.34314575 15.6568542,7 14,7 L8,7 L8,6.18181818 C8,4.76751186 8.76751186,4 10.1818182,4 L17.8181818,4 C19.2324881,4 20,4.76751186 20,6.18181818 L20,13.8181818 C20,15.2324881 19.2324881,16 17.8181818,16 L17,16 Z" fill="#000000" fill-rule="nonzero" />
-                                        <path d="M9.27272727,9 L13.7272727,9 C14.5522847,9 15,9.44771525 15,10.2727273 L15,14.7272727 C15,15.5522847 14.5522847,16 13.7272727,16 L9.27272727,16 C8.44771525,16 8,15.5522847 8,14.7272727 L8,10.2727273 C8,9.44771525 8.44771525,9 9.27272727,9 Z" fill="#000000" opacity="0.3" />
-                                    </svg>
-                                </span>
-                                <!--end::Svg Icon-->
+                                <i class="bi bi-newspaper fs-3"></i>
+
                             </span>
                             <span class="menu-title">News/Event Management</span>
                         </a>
@@ -174,14 +130,8 @@
                         <a class="menu-link {{ request()->is('admin/setting') || request()->is('admin/setting/*')
                         ? " active" : "" }}" href="{{route('admin.setting.index')}}">
                             <span class="menu-icon">
-                                <!--begin::Svg Icon | path: icons/duotone/Design/Difference.svg-->
-                                <span class="svg-icon svg-icon-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                        <path d="M6,9 L6,15 C6,16.6568542 7.34314575,18 9,18 L15,18 L15,18.8181818 C15,20.2324881 14.2324881,21 12.8181818,21 L5.18181818,21 C3.76751186,21 3,20.2324881 3,18.8181818 L3,11.1818182 C3,9.76751186 3.76751186,9 5.18181818,9 L6,9 Z M17,16 L17,10 C17,8.34314575 15.6568542,7 14,7 L8,7 L8,6.18181818 C8,4.76751186 8.76751186,4 10.1818182,4 L17.8181818,4 C19.2324881,4 20,4.76751186 20,6.18181818 L20,13.8181818 C20,15.2324881 19.2324881,16 17.8181818,16 L17,16 Z" fill="#000000" fill-rule="nonzero" />
-                                        <path d="M9.27272727,9 L13.7272727,9 C14.5522847,9 15,9.44771525 15,10.2727273 L15,14.7272727 C15,15.5522847 14.5522847,16 13.7272727,16 L9.27272727,16 C8.44771525,16 8,15.5522847 8,14.7272727 L8,10.2727273 C8,9.44771525 8.44771525,9 9.27272727,9 Z" fill="#000000" opacity="0.3" />
-                                    </svg>
-                                </span>
-                                <!--end::Svg Icon-->
+                                <i class="bi bi-pen fs-3"></i>
+
                             </span>
                             <span class="menu-title">Content Management</span>
                         </a>
@@ -192,16 +142,22 @@
                         <a class="menu-link {{ request()->is('admin/inquiry') || request()->is('admin/inquiry/*')
                         ? " active" : "" }}" href="{{route('admin.inquiry.index')}}">
                             <span class="menu-icon">
-                                <!--begin::Svg Icon | path: icons/duotone/Design/Difference.svg-->
-                                <span class="svg-icon svg-icon-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                        <path d="M6,9 L6,15 C6,16.6568542 7.34314575,18 9,18 L15,18 L15,18.8181818 C15,20.2324881 14.2324881,21 12.8181818,21 L5.18181818,21 C3.76751186,21 3,20.2324881 3,18.8181818 L3,11.1818182 C3,9.76751186 3.76751186,9 5.18181818,9 L6,9 Z M17,16 L17,10 C17,8.34314575 15.6568542,7 14,7 L8,7 L8,6.18181818 C8,4.76751186 8.76751186,4 10.1818182,4 L17.8181818,4 C19.2324881,4 20,4.76751186 20,6.18181818 L20,13.8181818 C20,15.2324881 19.2324881,16 17.8181818,16 L17,16 Z" fill="#000000" fill-rule="nonzero" />
-                                        <path d="M9.27272727,9 L13.7272727,9 C14.5522847,9 15,9.44771525 15,10.2727273 L15,14.7272727 C15,15.5522847 14.5522847,16 13.7272727,16 L9.27272727,16 C8.44771525,16 8,15.5522847 8,14.7272727 L8,10.2727273 C8,9.44771525 8.44771525,9 9.27272727,9 Z" fill="#000000" opacity="0.3" />
-                                    </svg>
-                                </span>
-                                <!--end::Svg Icon-->
+                                <i class="bi bi-pencil-square fs-3"></i>
+
                             </span>
                             <span class="menu-title">Inquiries</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item">
+                        <a class="menu-link {{ request()->is('admin/page') || request()->is('admin/page/*')
+                        ? " active" : "" }}" href="{{route('admin.page.index')}}">
+                            <span class="menu-icon">
+                                <i class="bi bi-file fs-3"></i>
+
+                            </span>
+                            <span class="menu-title">Pages</span>
                         </a>
                     </div>
                 </div>

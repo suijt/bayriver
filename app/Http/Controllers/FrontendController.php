@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Mail\InquiryMail;
 use App\Modules\Models\Inquiry\Inquiry;
 use App\Modules\Models\News\News;
+use App\Modules\Models\Page\Page;
 use App\Modules\Services\Client\ClientService;
 use App\Modules\Services\Country\CountryService;
 use App\Modules\Services\Course\CourseService;
 use App\Modules\Services\News\NewsService;
+use App\Modules\Services\Page\PageService;
 use App\Modules\Services\Slider\SliderService;
 use App\Modules\Services\Team\TeamService;
 use App\Modules\Services\Testimonial\TestimonialService;
@@ -25,6 +27,7 @@ class FrontendController extends Controller
     protected $course;
     protected $news;
     protected $country;
+    protected $page;
 
     public function __construct(
         SliderService $slider,
@@ -33,7 +36,8 @@ class FrontendController extends Controller
         ClientService $client,
         CourseService $course,
         NewsService $news,
-        CountryService $country
+        CountryService $country,
+        PageService $page
     ) {
         $this->slider = $slider;
         $this->team = $team;
@@ -42,6 +46,7 @@ class FrontendController extends Controller
         $this->course = $course;
         $this->news = $news;
         $this->country = $country;
+        $this->page=$page;
     }
 
     public function index()
@@ -128,5 +133,9 @@ class FrontendController extends Controller
             Mail::to('info@greentechconcern.com')->send(new InquiryMail($request->all()));
         }
         return 'Your Inquiry has been send to the administrator.';
+    }
+    public function Page($slug){
+        $page=Page::where('slug',$slug)->first();
+        return view('front.page',compact('page'));
     }
 }

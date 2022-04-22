@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\Product\ProductController;
 use App\Http\Controllers\Admin\Testimonial\TestimonialController;
 use App\Http\Controllers\Admin\Team\TeamController;
 use App\Http\Controllers\Admin\Client\ClientController;
+use App\Http\Controllers\Admin\Page\PageController;
 use App\Http\Controllers\Admin\Country\CountryController;
 use App\Http\Controllers\Admin\Inquiry\InquiryController;
 use App\Http\Controllers\Admin\Setting\SettingController;
@@ -50,6 +51,12 @@ Route::group([
     $router->resource('client', ClientController::class);
     $router->get('client/{id}/destroy', [ClientController::class, 'destroy'])->name('client.destroy');
     $router->get('client-data', [ClientController::class, 'getAllData'])->name('client.data');
+
+    //Page
+    $router->resource('page', PageController::class);
+    $router->get('page/{id}/destroy', [PageController::class, 'destroy'])->name('page.destroy');
+    $router->get('page-data', [PageController::class, 'getAllData'])->name('page.data');
+
 
     //Course
     $router->resource('course', CourseController::class);
