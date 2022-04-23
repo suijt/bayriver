@@ -223,7 +223,7 @@
                         @endif
                         <!--right-col__testimonial-->
                         <div class="right-col__testimonial-video">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{$course->video_link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{$country->video_link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
 
                         @if($clients->isNotEmpty())
