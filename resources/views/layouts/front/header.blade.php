@@ -1,20 +1,21 @@
 <header class="site-header">
     <div class="top-header">
         <div class="container flex-container">
-
+            @if(!empty(config('settings.site_header_image')))
             <div class="site-header__logo">
-                <a href="{{route('home')}}"><img src="{{asset('assets/front/images/logo.png')}}" alt="logo"></a>
+                <a href="{{config('settings.site_header_logo_link')}}"><img src="{{asset(config('settings.site_header_image_image_path'))}}" alt="logo"></a>
             </div>
+            @endif
             <!--logo-->
 
             <div class="top-header__rightcol">
                 <div class="top-header__rightcol-primary">
                     <ul class="top-menu">
-                        <li><a href="about-us.html">About Us</a> </li>
-                        <li><a href="contact-us.html">Contact Us</a> </li>
-                        <li class="top-menu__button"><a href="student-login.html">Student Login</a> </li>
-                        <li><a href="news-events.html">News & Events</a> </li>
-                        <li><a href="help.html">Help</a> </li>
+                        <li><a href="{{config('settings.site_header_title_1_link')}}">{{config('settings.site_header_title_1')}}</a> </li>
+                        <li><a href="{{config('settings.site_header_title_2_link')}}">{{config('settings.site_header_title_2')}}</a> </li>
+                        <li class="top-menu__button"><a href="{{config('settings.site_header_title_3_link')}}">{{config('settings.site_header_title_3')}}</a> </li>
+                        <li><a href="{{config('settings.site_header_title_4_link')}}">{{config('settings.site_header_title_4')}}</a> </li>
+                        <li><a href="{{config('settings.site_header_title_5_link')}}">{{config('settings.site_header_title_5')}}</a> </li>
                     </ul>
                     <form action="mail.php" method="get" class="searchbar top-header__search">
                         <input type="search" placeholder="Search here" name="search" class="searchbar-input" onkeyup="buttonUp();" required>
@@ -24,9 +25,11 @@
                 <!--top-header__rightcol-primary-->
                 <div class="navigation-section">
                     <section class="wrapper">
-                        <div class="header-item-left">
-                            <a href="{{route('home')}}"><img src="{{asset('assets/front/images/logo.png')}}" alt="logo"></a>
-                        </div>
+{{--                        @if(!empty(config('settings.site_header_image')))--}}
+{{--                            <div class="site-header__logo">--}}
+{{--                                <a href="{{config('settings.site_header_logo_link')}}"><img src="{{asset(config('settings.site_header_image_image_path'))}}" alt="logo"></a>--}}
+{{--                            </div>--}}
+{{--                             @endif--}}
                         <!-- Navbar Section -->
                         <div class="header-item-center">
                             <div class="overlay"></div>

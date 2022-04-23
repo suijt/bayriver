@@ -2,6 +2,7 @@
 
 use \App\Modules\Models\Attendance;
 use \App\Modules\Models\Employee;
+use \App\Modules\Models\Page\Page;
 use Carbon\Carbon;
 
 //randon number of given length.
@@ -273,3 +274,12 @@ function getSpacedTextAttribute($str)
 {
     return ucwords(str_replace('_', ' ', $str));
 }
+function pages()
+{
+    return Page::where('quick_links','yes')->take(4)->get();
+}
+function active_page()
+{
+    return Page::where('status','yes')->take(4)->get();
+}
+
