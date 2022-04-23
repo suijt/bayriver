@@ -220,7 +220,7 @@
                 </div>
                 <div class="form-group row mt-5">
                     <div class="col">
-                        <label>Industrial
+                        <label>Industry
                         </label>
                         <textarea class="kt_docs_tinymce_hidden form-control @error('industrial_desc') is-invalid @enderror" name="industrial_desc">@if(isset($course)){{$course->industrial_desc}}@else{{old('industrial_desc')}}@endif</textarea>
                         @error('industrial_desc')

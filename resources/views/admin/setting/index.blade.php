@@ -75,7 +75,7 @@
         $('#base_district').select2();
         tinymce.remove();
         tinymce.init({
-            selector: '#kt_docs_tinymce_basic',
+            selector: '.kt_docs_tinymce_basic',
             menubar: false,
             toolbar: ["styleselect fontselect fontsizeselect",
                     "undo redo | cut copy paste | bold italic | link | alignleft aligncenter alignright alignjustify",

@@ -37,7 +37,7 @@
         </select>
         @elseif($setting->data_type == "content")
         <div class="col-md-12">
-            <textarea id="kt_docs_tinymce_basic" name="value" class="tox-target" data-type="{{$setting->data_type}}">{{$setting->value}}</textarea>
+            <textarea id="kt_docs_tinymce_basic" name="value" class="tox-target kt_docs_tinymce_basic" data-type="{{$setting->data_type}}">{{$setting->value}}</textarea>
         </div>
         @else
         <input type="text" name="value" value="{{ $setting->value }}" class="form-control" data-type="{{$setting->data_type}}" />
