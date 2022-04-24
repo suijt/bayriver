@@ -178,7 +178,8 @@ class CountryService extends Service
     public function getInternationalCourses($slug)
     {
         $country = $this->getBySlug($slug);
-        $courseCatID = $this->course->whereCountryId($country->id)->pluck('category_id');
+        // $courseCatID = $this->course->whereCountryId($country->id)->pluck('category_id');
+        $courseCatID = $this->course->pluck('category_id');
         $categories = $this->category->whereIn('id', $courseCatID)->get();
         // dd($categories);
         return $categories;

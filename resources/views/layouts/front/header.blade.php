@@ -3,7 +3,7 @@
         <div class="container flex-container">
             @if(!empty(config('settings.site_header_image')))
             <div class="site-header__logo">
-                <a href="{{config('settings.site_header_logo_link')}}"><img src="{{asset(config('settings.site_header_image_image_path'))}}" alt="logo"></a>
+                <a href="{{route('home')}}"><img src="{{asset(config('settings.site_header_image_image_path'))}}" alt="logo"></a>
             </div>
             @endif
             <!--logo-->

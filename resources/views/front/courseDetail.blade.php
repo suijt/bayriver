@@ -347,18 +347,8 @@
 
                     <div class="right-col">
 
-                        <div class="table-of-contents">
-                            <h2>Quick Links</h2>
-                            <ul>
+                        @include('layouts.front.quicklinks')
 
-                                <li> <a href="#">Terms & Conditions</a> </li>
-                                <li><a href="#">Desclimair</a> </li>
-                                <li><a href="#">Privacy Statement</a> </li>
-                                <li><a href="#">Trademarks</a> </li>
-                                <li><a href="#">Cookies</a> </li>
-
-                            </ul>
-                        </div>
                         <!--table-of-contents-->
 
 
@@ -450,56 +440,44 @@
 
                     <div class="right-col">
 
-                        <div class="table-of-contents">
-                            <h2>Quick Links</h2>
-                            <ul>
+                        < @include('layouts.front.quicklinks') <!--table-of-contents-->
 
-                                <li> <a href="#">Terms & Conditions</a> </li>
-                                <li><a href="#">Desclimair</a> </li>
-                                <li><a href="#">Privacy Statement</a> </li>
-                                <li><a href="#">Trademarks</a> </li>
-                                <li><a href="#">Cookies</a> </li>
-
-                            </ul>
-                        </div>
-                        <!--table-of-contents-->
-
-                        @if($testimonials->isNotEmpty())
-                        <div class="right-col__testimonial">
-                            <h2> What Our Students Say?</h2>
-                            <div class="student-review">
-                                @foreach ($testimonials as $testimonial)
-                                <div class="student-review__item">
-                                    {!! $testimonial->description !!}
-                                    <h4 class="student-review__std"> {{$testimonial->title}} </h4>
+                            @if($testimonials->isNotEmpty())
+                            <div class="right-col__testimonial">
+                                <h2> What Our Students Say?</h2>
+                                <div class="student-review">
+                                    @foreach ($testimonials as $testimonial)
+                                    <div class="student-review__item">
+                                        {!! $testimonial->description !!}
+                                        <h4 class="student-review__std"> {{$testimonial->title}} </h4>
+                                    </div>
+                                    @endforeach
                                 </div>
-                                @endforeach
                             </div>
-                        </div>
-                        @endif
-                        <!--right-col__testimonial-->
-                        <div class="right-col__testimonial-video">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{$course->video_link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
+                            @endif
+                            <!--right-col__testimonial-->
+                            <div class="right-col__testimonial-video">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/{{$course->video_link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
 
-                        @if($clients->isNotEmpty())
-                        <section class="logo-carousel">
+                            @if($clients->isNotEmpty())
+                            <section class="logo-carousel">
 
-                            <h2 class="section-class"> Our Associates & Partner</h2>
-                            <ul class="partners-carousel partners-carousel__secondary">
-                                @foreach ($clients as $client)
+                                <h2 class="section-class"> Our Associates & Partner</h2>
+                                <ul class="partners-carousel partners-carousel__secondary">
+                                    @foreach ($clients as $client)
 
-                                <li>
-                                    <a href="{{$client->caption}}" class="partner-carousel__thumbnail" target="_blank"> <img src="{{asset($client->image_path)}}" alt="{{$client->title}}"></a>
+                                    <li>
+                                        <a href="{{$client->caption}}" class="partner-carousel__thumbnail" target="_blank"> <img src="{{asset($client->image_path)}}" alt="{{$client->title}}"></a>
 
-                                </li>
-                                @endforeach
+                                    </li>
+                                    @endforeach
 
-                            </ul>
+                                </ul>
 
-                        </section>
-                        @endif
-                        <!--logo-carousel-->
+                            </section>
+                            @endif
+                            <!--logo-carousel-->
 
                     </div>
                 </div>

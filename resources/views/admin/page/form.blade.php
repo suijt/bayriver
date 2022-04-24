@@ -5,10 +5,7 @@
                 <div class="form-group row mt-5">
                     <div class="col">
                         <label>Name</label>
-                        <input type="text" class="form-control @error('page_name') is-invalid @enderror"
-                               placeholder="Enter name" name="name"
-                               value="@if(isset($page)){{$page->name}}@else{{old('name')}}@endif"
-                               required />
+                        <input type="text" class="form-control @error('page_name') is-invalid @enderror" placeholder="Enter name" name="name" value="@if(isset($page)){{$page->name}}@else{{old('name')}}@endif" required />
                         @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -43,10 +40,7 @@
                 <div class="form-group row mt-5">
                     <div class="col">
                         <label>Meta Title</label>
-                        <input type="text" class="form-control @error('meta_title') is-invalid @enderror"
-                               placeholder="Enter meta_title" name="meta_title"
-                               value="@if(isset($page)){{$page->meta_title}}@else{{old('meta_title')}}@endif"
-                               required />
+                        <input type="text" class="form-control @error('meta_title') is-invalid @enderror" placeholder="Enter meta_title" name="meta_title" value="@if(isset($page)){{$page->meta_title}}@else{{old('meta_title')}}@endif" required />
                         @error('meta_title')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -67,9 +61,9 @@
                     </div>
                 </div>
 
-                </div>
             </div>
         </div>
+    </div>
     <div class="col-lg-4 col-xl-3">
         <div class="card card-custom sticky" data-sticky="true" data-margin-top="140" data-sticky-for="1023" data-sticky-class="stickyjs">
             <div class="card-body">
@@ -84,13 +78,33 @@
                         </label>
                     </div>
                 </div>
-                <div class="form-group row">
+                <div class="form-group row mt-5">
                     <label class="col-6 ">Quick Links</label>
                     <div class="col-6">
                         <label class="form-check form-switch form-check-custom form-check-solid">
-                            <input class="form-check-input" name="quick_links" type="checkbox" checked {{ old('quick_links',
+                            <input class="form-check-input" name="quick_links" type="checkbox" {{ old('quick_links',
                                 isset($page->quick_links) ?
                             $page->quick_links : '' )=='yes' ? 'checked' :'' }} />
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group row mt-5">
+                    <label class="col-6 ">Footer Menu First</label>
+                    <div class="col-6">
+                        <label class="form-check form-switch form-check-custom form-check-solid">
+                            <input class="form-check-input" name="footer_1" type="checkbox" {{ old('footer_1',
+                                isset($page->footer_1) ?
+                            $page->footer_1 : '' )=='yes' ? 'checked' :'' }} />
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group row mt-5">
+                    <label class="col-6 ">Footer Menu Second</label>
+                    <div class="col-6">
+                        <label class="form-check form-switch form-check-custom form-check-solid">
+                            <input class="form-check-input" name="footer_2" type="checkbox" {{ old('footer_2',
+                                isset($page->footer_2) ?
+                            $page->footer_2 : '' )=='yes' ? 'checked' :'' }} />
                         </label>
                     </div>
                 </div>

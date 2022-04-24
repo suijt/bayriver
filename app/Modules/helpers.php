@@ -276,10 +276,21 @@ function getSpacedTextAttribute($str)
 }
 function pages()
 {
-    return Page::where('quick_links','yes')->take(4)->get();
+    return Page::where('quick_links', 'yes')->take(4)->get();
+}
+function footerFirstMenu()
+{
+    return Page::where('footer_1', 'yes')->take(4)->get();
+}
+function footerSecondMenu()
+{
+    return Page::where('footer_2', 'yes')->take(4)->get();
+}
+function quickLinks()
+{
+    return Page::where('quick_links', 'yes')->take(15)->get();
 }
 function active_page()
 {
-    return Page::where('status','yes')->take(4)->get();
+    return Page::where('status', 'yes')->take(4)->get();
 }
-

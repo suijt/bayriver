@@ -24,8 +24,10 @@ class CreatePagesTable extends Migration
             $table->longText('meta_description')->nullable();
             $table->string('image')->nullable();
             $table->string('banner_image')->nullable();
-            $table->enum('status',['yes','no'])->nullable()->default('no');
-            $table->enum('quick_links',['yes','no'])->nullable()->default('no');
+            $table->enum('status', ['yes', 'no'])->nullable()->default('no');
+            $table->enum('quick_links', ['yes', 'no'])->nullable()->default('no');
+            $table->enum('footer_1', ['yes', 'no'])->nullable()->default('no');
+            $table->enum('footer_2', ['yes', 'no'])->nullable()->default('no');
             $table->softDeletes();
             $table->timestamps();
         });

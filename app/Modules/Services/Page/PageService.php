@@ -43,6 +43,8 @@ class PageService extends Service
         try {
             $data['status'] = (isset($data['status']) ? $data['status'] : '') == 'on' ? 'yes' : 'no';
             $data['quick_links'] = (isset($data['quick_links']) ? $data['quick_links'] : '') == 'on' ? 'yes' : 'no';
+            $data['footer_1'] = (isset($data['footer_1']) ? $data['footer_1'] : '') == 'on' ? 'yes' : 'no';
+            $data['footer_2'] = (isset($data['footer_2']) ? $data['footer_2'] : '') == 'on' ? 'yes' : 'no';
             $data['created_by'] = Auth::user()->id;
             $page = $this->page->create($data);
             return $page;
@@ -101,9 +103,11 @@ class PageService extends Service
         try {
             $data['status'] = (isset($data['status']) ? $data['status'] : '') == 'on' ? 'yes' : 'no';
             $data['quick_links'] = (isset($data['quick_links']) ? $data['quick_links'] : '') == 'on' ? 'yes' : 'no';
+            $data['footer_1'] = (isset($data['footer_1']) ? $data['footer_1'] : '') == 'on' ? 'yes' : 'no';
+            $data['footer_2'] = (isset($data['footer_2']) ? $data['footer_2'] : '') == 'on' ? 'yes' : 'no';
             $data['last_updated_by'] = Auth::user()->id;
             $page = $this->page->find($pageId);
-            $page= $page->update($data);
+            $page = $page->update($data);
             return $page;
         } catch (Exception $e) {
             //$this->logger->error($e->getMessage());

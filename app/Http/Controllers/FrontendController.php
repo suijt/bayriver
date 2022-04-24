@@ -77,7 +77,9 @@ class FrontendController extends Controller
 
     public function about()
     {
-        return view('front.about');
+        $testimonials = $this->testimonial->frontAll();
+        $featuredNews = $this->news->featuredList('news', 4);
+        return view('front.about', compact('featuredNews', 'testimonials'));
     }
 
     public function research()
@@ -158,7 +160,7 @@ class FrontendController extends Controller
     {
         $inquiry = Inquiry::create($request->all());
         if ($inquiry) {
-            Mail::to('info@greentechconcern.com')->send(new InquiryMail($request->all()));
+            Mail::to('info@bayrivercollege.ca')->send(new InquiryMail($request->all()));
         }
         return 'Your Inquiry has been send to the administrator.';
     }

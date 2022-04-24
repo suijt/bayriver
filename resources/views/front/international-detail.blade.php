@@ -55,18 +55,8 @@
 
                     <div class="right-col">
                         <h3 class="right-col__dli">{{$country->dli_no}}</h3>
-                        <div class="table-of-contents">
+                        @include('layouts.front.quicklinks')
 
-                            <h2>Quick Links</h2>
-                            <ul>
-                                <li> <a href="images/INTERNATIONAL-STUDENT-APPLICATION-FORM-002.pdf" download>International Student Application Form</a></li>
-                                <li> <a href="images/Bay-River_International_TuitionFees-2022-2023-revised.pdf" download>International Student Fees</a></li>
-                                <li> <a href="images/Bay-River-College-Prospectus-1-Handbook-2-1.pdf" download>International Student Handbook </a></li>
-                                <li> <a href="https://englishtest.duolingo.com/applicants" download>Duolingo English Test</a></li>
-
-
-                            </ul>
-                        </div>
                         <!--table-of-contents-->
 
                         <figure>
@@ -192,17 +182,8 @@
                     <div class="right-col">
                         <h3 class="right-col__dli">{{$country->dli_no}}</h3>
 
-                        <div class="table-of-contents">
-                            <h2>Quick Links</h2>
-                            <ul>
-                                <li> <a href="images/INTERNATIONAL-STUDENT-APPLICATION-FORM-002.pdf" download>International Student Application Form</a></li>
-                                <li> <a href="images/Bay-River_International_TuitionFees-2022-2023-revised.pdf" download>International Student Fees</a></li>
-                                <li> <a href="images/Bay-River-College-Prospectus-1-Handbook-2-1.pdf" download>International Student Handbook </a></li>
-                                <li> <a href="https://englishtest.duolingo.com/applicants" download>Duolingo English Test</a></li>
+                        @include('layouts.front.quicklinks')
 
-
-                            </ul>
-                        </div>
                         <!--table-of-contents-->
                         <!-- <figure>
                             <img src="images/intl1.jpg.jpg" alt="">
@@ -359,16 +340,8 @@
 
                     <div class="right-col">
                         <h3 class="right-col__dli">Designated Learning Institute (DLI) #O121321694207</h3>
-                        <div class="table-of-contents">
-                            <h2>Quick Links</h2>
-                            <ul>
-                                <li> <a href="images/INTERNATIONAL-STUDENT-APPLICATION-FORM-002.pdf" download>International Student Application Form</a></li>
-                                <li> <a href="images/Bay-River_International_TuitionFees-2022-2023-revised.pdf" download>International Student Fees</a></li>
-                                <li> <a href="images/Bay-River-College-Prospectus-1-Handbook-2-1.pdf" download>International Student Handbook </a></li>
-                                <li> <a href="https://englishtest.duolingo.com/applicants" download>Duolingo English Test</a></li>
+                        @include('layouts.front.quicklinks')
 
-                            </ul>
-                        </div>
                         <!--table-of-contents-->
 
                         @if($testimonials->isNotEmpty())
@@ -410,16 +383,8 @@
 
                     <div class="right-col">
                         <h3 class="right-col__dli">Designated Learning Institute (DLI) #O121321694207</h3>
-                        <div class="table-of-contents">
-                            <h2>Quick Links</h2>
-                            <ul>
-                                <li> <a href="images/INTERNATIONAL-STUDENT-APPLICATION-FORM-002.pdf" download>International Student Application Form</a></li>
-                                <li> <a href="images/Bay-River_International_TuitionFees-2022-2023-revised.pdf" download>International Student Fees</a></li>
-                                <li> <a href="images/Bay-River-College-Prospectus-1-Handbook-2-1.pdf" download>International Student Handbook </a></li>
-                                <li> <a href="https://englishtest.duolingo.com/applicants" download>Duolingo English Test</a></li>
+                        @include('layouts.front.quicklinks')
 
-                            </ul>
-                        </div>
                         <!--table-of-contents-->
 
                         @if($testimonials->isNotEmpty())
@@ -815,17 +780,8 @@
 
                     <div class="right-col">
                         <h3 class="right-col__dli">{{$country->dli_no}}</h3>
-                        <div class="table-of-contents">
-                            <h2>Quick Links</h2>
-                            <ul>
-                                <li> <a href="images/INTERNATIONAL-STUDENT-APPLICATION-FORM-002.pdf" download>International Student Application Form</a></li>
-                                <li> <a href="images/Bay-River_International_TuitionFees-2022-2023-revised.pdf" download>International Student Fees</a></li>
-                                <li> <a href="images/Bay-River-College-Prospectus-1-Handbook-2-1.pdf" download>International Student Handbook </a></li>
-                                <li> <a href="https://englishtest.duolingo.com/applicants" download>Duolingo English Test</a></li>
+                        @include('layouts.front.quicklinks')
 
-
-                            </ul>
-                        </div>
                         <!--table-of-contents-->
 
                         @if($testimonials->isNotEmpty())
@@ -987,17 +943,8 @@
 
                     <div class="right-col">
                         <h3 class="right-col__dli">{{$country->dli_no}}</h3>
-                        <div class="table-of-contents">
-                            <h2>Quick Links</h2>
-                            <ul>
-                                <li> <a href="images/INTERNATIONAL-STUDENT-APPLICATION-FORM-002.pdf" download>International Student Application Form</a></li>
-                                <li> <a href="images/Bay-River_International_TuitionFees-2022-2023-revised.pdf" download>International Student Fees</a></li>
-                                <li> <a href="images/Bay-River-College-Prospectus-1-Handbook-2-1.pdf" download>International Student Handbook </a></li>
-                                <li> <a href="https://englishtest.duolingo.com/applicants" download>Duolingo English Test</a></li>
+                        @include('layouts.front.quicklinks')
 
-
-                            </ul>
-                        </div>
                         <!--table-of-contents-->
 
                         @if($testimonials->isNotEmpty())
