@@ -4,15 +4,18 @@
 
 @section('content')
 <main class="site-content">
-    <section class="inner-banner" style="background-image: url('images/slider4.jpg');">
+    @if(!empty(config('settings.site_news_image')))
+    <section class="inner-banner" style="background-image: url({{asset(config('settings.site_news_image_image_path'))}})">
         <div class="inner-banner__content">
             <div class="container">
-                <h1>News & Events</h1>
-                <p>Find the latest news and blogs</p>
+                <h1>{{config('settings.site_news_title')}}</h1>
+                <p>{{config('settings.site_news_description')}}</p>
+
             </div>
         </div>
 
     </section>
+    @endif
     <div class="course-nav__detail-item">
         <div class="container flex-container">
             <div class="left-col full">
