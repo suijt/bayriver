@@ -44,11 +44,25 @@ class NewsService extends Service
             ->editColumn('status', function (News $news) {
                 return getTableHtml($news, 'status');
             })
+            ->editColumn('featured', function (News $news) {
+                if ($news->is_featured == 'yes') {
+                    return '<label data-uk-tooltip title="yes" class="badge font-weight-bold badge-light-success badge-inline">Yes</label>';
+                } else {
+                    return '<label data-uk-tooltip title="no" class="badge font-weight-bold badge-light-danger badge-inline">No</label>';;
+                };
+            })
+            ->editColumn('headline', function (News $news) {
+                if ($news->is_headline == 'yes') {
+                    return '<label data-uk-tooltip title="yes" class="badge font-weight-bold badge-light-success badge-inline">Yes</label>';
+                } else {
+                    return '<label data-uk-tooltip title="no" class="badge font-weight-bold badge-light-danger badge-inline">No</label>';;
+                };
+            })
             ->editColumn('actions', function (News $news) {
                 $editRoute = route('admin.news.edit', $news->id);
                 $deleteRoute = route('admin.news.destroy', $news->id);
                 return getTableHtml($news, 'actions', $editRoute, $deleteRoute);
-            })->rawColumns(['actions', 'image','type', 'status', 'title'])
+            })->rawColumns(['actions', 'image', 'type', 'status', 'featured', 'headline', 'title'])
             ->make(true);
     }
 

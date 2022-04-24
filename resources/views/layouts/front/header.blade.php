@@ -46,6 +46,7 @@
                                         <a href="#">Program <i class="ion ion-ios-arrow-down"></i></a>
                                         <div class="menu-subs menu-mega menu-column-4">
                                             @foreach ($programMenus as $category)
+                                            @if($category->courses->count())
                                             <div class="list-item">
                                                 <h4 class="title">{{$category->name}}</h4>
                                                 <ul>
@@ -54,6 +55,7 @@
                                                     @endforeach
                                                 </ul>
                                             </div>
+                                            @endif
                                             @endforeach
                                         </div>
                                     </li>
@@ -61,6 +63,7 @@
                                         <a href="#">Affiliated Programs <i class="ion ion-ios-arrow-down"></i></a>
                                         <div class="menu-subs menu-mega menu-column-4">
                                             @foreach ($affiliatedMenus as $category)
+                                            @if($category->courses->count())
                                             <div class="list-item">
                                                 <h4 class="title">{{$category->name}}</h4>
                                                 <ul>
@@ -69,6 +72,7 @@
                                                     @endforeach
                                                 </ul>
                                             </div>
+                                            @endif
                                             @endforeach
                                         </div>
                                     </li>
@@ -87,6 +91,7 @@
                                         <a href="#">Continuous Studies <i class="ion ion-ios-arrow-down"></i></a>
                                         <div class="menu-subs menu-mega menu-column-4">
                                             @foreach ($continiousMenus as $category)
+                                            @if($category->courses->count())
                                             <div class="list-item">
                                                 <h4 class="title">{{$category->name}}</h4>
                                                 <ul>
@@ -95,6 +100,7 @@
                                                     @endforeach
                                                 </ul>
                                             </div>
+                                            @endif
                                             @endforeach
                                         </div>
                                     </li>
@@ -126,7 +132,7 @@
                                         </ul>
                                     </div>
                                 </li>-->
-                                    <li class="apply-now"><a href="apply-now.html">Apply Now</a></li>
+                                    <li class="apply-now"><a href="#">Apply Now</a></li>
                                 </ul>
                             </nav>
                         </div>

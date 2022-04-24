@@ -40,11 +40,46 @@ class CourseService extends Service
             ->editColumn('status', function (Course $course) {
                 return getTableHtml($course, 'status');
             })
+            ->editColumn('featured', function (Course $course) {
+                if ($course->is_featured == 'yes') {
+                    return '<label data-uk-tooltip title="yes" class="badge font-weight-bold badge-light-success badge-inline">Yes</label>';
+                } else {
+                    return '<label data-uk-tooltip title="no" class="badge font-weight-bold badge-light-danger badge-inline">No</label>';;
+                };
+            })
+            ->editColumn('program', function (Course $course) {
+                if ($course->is_program == 'yes') {
+                    return '<label data-uk-tooltip title="yes" class="badge font-weight-bold badge-light-success badge-inline">Yes</label>';
+                } else {
+                    return '<label data-uk-tooltip title="no" class="badge font-weight-bold badge-light-danger badge-inline">No</label>';;
+                };
+            })
+            ->editColumn('affiliated', function (Course $course) {
+                if ($course->is_affiliated == 'yes') {
+                    return '<label data-uk-tooltip title="yes" class="badge font-weight-bold badge-light-success badge-inline">Yes</label>';
+                } else {
+                    return '<label data-uk-tooltip title="no" class="badge font-weight-bold badge-light-danger badge-inline">No</label>';;
+                };
+            })
+            ->editColumn('continious', function (Course $course) {
+                if ($course->is_continious == 'yes') {
+                    return '<label data-uk-tooltip title="yes" class="badge font-weight-bold badge-light-success badge-inline">Yes</label>';
+                } else {
+                    return '<label data-uk-tooltip title="no" class="badge font-weight-bold badge-light-danger badge-inline">No</label>';;
+                };
+            })
+            ->editColumn('international', function (Course $course) {
+                if ($course->is_international == 'yes') {
+                    return '<label data-uk-tooltip title="yes" class="badge font-weight-bold badge-light-success badge-inline">Yes</label>';
+                } else {
+                    return '<label data-uk-tooltip title="no" class="badge font-weight-bold badge-light-danger badge-inline">No</label>';;
+                };
+            })
             ->editColumn('actions', function (Course $course) {
                 $editRoute = route('admin.course.edit', $course->id);
                 $deleteRoute = route('admin.course.destroy', $course->id);
                 return getTableHtml($course, 'actions', $editRoute, $deleteRoute);
-            })->rawColumns(['actions', 'image', 'status', 'title'])
+            })->rawColumns(['actions', 'image', 'status', 'title', 'featured', 'program', 'affiliated', 'continious', 'international'])
             ->make(true);
     }
 

@@ -65,6 +65,8 @@
                             <th class="notexport">Title</th>
                             <th class="notexport">Type</th>
                             <th>Status</th>
+                            <th>Featured</th>
+                            <th>Headline</th>
                             <th class="notexport">Action</th>
                         </tr>
                     </thead>
@@ -130,6 +132,12 @@
                         },
                         {
                             "data": "status"
+                        },
+                        {
+                            "data": "featured"
+                        },
+                        {
+                            "data": "headline"
                         },
                         {
                             "data": "actions",

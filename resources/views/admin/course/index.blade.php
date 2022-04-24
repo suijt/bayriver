@@ -64,6 +64,11 @@
                             <th>Course Name</th>
                             <th>Category</th>
                             <th>Status</th>
+                            <th>Featured</th>
+                            <th>Program</th>
+                            <th>Affiliated</th>
+                            <th>Continious</th>
+                            <th>International</th>
                             <th class="notexport">Action</th>
                         </tr>
                     </thead>
@@ -128,6 +133,21 @@
                         },
                         {
                             "data": "status"
+                        },
+                        {
+                            "data": "featured"
+                        },
+                        {
+                            "data": "program"
+                        },
+                        {
+                            "data": "affiliated"
+                        },
+                        {
+                            "data": "continious"
+                        },
+                        {
+                            "data": "international"
                         },
                         {
                             "data": "actions",
