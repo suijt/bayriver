@@ -32,13 +32,13 @@ class PageService extends Service
             })
             ->editColumn('location', function (Page $page) {
                 if ($page->quick_links == 'yes') {
-                    return "<strong>Quick Link</strong>";
+                    return "<strong>Quick Link </strong>";
                 }
                 if ($page->footer_1 == 'yes') {
-                    return "<strong>Footer First</strong>";
+                    return "<strong>Footer First </strong>";
                 }
                 if ($page->footer_2 == 'yes') {
-                    return "<strong>Footer Second</strong>";
+                    return "<strong>Footer Second </strong>";
                 }
             })
             ->editColumn('actions', function (Page $page) {
