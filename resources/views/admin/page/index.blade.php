@@ -62,6 +62,7 @@
                             <th>S.No.</th>
                             <th class="notexport">Image</th>
                             <th class="notexport">Name</th>
+                            <th class="notexport">Location</th>
                             <th class="notexport">Action</th>
                         </tr>
                     </thead>
@@ -120,6 +121,9 @@
                         },
                         {
                             "data": "name"
+                        },
+                        {
+                            "data": "location"
                         },
 
                         {

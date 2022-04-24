@@ -57,14 +57,16 @@
     <section class="book-appointment">
         <div class="book-appointment__left">
             <div class="book-appointment__left-holder">
-                <div class="book-appointment__bkimage" style="background-image: url('images/intl-std.jpg');">
-
+                @if(!empty(config('settings.site_book_appointment_image_1')))
+                <div class="book-appointment__bkimage" style="background-image: url({{asset(config('settings.site_book_appointment_image_1_image_path'))}});">
                 </div>
+                @endif
                 <div class="book-appointment__left-inner">
                     <span class="top-border"></span>
                     <span class="bottom-border"></span>
-                    <img class="book-app__icon" src="images/getstarted4.jpg" alt="">
-
+                    @if(!empty(config('settings.site_book_appointment_image_2')))
+                    <img class="book-app__icon" src="{{asset(config('settings.site_book_appointment_image_2_image_path'))}}" alt="">
+                    @endif
                     <h2>"Try our robot to help in selecting best career for you" or "Find your dream career"</h2>
                     <p> Join us now to start admission process</p>
                     <a href="" class="button button--white">Get Started</a>
@@ -74,7 +76,7 @@
         <div class="book-appointment__right">
             <div class="book-appointment__right-holder">
                 <div class="book-appointment__right-inner">
-                    <h2>INTERNATIONAL STUDENTS<br /> Ready To Book An Appointment</h2>
+                    <h2>Ready To Book An Appointment</h2>
                     <form id="contact" name="contact" method="mail.php">
                         <div class="form-item">
                             <!-- <label for="name">Name</label>-->
@@ -127,52 +129,48 @@
 
         <div class="featured-block__col1">
             <div class="featured-block__col1-content">
-                <h2>INTERNATIONAL STUDENTS <br />Why Study at Bay River College</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda atque blanditiis delectus iste
-                    laudantium nisi, optio quam quo sit soluta! Cum est, incidunt nam natus officia officiis quod recusandae repellat?</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda atque blanditiis delectus iste
-                    laudantium nisi, optio quam quo sit soluta! Cum est, incidunt nam natus officia officiis quod recusandae repellat?</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda atque blanditiis delectus iste
-                    laudantium nisi, optio quam quo sit soluta! Cum est, incidunt nam natus officia officiis quod recusandae repellat?</p>
-                <a href="#" class="button">Explore More</a>
+                <h2>{{config('settings.site_feature_block_title')}}</h2>
+                <p>{!! config('settings.site_feature_block_description') !!}</p>
+                <a href="{{config('settings.site_feature_button_link')}}" class="button">{{config('settings.site_feature_button_text')}}</a>
             </div>
             <!--featured-block__col1-content-->
         </div>
-        <div class="featured-block__col2" style="background-image: url('images/why-bay river3.png');">
+        @if(!empty(config('settings.site_feature_block_image')))
+        <div class="featured-block__col2" style="background-image: url({{asset(config('settings.site_feature_block_image_image_path'))}})">
             <div class="featured-block__col2-content">
-                <h2>Our Features</h2>
+                <h2>{{config('settings.site_feature_block_title_2')}}</h2>
                 <div class="featured-block__holder">
                     <div class="featured-block__item">
                         <div class="featured-block__item-inner">
-                            <h3>Practicum Placement</h3>
+                            <h3>{{config('settings.site_feature_item_1')}}</h3>
 
                         </div>
                     </div>
 
                     <div class="featured-block__item">
                         <div class="featured-block__item-inner">
-                            <h3>Professional Instrctors</h3>
+                            <h3>{{config('settings.site_feature_item_2')}}</h3>
 
                         </div>
                     </div>
 
                     <div class="featured-block__item">
                         <div class="featured-block__item-inner">
-                            <h3>Career Counselling</h3>
+                            <h3>{{config('settings.site_feature_item_3')}}</h3>
 
                         </div>
                     </div>
 
                     <div class="featured-block__item">
                         <div class="featured-block__item-inner">
-                            <h3>Academic Excellence</h3>
+                            <h3>{{config('settings.site_feature_item_4')}}</h3>
 
                         </div>
                     </div>
 
                     <div class="featured-block__item">
                         <div class="featured-block__item-inner">
-                            <h3>Industry Based Course</h3>
+                            <h3>{{config('settings.site_feature_item_5')}}</h3>
 
                         </div>
                     </div>
@@ -183,7 +181,7 @@
             </div>
             <!--featured-block__col2-content-->
         </div>
-
+        @endif
     </section>
     @if($featuredEvents->isNotEmpty())
     <section class="upcoming-events">

@@ -30,11 +30,22 @@ class PageService extends Service
             ->editColumn('status', function (Page $page) {
                 return getTableHtml($page, 'status');
             })
+            ->editColumn('location', function (Page $page) {
+                if ($page->quick_links == 'yes') {
+                    return "<strong>Quick Link</strong>";
+                }
+                if ($page->footer_1 == 'yes') {
+                    return "<strong>Footer First</strong>";
+                }
+                if ($page->footer_2 == 'yes') {
+                    return "<strong>Footer Second</strong>";
+                }
+            })
             ->editColumn('actions', function (Page $page) {
                 $editRoute = route('admin.page.edit', $page->id);
                 $deleteRoute = route('admin.page.destroy', $page->id);
                 return getTableHtml($page, 'actions', $editRoute, $deleteRoute);
-            })->rawColumns(['actions', 'image', 'status'])
+            })->rawColumns(['actions', 'image', 'status', 'location'])
             ->make(true);
     }
 
