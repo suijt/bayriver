@@ -370,7 +370,7 @@
                     <div class="left-col">
                         <div class="left-col__intro">
                             <h2 class="intro-courseintro">Student Handbook </h2>
-                            <iframe src="images/Bay-River-College-Prospectus-1-Handbook-2-1.pdf" width="100%" height="500px"></iframe>
+                            <iframe src="{{asset('assets/front/images/Bay-River-College-Prospectus-1-Handbook-2-1.pdf')}}" width="100%" height="500px"></iframe>
 
 
                             {!! $country->handbook_desc !!}
