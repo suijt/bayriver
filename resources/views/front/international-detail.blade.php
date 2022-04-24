@@ -375,7 +375,7 @@
 
                             {!! $country->handbook_desc !!}
 
-                            <a class="button" href="images/Bay-River-College-Prospectus-1-Handbook-2-1.pdf" download>Download Student Handbook</a>
+                            <a class="button" href="{{asset('assets/front/images/Bay-River-College-Prospectus-1-Handbook-2-1.pdf')}}" download>Download Student Handbook</a>
 
                         </div>
                         <!--left-col__intro-->
