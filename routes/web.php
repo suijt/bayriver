@@ -18,11 +18,15 @@ include 'admin.php';
 Route::middleware('visitor')->group(function () {
     Route::get('/', [FrontendController::class, 'index'])->name('home');
     Route::get('/about', [FrontendController::class, 'about'])->name('about');
+    Route::get('/research', [FrontendController::class, 'research'])->name('research');
+    Route::get('/alumni', [FrontendController::class, 'alumni'])->name('alumni');
     // Route::get('/courses', [FrontendController::class, 'serviceList'])->name('courses.list');
     Route::get('/course/{slug}', [FrontendController::class, 'courseDetail'])->name('course.detail');
     Route::get('/international', [FrontendController::class, 'internationalCourses'])->name('international.list');
     Route::get('/international/{slug}', [FrontendController::class, 'internationalDetail'])->name('international.detail');
+    Route::get('/news', [FrontendController::class, 'newsList'])->name('news.list');
+    Route::get('/news/{slug}', [FrontendController::class, 'newsDetail'])->name('news.detail');
     Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 });
 Route::post('/contact', [FrontendController::class, 'contactSubmit'])->name('contact.submit');
-Route::get('/{slug}',[FrontendController::class,'Page'])->name('page.index');
+Route::get('/{slug}', [FrontendController::class, 'Page'])->name('page.index');

@@ -201,7 +201,7 @@
                                 <i class="fa-solid fa-calendar"></i>
                                 <time>{{ date('d M, Y', strtotime($event->event_date)) }}</time>
                             </div>
-                            <a href="" class="button">Details</a>
+                            <a href="{{route('news.detail',$event->slug)}}" class="button">Details</a>
 
                         </div>
                     </div>
@@ -236,12 +236,12 @@
                                 <div class="news-event__item-inner">
 
                                     <div class="news-event__item-description">
-                                        <h3> <a href="">{{$news->title}}</a> </h3>
+                                        <h3> <a href="{{route('news.detail',$news->slug)}}">{{$news->title}}</a> </h3>
                                         <!-- <ul class="news-event__item-category">
                                             <li>  </li>
                                         </ul> -->
                                         <p>{{$news->caption}}</p>
-                                        <a class="more-link" href="">Read More <i class="fa-solid fa-arrow-right-long"></i></a>
+                                        <a class="more-link" href="{{route('news.detail',$news->slug)}}">Read More <i class="fa-solid fa-arrow-right-long"></i></a>
                                     </div>
                                 </div>
                             </div>

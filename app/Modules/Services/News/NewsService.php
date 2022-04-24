@@ -91,7 +91,7 @@ class NewsService extends Service
      */
     public function frontAll()
     {
-        return $this->news->whereStatus('active')->orderBy('order', 'asc')->get();
+        return $this->news->whereStatus('active')->whereIsEvent('no')->orderBy('order', 'asc')->get();
     }
 
     public function getMostFeatured()

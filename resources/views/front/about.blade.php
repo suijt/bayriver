@@ -40,7 +40,7 @@
                     <div class="media-content__content">
                         <div class="media-content__content-inner">
                             <h2>{{config('settings.site_about_our_camps_title')}}</h2>
-                            <p>{!! config('settings.site_about_our_camps_description') !!}</p>
+                            {!! config('settings.site_about_our_camps_description') !!}
 
                         </div>
                     </div>

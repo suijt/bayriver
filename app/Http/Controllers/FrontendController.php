@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Mail\InquiryMail;
+use App\Modules\Models\Category\Category;
+use App\Modules\Models\Course\Course;
 use App\Modules\Models\Inquiry\Inquiry;
 use App\Modules\Models\News\News;
 use App\Modules\Models\Page\Page;
@@ -46,11 +48,15 @@ class FrontendController extends Controller
         $this->course = $course;
         $this->news = $news;
         $this->country = $country;
-        $this->page=$page;
+        $this->page = $page;
     }
 
     public function index()
     {
+        $categories = Category::whereStatus('active')->with('courses', function ($q) {
+            return $q->where('is_program', 'yes');
+        })->get();
+        // dd($cat);
         $sliders = $this->slider->frontAll();
         $teams = $this->team->frontAll();
         $testimonials = $this->testimonial->frontAll();
@@ -66,12 +72,22 @@ class FrontendController extends Controller
         $featuredEvents = $this->news->featuredList('event', 3);
         $highlights = $this->news->highlightList();
 
-        return view('front.index', compact('sliders', 'teams', 'testimonials', 'clients', 'courses', 'featuredNews', 'featuredEvents', 'mostFeaturedNews', 'highlights'));
+        return view('front.index', compact('sliders', 'teams', 'testimonials', 'clients', 'courses', 'featuredNews', 'featuredEvents', 'mostFeaturedNews', 'highlights', 'categories'));
     }
 
     public function about()
     {
         return view('front.about');
+    }
+
+    public function research()
+    {
+        return view('front.research');
+    }
+
+    public function alumni()
+    {
+        return view('front.alumni');
     }
 
     public function serviceList()
@@ -120,10 +136,22 @@ class FrontendController extends Controller
         return view('front.international-detail', compact('country', 'clients', 'testimonials', 'featuredNews', 'internationalCourseCat', 'featuredCourses'));
     }
 
+    public function newsList()
+    {
+        $news = $this->news->frontAll();
+
+        return view('front.news-list', compact('news'));
+    }
+
+    public function newsDetail($slug = null)
+    {
+        $newsDetail = $this->news->getBySlug($slug);
+        return view('front.news-detail', compact('newsDetail'));
+    }
+
     public function contact()
     {
-        $services = $this->service->featuredService();
-        return view('front.contact', compact('services'));
+        return view('front.contact');
     }
 
     public function contactSubmit(Request $request)
@@ -134,8 +162,9 @@ class FrontendController extends Controller
         }
         return 'Your Inquiry has been send to the administrator.';
     }
-    public function Page($slug){
-        $page=Page::where('slug',$slug)->first();
-        return view('front.page',compact('page'));
+    public function Page($slug)
+    {
+        $page = Page::where('slug', $slug)->first();
+        return view('front.page', compact('page'));
     }
 }
