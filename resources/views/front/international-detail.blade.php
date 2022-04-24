@@ -84,7 +84,7 @@
                             <div class="book-appointment__right-holder">
                                 <div class="book-appointment__right-inner">
                                     <h2>To Know More <br>Contact To Advisor</h2>
-                                    <form id="contact2" name="contact" method="mail.php">
+                                    <form id="contact2" name="contact" method="#">
                                         <div class="form-item">
                                             <!--  <label for="name">Name</label>-->
                                             <input type="text" id="name2" name="Name" placeholder="Your name..">
@@ -137,9 +137,9 @@
                             </div>
                         </div>
                         <!--ADVISOR book-appointment__right-->
-                        <div class="right-col__testimonial-video mt-20">
+                        <!-- <div class="right-col__testimonial-video mt-20">
                             <iframe width="560" height="315" src="https://www.youtube.com/embed/4NvmzjCb9fA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 

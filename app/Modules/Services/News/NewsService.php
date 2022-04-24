@@ -34,6 +34,13 @@ class NewsService extends Service
                     return 'N/A';
                 }
             })
+            ->editColumn('type', function (News $news) {
+                if ($news->is_event == 'yes') {
+                    return '<strong> Event </strong>';
+                } else {
+                    return '<strong> News </strong>';
+                };
+            })
             ->editColumn('status', function (News $news) {
                 return getTableHtml($news, 'status');
             })
@@ -41,7 +48,7 @@ class NewsService extends Service
                 $editRoute = route('admin.news.edit', $news->id);
                 $deleteRoute = route('admin.news.destroy', $news->id);
                 return getTableHtml($news, 'actions', $editRoute, $deleteRoute);
-            })->rawColumns(['actions', 'image', 'status', 'title'])
+            })->rawColumns(['actions', 'image','type', 'status', 'title'])
             ->make(true);
     }
 

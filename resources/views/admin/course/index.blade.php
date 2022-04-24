@@ -61,7 +61,8 @@
                             <th class="notexport">ID</th>
                             <th>S.No.</th>
                             <th class="notexport">Image</th>
-                            <th class="notexport">Course Name</th>
+                            <th>Course Name</th>
+                            <th>Category</th>
                             <th>Status</th>
                             <th class="notexport">Action</th>
                         </tr>
@@ -121,6 +122,9 @@
                         },
                         {
                             "data": "title"
+                        },
+                        {
+                            "data": "category"
                         },
                         {
                             "data": "status"

@@ -63,6 +63,7 @@
                             <th>S.No.</th>
                             <th class="notexport">Image</th>
                             <th class="notexport">Title</th>
+                            <th class="notexport">Type</th>
                             <th>Status</th>
                             <th class="notexport">Action</th>
                         </tr>
@@ -123,6 +124,9 @@
                         },
                         {
                             "data": "title"
+                        },
+                        {
+                            "data": "type"
                         },
                         {
                             "data": "status"

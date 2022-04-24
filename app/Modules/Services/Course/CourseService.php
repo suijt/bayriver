@@ -34,6 +34,9 @@ class CourseService extends Service
                     return 'N/A';
                 }
             })
+            ->editColumn('category', function (Course $course) {
+                return $course->category->name;
+            })
             ->editColumn('status', function (Course $course) {
                 return getTableHtml($course, 'status');
             })
