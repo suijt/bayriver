@@ -280,15 +280,15 @@ function pages()
 }
 function footerFirstMenu()
 {
-    return Page::where('footer_1', 'yes')->whereStatus('active')->take(4)->get();
+    return Page::where('footer_1', 'yes')->whereStatus('yes')->take(4)->get();
 }
 function footerSecondMenu()
 {
-    return Page::where('footer_2', 'yes')->whereStatus('active')->take(4)->get();
+    return Page::where('footer_2', 'yes')->whereStatus('yes')->take(4)->get();
 }
 function quickLinks()
 {
-    return Page::where('quick_links', 'yes')->whereStatus('active')->take(15)->get();
+    return Page::where('quick_links', 'yes')->whereStatus('yes')->take(15)->get();
 }
 function active_page()
 {
