@@ -105,6 +105,7 @@
                     searchDelay: 500,
                     processing: true,
                     serverSide: true,
+                    iDisplayLength: 50,
                     order: [
                         [0, 'desc']
                     ],
