@@ -23,7 +23,7 @@
         <div class="modal-box__overflow">
             <div class="modal-box__inner">
                 <div class="entry-content modal-box__body">
-                    <h3>config('settings.site_popup_title')</h3>
+                    <h3>{{config('settings.site_popup_title')}}</h3>
                     {!! config('settings.site_popup_message') !!}
                 </div>
                 <a class="btn" href="{{config('settings.site_popup_link')}}" target="_blank">
