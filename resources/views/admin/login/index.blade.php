@@ -19,7 +19,7 @@
                 <div class="d-flex flex-column">
                     <!--begin::Logo-->
                     <a href="#" class="mb-15">
-                        <h1 class="display-1">CMS</h1>
+                        <h1 class="display-1">Bayriver CMS</h1>
                     </a>
                     <!--end::Logo-->
                     <!--begin::Title-->
@@ -35,7 +35,7 @@
             </div>
             <!--end::Wrapper-->
             <!--begin::Illustration-->
-            <div class="d-flex flex-row-auto bgi-no-repeat bgi-position-x-center bgi-size-contain bgi-position-y-bottom min-h-200px min-h-xl-300px mb-xl-10" style="background-image: url(assets/admin/media/illustrations/networks.png)"></div>
+            <div class="d-flex flex-row-auto bgi-no-repeat bgi-position-x-center bgi-size-contain bgi-position-y-bottom min-h-200px min-h-xl-300px mb-xl-10" style="background-image: url(assets/admin/media/illustrations/bayriver-login.jpg)"></div>
             <!--end::Illustration-->
         </div>
         <!--begin::Aside-->

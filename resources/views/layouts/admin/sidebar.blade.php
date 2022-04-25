@@ -36,11 +36,11 @@
                         <span class="menu-section text-muted text-uppercase fs-8 ls-1">CMS</span>
                     </div>
                 </div>
-                <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
+                <div class="menu-item">
                     <a class="menu-link {{ request()->is('admin/dashboard') || request()->is('admin/dashboard/*')
                         ? " active" : "" }}" href="{{route('admin.dashboard')}}">
                         <span class="menu-icon">
-                            <i class="bi bi-grid fs-3"></i>
+                            <i class="bi bi-images fs-3"></i>
                         </span>
                         <span class="menu-title">Dashboard</span>
                     </a>
