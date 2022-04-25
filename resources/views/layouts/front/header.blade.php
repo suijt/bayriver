@@ -13,9 +13,9 @@
                     <ul class="top-menu">
                         <li><a href="{{route('about')}}">About Us</a> </li>
                         <li><a href="{{route('contact')}}">Contact Us</a> </li>
-                        <li class="top-menu__button"><a href="{{config('settings.site_header_title_3_link')}}">{{config('settings.site_header_title_3')}}</a> </li>
                         <li><a href="{{route('news.list')}}">News & Events</a> </li>
-                        <li><a href="{{config('settings.site_header_title_5_link')}}">{{config('settings.site_header_title_5')}}</a> </li>
+                        <li class="top-menu__button"><a href="{{config('settings.site_header_title_1_link')}}">{{config('settings.site_header_title_1')}}</a> </li>
+                        <li><a href="{{config('settings.site_header_title_2_link')}}">{{config('settings.site_header_title_2')}}</a> </li>
                     </ul>
                     <form action="mail.php" method="get" class="searchbar top-header__search">
                         <input type="search" placeholder="Search here" name="search" class="searchbar-input" onkeyup="buttonUp();" required>
