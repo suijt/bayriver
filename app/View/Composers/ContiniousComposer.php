@@ -14,6 +14,6 @@ class ContiniousComposer
     {
         $view->with('continiousMenus', Category::whereStatus('active')->with('courses', function ($q) {
             return $q->where('is_continious', 'yes');
-        })->get());
+        })->orderBy('order','asc')->get());
     }
 }

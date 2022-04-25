@@ -14,6 +14,6 @@ class ProgramComposer
     {
         $view->with('programMenus', Category::whereStatus('active')->with('courses', function ($q) {
             return $q->where('is_program', 'yes');
-        })->get());
+        })->orderBy('order', 'asc')->get());
     }
 }
