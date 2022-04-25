@@ -35,7 +35,7 @@
                             </div>
                             <!--prenews-item__content-->
                         </div>
-                    </div>titile
+                    </div>
                     @endforeach
 
                 </div>
