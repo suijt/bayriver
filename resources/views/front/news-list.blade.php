@@ -27,14 +27,15 @@
                             </a>
                             <div class="prenews-item__content">
                                 <div class="prenews-item__header">
-                                    <h3><a href="{{route('news.detail',$new->slug)}}">{{$new->titile}}</a> </h3>
+                                    <h3><a href="{{route('news.detail',$new->slug)}}">{{$new->title}}</a> </h3>
+                                    <time>{{date('d M, Y',strtotime($new->created_at))}}</time>
                                 </div>
                                 <p> {{$new->caption}} </p>
                                 <a href="{{route('news.detail',$new->slug)}}" class="hvr-underline-from-left">Read More</a>
                             </div>
                             <!--prenews-item__content-->
                         </div>
-                    </div>
+                    </div>titile
                     @endforeach
 
                 </div>
