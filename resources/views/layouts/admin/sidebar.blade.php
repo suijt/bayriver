@@ -33,7 +33,7 @@
             <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500" id="#kt_aside_menu" data-kt-menu="true" data-kt-menu-expand="false">
                 <div class="menu-item">
                     <div class="menu-content pb-2">
-                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">Dashboard</span>
+                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">CMS</span>
                     </div>
                 </div>
                 <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
@@ -42,7 +42,7 @@
                         <span class="menu-icon">
                             <i class="bi bi-grid fs-3"></i>
                         </span>
-                        <span class="menu-title">Home</span>
+                        <span class="menu-title">Dashboard</span>
                     </a>
                 </div>
                 <div class="menu-item">

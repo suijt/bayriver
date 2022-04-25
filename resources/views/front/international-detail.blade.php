@@ -928,10 +928,10 @@
                             @foreach ($featuredNews as $news)
                             <div class="prenews-item">
                                 <div class="prenews-item__inner">
-                                    <a href="#" class="prenews-item__image" style="background-image: url({{asset($news->image_path)}});">
+                                    <a href="{{route('news.detail',$news->slug)}}" class="prenews-item__image" style="background-image: url({{asset($news->image_path)}});">
                                     </a>
                                     <div class="prenews-item__content">
-                                        <h3><a href="#">{{$news->title}}</a> </h3>
+                                        <h3><a href="{{route('news.detail',$news->slug)}}">{{$news->title}}</a> </h3>
                                         <p> {{$news->caption}} </p>
                                     </div>
                                     <!--prenews-item__content-->

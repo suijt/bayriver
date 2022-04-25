@@ -236,13 +236,12 @@
                         </div>
                         <div class="prenews flex-container">
                             @foreach ($featuredNews as $news)
-
                             <div class="prenews-item">
                                 <div class="prenews-item__inner">
-                                    <a href="#" class="prenews-item__image" style="background-image: url({asset($news->image_path)}});">
+                                    <a href="{{route('news.detail',$news->slug)}}" class="prenews-item__image" style="background-image: url({{asset($news->image_path)}});">
                                     </a>
                                     <div class="prenews-item__content">
-                                        <h3><a href="#">{{$news->title}}</a> </h3>
+                                        <h3><a href="{{route('news.detail',$news->slug)}}">{{$news->title}}</a> </h3>
                                         <p> {{$news->caption}} </p>
                                     </div>
                                     <!--prenews-item__content-->
@@ -429,7 +428,7 @@
                 <div class="container flex-container">
                     <div class="left-col">
                         <div class="left-col__intro">
-                            <h2 class="intro-courseintro">Industrail Acceptance </h2>
+                            <h2 class="intro-courseintro">Industrial Acceptance </h2>
 
                             {!! $course->industrial_desc !!}
 
@@ -442,44 +441,45 @@
 
                     <div class="right-col">
 
-                        < @include('layouts.front.quicklinks') <!--table-of-contents-->
+                        @include('layouts.front.quicklinks')
+                        <!--table-of-contents-->
 
-                            @if($testimonials->isNotEmpty())
-                            <div class="right-col__testimonial">
-                                <h2> What Our Students Say?</h2>
-                                <div class="student-review">
-                                    @foreach ($testimonials as $testimonial)
-                                    <div class="student-review__item">
-                                        {!! $testimonial->description !!}
-                                        <h4 class="student-review__std"> {{$testimonial->title}} </h4>
-                                    </div>
-                                    @endforeach
+                        @if($testimonials->isNotEmpty())
+                        <div class="right-col__testimonial">
+                            <h2> What Our Students Say?</h2>
+                            <div class="student-review">
+                                @foreach ($testimonials as $testimonial)
+                                <div class="student-review__item">
+                                    {!! $testimonial->description !!}
+                                    <h4 class="student-review__std"> {{$testimonial->title}} </h4>
                                 </div>
+                                @endforeach
                             </div>
-                            @endif
-                            <!--right-col__testimonial-->
-                            <div class="right-col__testimonial-video">
-                                <iframe width="560" height="315" src="https://www.youtube.com/embed/{{$course->video_link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
+                        </div>
+                        @endif
+                        <!--right-col__testimonial-->
+                        <div class="right-col__testimonial-video">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{$course->video_link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
 
-                            @if($clients->isNotEmpty())
-                            <section class="logo-carousel">
+                        @if($clients->isNotEmpty())
+                        <section class="logo-carousel">
 
-                                <h2 class="section-class"> Our Associates & Partner</h2>
-                                <ul class="partners-carousel partners-carousel__secondary">
-                                    @foreach ($clients as $client)
+                            <h2 class="section-class"> Our Associates & Partner</h2>
+                            <ul class="partners-carousel partners-carousel__secondary">
+                                @foreach ($clients as $client)
 
-                                    <li>
-                                        <a href="{{$client->caption}}" class="partner-carousel__thumbnail" target="_blank"> <img src="{{asset($client->image_path)}}" alt="{{$client->title}}"></a>
+                                <li>
+                                    <a href="{{$client->caption}}" class="partner-carousel__thumbnail" target="_blank"> <img src="{{asset($client->image_path)}}" alt="{{$client->title}}"></a>
 
-                                    </li>
-                                    @endforeach
+                                </li>
+                                @endforeach
 
-                                </ul>
+                            </ul>
 
-                            </section>
-                            @endif
-                            <!--logo-carousel-->
+                        </section>
+                        @endif
+                        <!--logo-carousel-->
 
                     </div>
                 </div>
