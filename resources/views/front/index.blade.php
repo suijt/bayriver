@@ -256,7 +256,7 @@
 
         </div>
         <div class="news-event__adv">
-            <a href="#" style="background-image: url({{asset('assets/front/images/news-adv.jpg')}});"></a>
+            <a href="{{config('settings.site_advertise_link')}}" style="background-image: url({{asset(config('settings.site_advertise_image_image_path'))}});"></a>
         </div>
     </section>
     @endif

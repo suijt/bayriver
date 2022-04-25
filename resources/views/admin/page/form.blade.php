@@ -162,7 +162,7 @@
                         <div class="image-input image-input-circle" data-kt-image-input="true" style="background-image: url({{asset('assets/admin/media/svg/avatars/007-boy-2.svg')}})">
                             <!--begin::Image preview wrapper-->
                             <div class="image-input-wrapper w-125px h-125px" @if(isset($page->banner_image))
-                                style="background-image:url({{asset($page->banner_image_path) }})"
+                                style="background-image:url({{asset($page->banner_path) }})"
                                 @endif></div>
                             <!--end::Image preview wrapper-->
 
