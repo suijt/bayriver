@@ -49,7 +49,7 @@ class Page extends Model
 
     function getBannerPathAttribute()
     {
-        if ($this->image)
+        if ($this->banner_image)
             return $this->path . '/' . $this->banner_image;
         else
             return 'admin/media/misc/noimage.png';
