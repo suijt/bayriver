@@ -141,12 +141,14 @@ class CourseService extends Service
      */
     public function featuredCourse()
     {
-        return $this->course->whereStatus('active')->whereIsFeatured('yes')->whereIsInternational('no')->orderBy('order', 'asc')->get();
+        // return $this->course->whereStatus('active')->whereIsFeatured('yes')->whereIsInternational('no')->orderBy('order', 'asc')->get();
+        return $this->course->whereStatus('active')->whereIsFeatured('yes')->orderBy('order', 'asc')->get();
     }
 
     public function featuredIntCourse()
     {
-        return $this->course->whereStatus('active')->whereIsFeatured('yes')->whereIsInternational('yes')->orderBy('order', 'asc')->get();
+        // return $this->course->whereStatus('active')->whereIsFeatured('yes')->whereIsInternational('yes')->orderBy('order', 'asc')->get();
+        return $this->course->whereStatus('active')->whereIsFeatured('yes')->orderBy('order', 'asc')->get();
     }
 
     /**
