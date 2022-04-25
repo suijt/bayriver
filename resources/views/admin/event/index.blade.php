@@ -1,6 +1,6 @@
 @extends('layouts.admin.app')
 
-@section('title', 'News')
+@section('title', 'Event')
 
 @section('breadcrumb')
 <div class="toolbar" id="kt_toolbar">
@@ -12,7 +12,7 @@
                 <a href="{{route('admin.dashboard') }}" class="text-muted">Dashboard</a>
             </li>
             <li class="breadcrumb-item text-muted">
-                <a href="{{ route('admin.news.index')}}" class="text-muted">News</a>
+                <a href="{{ route('admin.event.index')}}" class="text-muted">Event</a>
             </li>
             <li class="breadcrumb-item text-active">
                 <a href="#" class="text-active">Listing</a>
@@ -22,7 +22,7 @@
         <!--begin::Actions-->
         <div class="d-flex align-items-center py-1">
             <!--begin::Button-->
-            <a href="{{route('admin.news.create')}}" class="btn btn-sm btn-primary" id="kt_toolbar_primary_button">Create
+            <a href="{{route('admin.event.create')}}" class="btn btn-sm btn-primary" id="kt_toolbar_primary_button">Create
                 New Record</a>
             <!--end::Button-->
         </div>
@@ -51,7 +51,7 @@
         <div class="card card-custom">
             <div class="card-header flex-wrap py-5">
                 <div class="card-title">
-                    <h3 class="card-label">News List</h3>
+                    <h3 class="card-label">Event List</h3>
                 </div>
             </div>
             <div class="card-body">
@@ -110,7 +110,7 @@
                     ],
                     stateSave: true,
                     ajax: {
-                        url: "{{ route('admin.news.data') }}",
+                        url: "{{ route('admin.event.data') }}",
                     },
                     columns: [{
                             "data": "id",

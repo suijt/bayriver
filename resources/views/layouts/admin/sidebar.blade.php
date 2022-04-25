@@ -121,7 +121,19 @@
                                 <i class="bi bi-newspaper fs-3"></i>
 
                             </span>
-                            <span class="menu-title">News/Event Management</span>
+                            <span class="menu-title">News Management</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item">
+                        <a class="menu-link {{ request()->is('admin/event') || request()->is('admin/event/*')
+                        ? " active" : "" }}" href="{{route('admin.event.index')}}">
+                            <span class="menu-icon">
+                                <i class="bi bi-newspaper fs-3"></i>
+
+                            </span>
+                            <span class="menu-title">Events Management</span>
                         </a>
                     </div>
                 </div>

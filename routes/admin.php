@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\Setting\SettingController;
 use App\Http\Controllers\Admin\Category\CategoryController;
 use App\Http\Controllers\Admin\Course\CourseController;
 use App\Http\Controllers\Admin\News\NewsController;
+use App\Http\Controllers\Admin\Event\EventController;
 use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
@@ -41,6 +42,11 @@ Route::group([
     $router->resource('news', NewsController::class);
     $router->get('news/{id}/destroy', [NewsController::class, 'destroy'])->name('news.destroy');
     $router->get('news-data', [NewsController::class, 'getAllData'])->name('news.data');
+
+    //Event
+    $router->resource('event', EventController::class);
+    $router->get('event/{id}/destroy', [EventController::class, 'destroy'])->name('event.destroy');
+    $router->get('event-data', [EventController::class, 'getAllData'])->name('event.data');
 
     //Team
     $router->resource('team', TeamController::class);

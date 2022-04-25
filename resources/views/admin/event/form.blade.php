@@ -79,6 +79,16 @@
                         </label>
                     </div>
                 </div>
+                <input class="form-check-input" name="is_event" type="hidden" value="yes" />
+                <div class="form-group row mt-5">
+                    <label class="col-12 ">Event Date</label>
+                    <div class="col-12">
+                        <label class="form-check form-switch form-check-custom form-check-solid">
+                            <input type="date" class="form-control @error('event_date') is-invalid @enderror" placeholder="Date" name="event_date" value="@if(isset($news)){{$news->event_date}}@else{{old('event_date')}}@endif" />
+                        </label>
+                    </div>
+                </div>
+
                 <div class="form-group row mt-5">
                     <label class="col-6 ">Order</label>
                     <div class="col-6">

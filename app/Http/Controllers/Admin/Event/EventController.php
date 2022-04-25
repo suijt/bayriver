@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\News;
+namespace App\Http\Controllers\Admin\Event;
 
 use App\Http\Requests\Admin\News\NewsRequest;
 use App\Modules\Services\News\NewsService;
@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Kamaln7\Toastr\Facades\Toastr;
 
-class NewsController extends Controller
+class EventController extends Controller
 {
 
     protected $news;
@@ -25,12 +25,12 @@ class NewsController extends Controller
      */
     public function index()
     {
-        return view('admin.news.index');
+        return view('admin.event.index');
     }
 
     public function getAllData()
     {
-        return $this->news->getAllData('news');
+        return $this->news->getAllData('event');
     }
 
     /**
@@ -40,7 +40,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('admin.news.create');
+        return view('admin.event.create');
     }
 
     /**
@@ -64,10 +64,10 @@ class NewsController extends Controller
             }
 
             Toastr::success('News/Service Image created successfully.', 'Success !!!', ["positionClass" => "toast-bottom-right"]);
-            return redirect()->route('admin.news.index');
+            return redirect()->route('admin.event.index');
         }
         Toastr::error('News/Service Image cannot be created.', 'Oops !!!', ["positionClass" => "toast-bottom-right"]);
-        return redirect()->route('admin.news.index');
+        return redirect()->route('admin.event.index');
     }
 
     /**
@@ -90,7 +90,7 @@ class NewsController extends Controller
     public function edit($id)
     {
         $news = $this->news->find($id);
-        return view('admin.news.edit', compact('news'));
+        return view('admin.event.edit', compact('news'));
     }
 
     /**
@@ -114,10 +114,10 @@ class NewsController extends Controller
                 $this->uploadFile($request, $news, 'icon_image');
             }
             Toastr::success('News/Service Image updated successfully.', 'Success !!!', ["positionClass" => "toast-bottom-right"]);
-            return redirect()->route('admin.news.index');
+            return redirect()->route('admin.event.index');
         }
         Toastr::error('News/Service Image cannot be updated.', 'Oops !!!', ["positionClass" => "toast-bottom-right"]);
-        return redirect()->route('admin.news.index');
+        return redirect()->route('admin.event.index');
     }
 
     /**
@@ -130,10 +130,10 @@ class NewsController extends Controller
     {
         if ($this->news->delete($id)) {
             Toastr::success('News/Service Image deleted successfully.', 'Success !!!', ["positionClass" => "toast-bottom-right"]);
-            return redirect()->route('admin.news.index');
+            return redirect()->route('admin.event.index');
         }
         Toastr::error('News/Service Image cannot be deleted.', 'Oops !!!', ["positionClass" => "toast-bottom-right"]);
-        return redirect()->route('admin.news.index');
+        return redirect()->route('admin.event.index');
     }
 
     function uploadFile(Request $request, $news, $type = null)

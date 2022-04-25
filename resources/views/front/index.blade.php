@@ -28,7 +28,7 @@
     @foreach ($highlights as $highlight)
     <div class="moving-text">
         <div class="container">
-            <marquee>{{$highlight->title}}</marquee>
+            <marquee><a href="{{route('news.detail',$highlight->slug)}}">{{$highlight->title}}</a></marquee>
         </div>
     </div>
     @endforeach

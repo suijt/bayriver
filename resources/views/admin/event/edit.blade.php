@@ -1,6 +1,6 @@
 @extends('layouts.admin.app')
 
-@section('title', 'News')
+@section('title', 'Event')
 
 @section('content')
 <div class="toolbar" id="kt_toolbar">
@@ -12,7 +12,7 @@
                 <a href="{{route('admin.dashboard') }}" class="text-muted">Dashboard</a>
             </li>
             <li class="breadcrumb-item text-muted">
-                <a href="{{ route('admin.news.index')}}" class="text-muted">News</a>
+                <a href="{{ route('admin.event.index')}}" class="text-muted">Event</a>
             </li>
             <li class="breadcrumb-item text-active">
                 <a href="#" class="text-active">Edit</a>
@@ -22,9 +22,9 @@
     </div>
     <!--end::Container-->
 </div>
-<form action="{{route('admin.news.update',$news->id)}}" method="post" class="custom-validation" enctype="multipart/form-data">
+<form action="{{route('admin.event.update',$news->id)}}" method="post" class="custom-validation" enctype="multipart/form-data">
     @csrf
     @method('PATCH')
-    @include('admin.news.form')
+    @include('admin.event.form')
 </form>
 @endsection

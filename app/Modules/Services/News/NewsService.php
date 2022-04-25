@@ -19,9 +19,14 @@ class NewsService extends Service
 
 
     /*For DataTable*/
-    public function getAllData()
+    public function getAllData($type = null)
     {
-        $query = $this->news->get();
+        if ($type == 'news') {
+            $query = $this->news->whereIsEvent('no')->get();
+        }
+        if ($type == 'event') {
+            $query = $this->news->whereIsEvent('yes')->get();
+        }
         return DataTables::of($query)
             ->addIndexColumn()
             ->editColumn('image', function (News $news) {
@@ -33,13 +38,6 @@ class NewsService extends Service
                 } else {
                     return 'N/A';
                 }
-            })
-            ->editColumn('type', function (News $news) {
-                if ($news->is_event == 'yes') {
-                    return '<strong> Event </strong>';
-                } else {
-                    return '<strong> News </strong>';
-                };
             })
             ->editColumn('status', function (News $news) {
                 return getTableHtml($news, 'status');
@@ -59,8 +57,14 @@ class NewsService extends Service
                 };
             })
             ->editColumn('actions', function (News $news) {
-                $editRoute = route('admin.news.edit', $news->id);
-                $deleteRoute = route('admin.news.destroy', $news->id);
+                if ($news->is_event == 'yes') {
+                    $editRoute = route('admin.event.edit', $news->id);
+                    $deleteRoute = route('admin.event.destroy', $news->id);
+                } else {
+
+                    $editRoute = route('admin.news.edit', $news->id);
+                    $deleteRoute = route('admin.news.destroy', $news->id);
+                }
                 return getTableHtml($news, 'actions', $editRoute, $deleteRoute);
             })->rawColumns(['actions', 'image', 'type', 'status', 'featured', 'headline', 'title'])
             ->make(true);
@@ -71,7 +75,6 @@ class NewsService extends Service
         try {
             $data['status'] = (isset($data['status']) ? $data['status'] : '') == 'on' ? 'active' : 'in_active';
             $data['is_featured'] = (isset($data['is_featured']) ? $data['is_featured'] : '') == 'on' ? 'yes' : 'no';
-            $data['is_event'] = (isset($data['is_event']) ? $data['is_event'] : '') == 'on' ? 'yes' : 'no';
             $data['is_headline'] = (isset($data['is_headline']) ? $data['is_headline'] : '') == 'on' ? 'yes' : 'no';
             $data['created_by'] = Auth::user()->id;
             $news = $this->news->create($data);
@@ -164,7 +167,6 @@ class NewsService extends Service
         try {
             $data['status'] = (isset($data['status']) ? $data['status'] : '') == 'on' ? 'active' : 'in_active';
             $data['is_featured'] = (isset($data['is_featured']) ? $data['is_featured'] : '') == 'on' ? 'yes' : 'no';
-            $data['is_event'] = (isset($data['is_event']) ? $data['is_event'] : '') == 'on' ? 'yes' : 'no';
             $data['is_headline'] = (isset($data['is_headline']) ? $data['is_headline'] : '') == 'on' ? 'yes' : 'no';
             $data['last_updated_by'] = Auth::user()->id;
             $news = $this->news->find($newsId);
