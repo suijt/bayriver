@@ -130,7 +130,7 @@
                         <a class="menu-link {{ request()->is('admin/event') || request()->is('admin/event/*')
                         ? " active" : "" }}" href="{{route('admin.event.index')}}">
                             <span class="menu-icon">
-                                <i class="bi bi-newspaper fs-3"></i>
+                                <i class="bi bi-calendar fs-3"></i>
 
                             </span>
                             <span class="menu-title">Events Management</span>
