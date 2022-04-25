@@ -5,28 +5,29 @@
 <!--begin::Body-->
 
 <body>
+    @if(config('settings.site_cookies_message'))
     <div class="popup-message">
         <div class="container">
             <div class="popup-message__content">
-                <p>Cookies message Cookies message Cookies message Cookies message Cookies message Cookies message Cookies message Cookies message Cookies message . We use cookies to personalise content and ads, to provide social media features and to analyse our traffic. We also share information about your use of our site with our social media, advertising and analytics partners.</p>
+                {!! config('settings.site_cookies_message') !!}
             </div>
             <a href="#" class="popup-message__close"> Close X</a>
 
         </div>
 
     </div>
+    @endif
+    @if(config('settings.site_popup_message'))
     <section class="modal-box">
         <span class="modal-box__overlay"></span>
         <div class="modal-box__overflow">
             <div class="modal-box__inner">
                 <div class="entry-content modal-box__body">
-                    <h3>COVID-19 UPDATE</h3>
-                    <p>
-                        We have online class starting from March 06, due to Covid. We have online class starting from March 06, due to Covid. We have online class starting from March 06, due to Covid. We have online class starting from March 06, due to Covid.
-                    </p>
+                    <h3>config('settings.site_popup_title')</h3>
+                    {!! config('settings.site_popup_message') !!}
                 </div>
-                <a class="btn" href="#" target="_blank">
-                    Learn More
+                <a class="btn" href="{{config('settings.site_popup_link')}}" target="_blank">
+                    {{config('settings.site_popup_button_text')}}
                 </a>
                 <button type="button" class="modal-close" title="Close">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -36,6 +37,7 @@
             </div>
         </div>
     </section>
+    @endif
     <div class="main-content">
         @include('layouts.front.header')
         @yield('content')
