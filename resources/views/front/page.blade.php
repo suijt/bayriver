@@ -4,7 +4,7 @@
 
 @section('content')
 <main class="site-content">
-    <section class="inner-banner" style="background-image: url({{asset($page->banner_image_path)}});">
+    <section class="inner-banner" style="background-image: url({{asset($page->banner_path)}});">
         <div class="inner-banner__content">
             <div class="container">
                 <h1>{{$page->name}}</h1>
