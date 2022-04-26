@@ -53,7 +53,7 @@
                             </ul>
                         </div>
                         <!--left-col__programinfo-->
-                        <div class="left-col__learningoutcome" style="background-image: url({{asset('assets/front/images/slider5.jpg')}}">
+                        <div class="left-col__learningoutcome" style="background-image: url({{asset($course->paralax_image_path)}}">
                             {!! $course->learning_outcome !!}
                         </div>
                         <!--left-col__programinfo-->
@@ -97,8 +97,8 @@
                                             <input type="text" id="name" name="name" placeholder="Your Name.." required="">
                                             @error('name')
                                             <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                             </span>
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                             @enderror
                                         </div>
                                         <div class="form-item">
@@ -106,7 +106,7 @@
                                             <input type="email" id="email" name="email" placeholder="Email" required="">
                                             @error('email')
                                             <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
+                                                <strong>{{ $message }}</strong>
                                             </span>
                                             @enderror
                                         </div>
@@ -115,7 +115,7 @@
                                             <input type="text" id="phone" name="phone" placeholder="Phone">
                                             @error('phone')
                                             <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
+                                                <strong>{{ $message }}</strong>
                                             </span>
                                             @enderror
                                         </div>
@@ -124,7 +124,7 @@
                                             <input type="text" id="address" name="address" placeholder="Address">
                                             @error('address')
                                             <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
+                                                <strong>{{ $message }}</strong>
                                             </span>
                                             @enderror
                                         </div>
@@ -133,7 +133,7 @@
                                             <input type="date" id="date" name="date" placeholder="Date">
                                             @error('date')
                                             <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
+                                                <strong>{{ $message }}</strong>
                                             </span>
                                             @enderror
                                         </div>
@@ -159,8 +159,8 @@
                                             <input type="text" id="name2" name="name" placeholder="Your name.." required="">
                                             @error('name')
                                             <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                             </span>
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                             @enderror
                                         </div>
                                         <div class="form_two-col">
@@ -169,8 +169,8 @@
                                                 <input type="email" id="email2" name="email" placeholder="Email" required="">
                                                 @error('email')
                                                 <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                             </span>
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
                                                 @enderror
                                             </div>
                                             <div class="form-item">
@@ -178,8 +178,8 @@
                                                 <input type="text" id="phone2" name="phone" placeholder="Phone">
                                                 @error('phone')
                                                 <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                             </span>
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
                                                 @enderror
                                             </div>
                                         </div>
@@ -195,8 +195,8 @@
                                                 </select>
                                                 @error('program')
                                                 <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                             </span>
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
                                                 @enderror
                                             </div>
 
@@ -210,8 +210,8 @@
                                                 </select>
                                                 @error('interest')
                                                 <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                             </span>
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
                                                 @enderror
                                             </div>
                                         </div>
@@ -220,8 +220,8 @@
                                             <textarea placeholder="Describe yourself here..." name="message"></textarea>
                                             @error('message')
                                             <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                             </span>
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                             @enderror
                                         </div>
                                         <div class="form-button">

@@ -73,6 +73,9 @@ class CourseController extends Controller
             if ($request->hasFile('icon_image')) {
                 $this->uploadFile($request, $course, 'icon_image');
             }
+            if ($request->hasFile('paralax_image')) {
+                $this->uploadFile($request, $course, 'paralax_image');
+            }
 
             Toastr::success('Course created successfully.', 'Success !!!', ["positionClass" => "toast-bottom-right"]);
             return redirect()->route('admin.course.index');
@@ -129,6 +132,9 @@ class CourseController extends Controller
             }
             if ($request->hasFile('icon_image')) {
                 $this->uploadFile($request, $course, 'icon_image');
+            }
+            if ($request->hasFile('paralax_image')) {
+                $this->uploadFile($request, $course, 'paralax_image');
             }
             Toastr::success('Course updated successfully.', 'Success !!!', ["positionClass" => "toast-bottom-right"]);
             return redirect()->route('admin.course.index');

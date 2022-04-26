@@ -50,6 +50,7 @@ class CreateCoursesTable extends Migration
             $table->string('secondary_image')->nullable();
             $table->string('banner_image')->nullable();
             $table->string('icon_image')->nullable();
+            $table->string('paralax_image')->nullable();
             $table->integer('order')->nullable();
             $table->integer('created_by')->nullable();
             $table->integer('last_updated_by')->nullable();

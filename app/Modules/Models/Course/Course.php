@@ -29,10 +29,10 @@ class Course extends Model
         'program_type', 'learning_outcome', 'learning_features', 'prerequisite_desc',
         'prerequisite_subdesc', 'financial_desc', 'industrial_desc', 'video_link',
         'is_featured', 'is_program', 'is_affiliated', 'is_continious', 'is_international', 'image', 'secondary_image', 'banner_image', 'icon_image',
-        'status', 'order', 'deleted_at', 'created_by', 'last_updated_by', 'last_deleted_by'
+        'paralax_image', 'status', 'order', 'deleted_at', 'created_by', 'last_updated_by', 'last_deleted_by'
     ];
     protected $appends = [
-        'thumbnail_path', 'image_path', 'secondary_image_path', 'banner_image_path', 'icon_image_path', 'status_text'
+        'thumbnail_path', 'image_path', 'secondary_image_path', 'banner_image_path', 'icon_image_path', 'paralax_image_path', 'status_text'
     ];
 
     function category()
@@ -58,6 +58,11 @@ class Course extends Model
     function getIconImagePathAttribute()
     {
         return $this->path . '/' . $this->icon_image;
+    }
+
+    function getParalaxImagePathAttribute()
+    {
+        return $this->path . '/' . $this->paralax_image;
     }
 
     function getImagePathAttribute()

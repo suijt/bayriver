@@ -66,7 +66,7 @@ class FrontendController extends Controller
         $this->news = $news;
         $this->country = $country;
         $this->page = $page;
-        $this->faq=$faq;
+        $this->faq = $faq;
     }
 
     public function index()
@@ -97,8 +97,8 @@ class FrontendController extends Controller
     {
         $testimonials = $this->testimonial->frontAll();
         $featuredNews = $this->news->featuredList('news', 4);
-        $faqs=$this->faq->all();
-        return view('front.about', compact('featuredNews', 'testimonials','faqs'));
+        $faqs = $this->faq->all();
+        return view('front.about', compact('featuredNews', 'testimonials', 'faqs'));
     }
 
     public function research()
@@ -126,9 +126,10 @@ class FrontendController extends Controller
         $featuredNews = $this->news->featuredList('news', 4);
         return view('front.courseDetail', compact('course', 'clients', 'relatedCourses', 'testimonials', 'featuredNews'));
     }
+
     public function courseSubmit(CourseRequest $request)
     {
-        $booking=CourseBooking::create($request->all());
+        $booking = CourseBooking::create($request->all());
         if ($booking) {
             $data = array(
                 'name' => $request['name'],
@@ -140,9 +141,10 @@ class FrontendController extends Controller
         }
         return 'Your Inquiry has been send to the administrator.';
     }
+
     public function courseAdvisor(CourseRequest $request)
     {
-        $advisor=CourseAdvisor::create($request->all());
+        $advisor = CourseAdvisor::create($request->all());
         if ($advisor) {
             $data = array(
                 'name' => $request['name'],
@@ -154,6 +156,7 @@ class FrontendController extends Controller
         }
         return 'Your Inquiry has been send to the administrator.';
     }
+
     public function internationalCourses()
     {
         $countries = $this->country->frontAll();
@@ -173,8 +176,9 @@ class FrontendController extends Controller
         return view('front.international-list', compact('countries', 'courses', 'clients', 'featuredNews', 'featuredEvents', 'mostFeaturedNews', 'highlights'));
     }
 
-    public function internationalSubmit(InternationalRequest $request){
-        $booking=InternationalBooking::create($request->all());
+    public function internationalSubmit(InternationalRequest $request)
+    {
+        $booking = InternationalBooking::create($request->all());
         if ($booking) {
             $data = array(
                 'name' => $request['name'],
@@ -186,9 +190,10 @@ class FrontendController extends Controller
         }
         return 'Your Inquiry has been send to the administrator.';
     }
+
     public function internationalAdvisor(InternationalRequest $request)
     {
-        $advisor=InternationalAdvisor::create($request->all());
+        $advisor = InternationalAdvisor::create($request->all());
         if ($advisor) {
             $data = array(
                 'name' => $request['name'],
@@ -201,10 +206,9 @@ class FrontendController extends Controller
         return 'Your Inquiry has been send to the administrator.';
     }
 
-
     public function internationalDetail($slug = null)
     {
-        $country = $this->country->getBySlug($slug);
+        $country = $this->country->getBySlug('international');
         $clients = $this->client->frontAll();
         $featuredCourses = $this->course->featuredIntCourse();
         $testimonials = $this->testimonial->frontAll();
@@ -215,7 +219,7 @@ class FrontendController extends Controller
 
     public function booking(BookingRequest $request)
     {
-        $booking=Booking::create($request->all());
+        $booking = Booking::create($request->all());
         if ($booking) {
             $data = array(
                 'name' => $request['name'],
@@ -256,15 +260,18 @@ class FrontendController extends Controller
         }
         return 'Your Inquiry has been send to the administrator.';
     }
-    public function apply(){
+
+    public function apply()
+    {
         return view('front.apply');
     }
+
     public function applySubmit(ApplyNowRequest $request)
     {
         $apply_now = ApplyNow::create($request->all());
         if ($apply_now) {
             $data = array(
-                'name' => $request['first_name'].' '.$request['last_name'],
+                'name' => $request['first_name'] . ' ' . $request['last_name'],
                 'email' => $request['email'],
                 'phone_number' => $request['phone_number'],
                 'message' => $request['address'],
@@ -273,7 +280,6 @@ class FrontendController extends Controller
         }
         return 'Your Inquiry has been send to the administrator.';
     }
-
 
     public function Page($slug)
     {
