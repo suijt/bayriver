@@ -77,18 +77,19 @@
             <div class="book-appointment__right-holder">
                 <div class="book-appointment__right-inner">
                     <h2>Ready To Book An Appointment</h2>
-                    <form id="contact" name="contact" method="mail.php">
+                    <form id="contact" name="contact" method="post" action="{{route('international.submit')}}" data-parsley-validate="">
+                        @csrf
                         <div class="form-item">
                             <!-- <label for="name">Name</label>-->
-                            <input type="text" id="name" name="Name" placeholder="Your Name..">
+                            <input type="text" id="name" name="name" placeholder="Your Name..">
                         </div>
                         <div class="form-item">
                             <!--<label for="email">Email</label>-->
-                            <input type="email" id="email" name="Email" placeholder="Email">
+                            <input type="email" id="email" name="email" placeholder="Email">
                         </div>
                         <div class="form-item">
                             <!-- <label for="phone">Phone</label>-->
-                            <input type="text" id="phone" name="Phone" placeholder="Phone">
+                            <input type="text" id="phone" name="phone" placeholder="Phone">
                         </div>
                         <div class="form-item">
                             <!--  <label for="address">Address</label>-->

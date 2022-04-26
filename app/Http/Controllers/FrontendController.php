@@ -3,20 +3,30 @@
 namespace App\Http\Controllers;
 
 use App\Mail\InquiryMail;
+use App\Mail\ApplyMail;
+use App\Mail\BookingMail;
+use App\Mail\AdvisorMail;
+use App\Modules\Models\Booking\CourseBooking;
+use App\Modules\Models\Advisor\CourseAdvisor;
+use App\Modules\Models\Advisor\InternationalAdvisor;
+use App\Modules\Models\Booking\InternationalBooking;
 use App\Modules\Models\Category\Category;
-use App\Modules\Models\Course\Course;
+use App\Modules\Models\FAQ\Faq;
+use App\Modules\Models\ApplyNow\ApplyNow;
 use App\Modules\Models\Inquiry\Inquiry;
 use App\Modules\Models\News\News;
 use App\Modules\Models\Page\Page;
 use App\Modules\Services\Client\ClientService;
 use App\Modules\Services\Country\CountryService;
 use App\Modules\Services\Course\CourseService;
+use App\Modules\Services\FAQ\FAQService;
 use App\Modules\Services\News\NewsService;
 use App\Modules\Services\Page\PageService;
 use App\Modules\Services\Slider\SliderService;
 use App\Modules\Services\Team\TeamService;
 use App\Modules\Services\Testimonial\TestimonialService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Mail;
 
 class FrontendController extends Controller
@@ -30,6 +40,7 @@ class FrontendController extends Controller
     protected $news;
     protected $country;
     protected $page;
+    protected $faq;
 
     public function __construct(
         SliderService $slider,
@@ -39,7 +50,8 @@ class FrontendController extends Controller
         CourseService $course,
         NewsService $news,
         CountryService $country,
-        PageService $page
+        PageService $page,
+        FAQService $faq
     ) {
         $this->slider = $slider;
         $this->team = $team;
@@ -49,6 +61,7 @@ class FrontendController extends Controller
         $this->news = $news;
         $this->country = $country;
         $this->page = $page;
+        $this->faq=$faq;
     }
 
     public function index()
@@ -79,7 +92,8 @@ class FrontendController extends Controller
     {
         $testimonials = $this->testimonial->frontAll();
         $featuredNews = $this->news->featuredList('news', 4);
-        return view('front.about', compact('featuredNews', 'testimonials'));
+        $faqs=$this->faq->all();
+        return view('front.about', compact('featuredNews', 'testimonials','faqs'));
     }
 
     public function research()
@@ -107,7 +121,34 @@ class FrontendController extends Controller
         $featuredNews = $this->news->featuredList('news', 4);
         return view('front.courseDetail', compact('course', 'clients', 'relatedCourses', 'testimonials', 'featuredNews'));
     }
-
+    public function courseSubmit(Request $request)
+    {
+        $booking=CourseBooking::create($request->all());
+        if ($booking) {
+            $data = array(
+                'name' => $request['name'],
+                'email' => $request['email'],
+                'phone_number' => $request['phone'],
+                'message' => $request['address'],
+            );
+            Mail::to('info@bayrivercollege.ca')->send(new BookingMail($data));
+        }
+        return 'Your Inquiry has been send to the administrator.';
+    }
+    public function courseAdvisor(Request $request)
+    {
+        $advisor=CourseAdvisor::create($request->all());
+        if ($advisor) {
+            $data = array(
+                'name' => $request['name'],
+                'email' => $request['email'],
+                'phone_number' => $request['phone'],
+                'message' => $request['message'],
+            );
+            Mail::to('info@bayrivercollege.ca')->send(new AdvisorMail($data));
+        }
+        return 'Your Inquiry has been send to the administrator.';
+    }
     public function internationalCourses()
     {
         $countries = $this->country->frontAll();
@@ -126,6 +167,35 @@ class FrontendController extends Controller
 
         return view('front.international-list', compact('countries', 'courses', 'clients', 'featuredNews', 'featuredEvents', 'mostFeaturedNews', 'highlights'));
     }
+
+    public function internationalSubmit(Request $request){
+        $booking=InternationalBooking::create($request->all());
+        if ($booking) {
+            $data = array(
+                'name' => $request['name'],
+                'email' => $request['email'],
+                'phone_number' => $request['phone'],
+                'message' => $request['address'],
+            );
+            Mail::to('info@bayrivercollege.ca')->send(new BookingMail($data));
+        }
+        return 'Your Inquiry has been send to the administrator.';
+    }
+    public function internationalAdvisor(Request $request)
+    {
+        $advisor=InternationalAdvisor::create($request->all());
+        if ($advisor) {
+            $data = array(
+                'name' => $request['name'],
+                'email' => $request['email'],
+                'phone_number' => $request['phone'],
+                'message' => $request['message'],
+            );
+            Mail::to('info@bayrivercollege.ca')->send(new AdvisorMail($data));
+        }
+        return 'Your Inquiry has been send to the administrator.';
+    }
+
 
     public function internationalDetail($slug = null)
     {
@@ -156,6 +226,7 @@ class FrontendController extends Controller
         return view('front.contact');
     }
 
+
     public function contactSubmit(Request $request)
     {
         $inquiry = Inquiry::create($request->all());
@@ -164,6 +235,25 @@ class FrontendController extends Controller
         }
         return 'Your Inquiry has been send to the administrator.';
     }
+    public function apply(){
+        return view('front.apply');
+    }
+    public function applySubmit(Request $request)
+    {
+        $apply_now = ApplyNow::create($request->all());
+        if ($apply_now) {
+            $data = array(
+                'name' => $request['first_name'].' '.$request['last_name'],
+                'email' => $request['email'],
+                'phone_number' => $request['phone_number'],
+                'message' => $request['address'],
+            );
+            Mail::to('info@bayrivercollege.ca')->send(new ApplyMail($data));
+        }
+        return 'Your Inquiry has been send to the administrator.';
+    }
+
+
     public function Page($slug)
     {
         $page = Page::where('slug', $slug)->first();

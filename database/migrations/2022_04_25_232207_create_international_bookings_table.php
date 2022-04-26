@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFaqsTable extends Migration
+class CreateInternationalBookingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateFaqsTable extends Migration
      */
     public function up()
     {
-        Schema::create('faqs', function (Blueprint $table) {
+        Schema::create('international_bookings', function (Blueprint $table) {
             $table->id();
-            $table->string('question')->nullable();
-            $table->string('answer')->nullable();
-            $table->softDeletes();
+            $table->string('name');
+            $table->string('email')->nullable();
+            $table->string('address')->nullable();
+            $table->unsignedDouble('phone')->nullable();
+            $table->date('date')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class CreateFaqsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('faqs');
+        Schema::dropIfExists('international_bookings');
     }
 }

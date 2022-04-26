@@ -90,18 +90,19 @@
                             <div class="book-appointment__right-holder">
                                 <div class="book-appointment__right-inner">
                                     <h2>Ready To Book An Appointment</h2>
-                                    <form id="contact" name="contact" method="mail.php">
+                                    <form id="contact" name="contact" method="post" action="{{route('course.submit')}}" data-parsley-validate="">
+                                        @csrf
                                         <div class="form-item">
                                             <!--  <label for="name">Name</label>-->
-                                            <input type="text" id="name" name="Name" placeholder="Your name..">
+                                            <input type="text" id="name" name="name" placeholder="Your name..">
                                         </div>
                                         <div class="form-item">
                                             <!-- <label for="email">Email</label>-->
-                                            <input type="email" id="email" name="Email" placeholder="Email">
+                                            <input type="email" id="email" name="email" placeholder="Email">
                                         </div>
                                         <div class="form-item">
                                             <!-- <label for="phone">Phone</label>-->
-                                            <input type="text" id="phone" name="Phone" placeholder="Phone">
+                                            <input type="text" id="phone" name="phone" placeholder="Phone">
                                         </div>
                                         <div class="form-item">
                                             <!--  <label for="address">Address</label>-->
@@ -126,39 +127,40 @@
                             <div class="book-appointment__right-holder">
                                 <div class="book-appointment__right-inner">
                                     <h2>To Know More <br>Contact To Advisor</h2>
-                                    <form id="contact2" name="contact" method="mail.php">
+                                    <form id="contact2" name="contact" method="post" action="{{route('contact.advisor')}}" data-parsley-validate="">
+                                        @csrf
                                         <div class="form-item">
                                             <!--  <label for="name">Name</label>-->
-                                            <input type="text" id="name2" name="Name" placeholder="Your name..">
+                                            <input type="text" id="name2" name="name" placeholder="Your name..">
                                         </div>
                                         <div class="form_two-col">
                                             <div class="form-item">
                                                 <!-- <label for="email">Email</label>-->
-                                                <input type="email" id="email2" name="Email" placeholder="Email">
+                                                <input type="email" id="email2" name="email" placeholder="Email">
                                             </div>
                                             <div class="form-item">
                                                 <!-- <label for="phone">Phone</label>-->
-                                                <input type="text" id="phone2" name="Phone" placeholder="Phone">
+                                                <input type="text" id="phone2" name="phone" placeholder="Phone">
                                             </div>
                                         </div>
                                         <!--form_two-col-->
                                         <div class="form_two-col">
                                             <div class="form-item">
                                                 <!-- <label for="phone">Phone</label>-->
-                                                <select>
-                                                    <option value="Program Name">Program Name </option>
-                                                    <option value="Course 2">Couser 2 </option>
-                                                    <option value="Course 3">Couser 3 </option>
-                                                    <option value="Course 4">Couser 4 </option>
+                                                <select name="program">
+                                                    <option value="program name">Program Name </option>
+                                                    <option value="Couser 2">Couser 2 </option>
+                                                    <option value="Couser 3">Couser 3 </option>
+                                                    <option value="Couser 4">Couser 4 </option>
                                                 </select>
                                             </div>
 
                                             <div class="form-item">
                                                 <!-- <label for="phone">Phone</label>-->
-                                                <select>
-                                                    <option value="Program Name">Interested In </option>
-                                                    <option value="Course 2">Class Room Leaning </option>
-                                                    <option value="Course 3">Online Learning </option>
+                                                <select name="interest">
+                                                    <option value="Interested In">Interested In </option>
+                                                    <option value="Class Room Leaning">Class Room Leaning </option>
+                                                    <option value="Online Learning">Online Learning </option>
 
                                                 </select>
 
@@ -166,7 +168,7 @@
                                         </div>
                                         <div class="form-item">
                                             <!-- <label for="phone">Phone</label>-->
-                                            <textarea placeholder="Describe yourself here..."></textarea>
+                                            <textarea placeholder="Describe yourself here..." name="message"></textarea>
 
 
                                         </div>

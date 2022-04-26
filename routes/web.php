@@ -27,6 +27,13 @@ Route::middleware('visitor')->group(function () {
     Route::get('/news', [FrontendController::class, 'newsList'])->name('news.list');
     Route::get('/news/{slug}', [FrontendController::class, 'newsDetail'])->name('news.detail');
     Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
+    Route::get('/apply', [FrontendController::class, 'apply'])->name('apply');
+
 });
 Route::post('/contact', [FrontendController::class, 'contactSubmit'])->name('contact.submit');
+Route::post('/apply-now', [FrontendController::class, 'applySubmit'])->name('apply.submit');
+Route::post('/course', [FrontendController::class, 'courseSubmit'])->name('course.submit');
+Route::post('/contact-advisor', [FrontendController::class, 'courseAdvisor'])->name('contact.advisor');
+Route::post('/international', [FrontendController::class, 'internationalSubmit'])->name('international.submit');
+Route::post('/international-advisor', [FrontendController::class, 'internationalAdvisor'])->name('international.advisor');
 Route::get('/{slug}', [FrontendController::class, 'Page'])->name('page.index');

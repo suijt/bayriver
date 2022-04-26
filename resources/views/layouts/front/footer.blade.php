@@ -73,3 +73,5 @@
 <script src="{{asset('assets/front/js/easyResponsiveTabs.js')}}"></script>
 <script src="{{asset('assets/front/js/menu.js')}}"></script>
 <script src="{{asset('assets/front/js/custom.js')}}"></script>
+
+@yield('script')

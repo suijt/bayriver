@@ -161,6 +161,18 @@
                         </a>
                     </div>
                 </div>
+                <div class="menu-item">
+                    <div class="menu-item">
+                        <a class="menu-link {{ request()->is('admin/faq') || request()->is('admin/faq/*')
+                        ? " active" : "" }}" href="{{route('admin.faq.index')}}">
+                            <span class="menu-icon">
+                                <i class="bi bi-pencil-square fs-3"></i>
+
+                            </span>
+                            <span class="menu-title">FAQ</span>
+                        </a>
+                    </div>
+                </div>
                 <!--end::Menu-->
             </div>
             <!--end::Aside Menu-->

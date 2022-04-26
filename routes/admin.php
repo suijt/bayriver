@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Auth\AdminLoginController;
 use App\Http\Controllers\Admin\Dashboard\DashboardController;
 use App\Http\Controllers\Admin\Slider\SliderController;
-use App\Http\Controllers\Admin\Product\ProductController;
+use App\Http\Controllers\Admin\FAQ\FAQController;
 use App\Http\Controllers\Admin\Testimonial\TestimonialController;
 use App\Http\Controllers\Admin\Team\TeamController;
 use App\Http\Controllers\Admin\Client\ClientController;
@@ -56,6 +56,11 @@ Route::group([
     $router->resource('page', PageController::class);
     $router->get('page/{id}/destroy', [PageController::class, 'destroy'])->name('page.destroy');
     $router->get('page-data', [PageController::class, 'getAllData'])->name('page.data');
+
+    //faq
+    $router->resource('faq', FAQController::class);
+    $router->get('faq/{id}/destroy', [FAQController::class, 'destroy'])->name('faq.destroy');
+    $router->get('faq-data', [FAQController::class, 'getAllData'])->name('faq.data');
 
 
     //Course

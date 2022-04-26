@@ -196,101 +196,23 @@
                         <h2>Frequently Asked Questions</h2>
 
                         <div class="queanswer">
-
+                            @foreach($faqs as $faq)
                             <div class="faqs-item">
 
-                                <h3>What programs are available in Bay River College <i class="fas fa-caret-right"></i></h3>
+                                <h3>{{$faq->question}} <i class="fas fa-caret-right"></i></h3>
 
 
                                 <div class="answer">
-                                    <p>We offer a wide variety of programs at Bay River College, designed to fill needed skilled positions within today’s job market.
-
-                                        We offer the following diploma programs:
+                                    <p>
+                                        {!! $faq->answer !!}
                                     </p>
-                                    <ul>
-                                        <li> Applied Environment Technology</li>
-                                        <li> Community Support Worker</li>
-                                        <li> Cyber Security and Cloud Computing</li>
-                                        <li> Education Assistant</li>
-                                        <li> Hospitality Business Management</li>
-                                        <li> Information Technology and Network Administrator</li>
-                                    </ul>
+
 
 
                                 </div>
                                 <!--answer-->
                             </div>
-
-                            <div class="faqs-item">
-
-                                <h3>Where is the campus located? <i class="fas fa-caret-right"></i></h3>
-
-
-                                <div class="answer">
-                                    <p>
-                                        Bay River College is located at 3516, 26 Street NE. Calgary Alberta, in the Horizon Business Park.
-                                        We are found just north of the Sheraton Cavalier Calgary Hotel, and near Sunridge Mall and the Peter Lougheed hospital. </p>
-                                </div>
-                                <!--answer-->
-                            </div>
-
-                            <div class="faqs-item">
-
-                                <h3>Is parking available for students <i class="fas fa-caret-right"></i></h3>
-
-
-                                <div class="answer">
-                                    <p>
-                                        There are a limited number of parking stalls available for students on the campus grounds. Parking is given free on a first-come-first-served basis. There are also street level parking spaces and overflow parking available at the Sheraton Cavalier Calgary Hotel and the Ramada Plaza and Conference Centre, located across the street from our campus.</p>
-                                </div>
-                                <!--answer-->
-                            </div>
-                            <!--faqs-item-->
-
-                            <div class="faqs-item">
-
-                                <h3>Is the public transportation available near or at the campus? <i class="fas fa-caret-right"></i></h3>
-
-
-                                <div class="answer">
-                                    <p>
-                                        Calgary Transit is accessible from within a two block walking distance. Check out www.calgarytransit.com to plan your trip to and from the campus!</p>
-                                </div>
-                                <!--answer-->
-                            </div>
-                            <!--faqs-item-->
-
-                            <div class="faqs-item">
-
-                                <h3>Is there access for the physical disabled? <i class="fas fa-caret-right"></i></h3>
-
-
-                                <div class="answer">
-                                    <p>
-                                        Due to the structure of our Calgary campus, access for those with mobility impairments may find it difficult to navigate around our our facilities, especially the upper levels. Please speak to one of our Admission Counselors to find out more and to discuss any accommodations we may be able to make.</p>
-                                </div>
-                                <!--answer-->
-                            </div>
-                            <!--faqs-item-->
-                            <div class="faqs-item">
-
-                                <h3>What class time are available? <i class="fas fa-caret-right"></i></h3>
-
-
-                                <div class="answer">
-                                    <p> Bay River College offers a variety of class times structured to suit almost any busy schedule. The following are typical class times that may be available for your chosen program.
-
-                                    </p>
-                                    <ul>
-                                        <li>Morning Classes: (Monday to Friday 9:00 AM to 1:00 PM) </li>
-                                        <li> Afternoon Classes: (Monday to Friday 1:00 PM to 5:00 PM) </li>
-                                        <li> Evening Classes: (Monday to Friday 5:00 PM to 9:00 PM) </li>
-                                        <li> Weekend Classes (limited courses only) </li>
-                                        <li> Saturday and Sunday from 10:00 AM to 4:00 PM </li>
-                                    </ul>
-                                </div>
-                                <!--answer-->
-                            </div>
+                                @endforeach
                             <!--faqs-item-->
                         </div>
                         <!--queans-->
