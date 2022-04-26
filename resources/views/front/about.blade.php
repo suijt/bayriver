@@ -23,7 +23,7 @@
                 <ul class="hor_1 resp-tabs-list course-nav__navigation">
                     <li>Our Campus </li>
                     <li>Why Bay River College</li>
-                    <li>Present Message </li>
+                    <li>President Message </li>
                     <li>FAQs </li>
                     <li>Careers </li>
 
@@ -212,7 +212,7 @@
                                 </div>
                                 <!--answer-->
                             </div>
-                                @endforeach
+                            @endforeach
                             <!--faqs-item-->
                         </div>
                         <!--queans-->
