@@ -76,26 +76,52 @@
             <div class="book-appointment__right-holder">
                 <div class="book-appointment__right-inner">
                     <h2>Ready To Book An Appointment</h2>
-                    <form id="contact" name="contact" method="mail.php">
+                    <form id="contact" name="contact" method="post" action="{{route('booking.submit')}}" data-parsley-validate="">
+                        @csrf
                         <div class="form-item">
                             <!-- <label for="name">Name</label>-->
-                            <input type="text" id="name" name="Name" placeholder="Your Name..">
+                            <input type="text" id="name" name="name" placeholder="Your Name.." required="">
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                         <div class="form-item">
                             <!--<label for="email">Email</label>-->
-                            <input type="email" id="email" name="Email" placeholder="Email">
+                            <input type="email" id="email" name="email" placeholder="Email" required="">
+                            @error('email')
+                            <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                         <div class="form-item">
                             <!-- <label for="phone">Phone</label>-->
-                            <input type="text" id="phone" name="Phone" placeholder="Phone">
+                            <input type="text" id="phone" name="phone" placeholder="Phone">
+                            @error('phone')
+                            <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                         <div class="form-item">
                             <!--  <label for="address">Address</label>-->
                             <input type="text" id="address" name="address" placeholder="Address">
+                            @error('address')
+                            <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                         <div class="form-item">
                             <!-- <label for="date">Date</label>-->
                             <input type="date" id="date" name="date" placeholder="Date">
+                            @error('date')
+                            <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
 
                         <div class="form-button">
@@ -263,3 +289,11 @@
 
 </main>
 @endsection
+@section('scripts')
+    <script src="https://parsleyjs.org/dist/parsley.min.js"></script>
+
+    <script type="text/javascript">
+        $('#contact').parsley();
+    </script>
+@endsection
+

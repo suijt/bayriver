@@ -1,6 +1,6 @@
 @extends('layouts.front.app')
 
-@section('title', 'Homepage')
+@section('title', $course->title)
 
 @section('content')
 <main class="site-content">
@@ -93,28 +93,53 @@
                                     <form id="contact" name="contact" method="post" action="{{route('course.submit')}}" data-parsley-validate="">
                                         @csrf
                                         <div class="form-item">
-                                            <!--  <label for="name">Name</label>-->
-                                            <input type="text" id="name" name="name" placeholder="Your name..">
+                                            <!-- <label for="name">Name</label>-->
+                                            <input type="text" id="name" name="name" placeholder="Your Name.." required="">
+                                            @error('name')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                             </span>
+                                            @enderror
                                         </div>
                                         <div class="form-item">
-                                            <!-- <label for="email">Email</label>-->
-                                            <input type="email" id="email" name="email" placeholder="Email">
+                                            <!--<label for="email">Email</label>-->
+                                            <input type="email" id="email" name="email" placeholder="Email" required="">
+                                            @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
                                         </div>
                                         <div class="form-item">
                                             <!-- <label for="phone">Phone</label>-->
                                             <input type="text" id="phone" name="phone" placeholder="Phone">
+                                            @error('phone')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
                                         </div>
                                         <div class="form-item">
                                             <!--  <label for="address">Address</label>-->
                                             <input type="text" id="address" name="address" placeholder="Address">
+                                            @error('address')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
                                         </div>
                                         <div class="form-item">
                                             <!-- <label for="date">Date</label>-->
                                             <input type="date" id="date" name="date" placeholder="Date">
+                                            @error('date')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
                                         </div>
 
                                         <div class="form-button">
-                                            <input class="button button--white" type="submit" value="Submit Now">
+                                            <input class="button" type="submit" value="Submit Now">
                                         </div>
                                     </form>
 
@@ -127,20 +152,35 @@
                             <div class="book-appointment__right-holder">
                                 <div class="book-appointment__right-inner">
                                     <h2>To Know More <br>Contact To Advisor</h2>
-                                    <form id="contact2" name="contact" method="post" action="{{route('contact.advisor')}}" data-parsley-validate="">
+                                    <form id="contact" name="contact" method="post" action="{{route('contact.advisor')}}" data-parsley-validate="">
                                         @csrf
                                         <div class="form-item">
                                             <!--  <label for="name">Name</label>-->
-                                            <input type="text" id="name2" name="name" placeholder="Your name..">
+                                            <input type="text" id="name2" name="name" placeholder="Your name.." required="">
+                                            @error('name')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                             </span>
+                                            @enderror
                                         </div>
                                         <div class="form_two-col">
                                             <div class="form-item">
                                                 <!-- <label for="email">Email</label>-->
-                                                <input type="email" id="email2" name="email" placeholder="Email">
+                                                <input type="email" id="email2" name="email" placeholder="Email" required="">
+                                                @error('email')
+                                                <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                             </span>
+                                                @enderror
                                             </div>
                                             <div class="form-item">
                                                 <!-- <label for="phone">Phone</label>-->
                                                 <input type="text" id="phone2" name="phone" placeholder="Phone">
+                                                @error('phone')
+                                                <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                             </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <!--form_two-col-->
@@ -153,6 +193,11 @@
                                                     <option value="Couser 3">Couser 3 </option>
                                                     <option value="Couser 4">Couser 4 </option>
                                                 </select>
+                                                @error('program')
+                                                <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                             </span>
+                                                @enderror
                                             </div>
 
                                             <div class="form-item">
@@ -163,14 +208,21 @@
                                                     <option value="Online Learning">Online Learning </option>
 
                                                 </select>
-
+                                                @error('interest')
+                                                <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                             </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-item">
                                             <!-- <label for="phone">Phone</label>-->
                                             <textarea placeholder="Describe yourself here..." name="message"></textarea>
-
-
+                                            @error('message')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                             </span>
+                                            @enderror
                                         </div>
                                         <div class="form-button">
                                             <input class="button button--white" type="submit" value="Submit Now">
@@ -519,4 +571,11 @@
     </div>
     <!--tab-holder-->
 </main>
+@endsection
+@section('scripts')
+<script src="https://parsleyjs.org/dist/parsley.min.js"></script>
+
+<script type="text/javascript">
+    $('#contact').parsley();
+</script>
 @endsection

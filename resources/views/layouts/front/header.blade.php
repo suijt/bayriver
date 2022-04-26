@@ -133,7 +133,7 @@
                                     </div>
                                 </li>-->
                                     <!-- <li class="apply-now"><a href="{{route('apply')}}">Apply Now</a></li> -->
-                                    <li class="apply-now"><a href="#">Apply Now</a></li>
+                                    <li class="apply-now"><a href="{{route('apply')}}">Apply Now</a></li>
                                 </ul>
                             </nav>
                         </div>

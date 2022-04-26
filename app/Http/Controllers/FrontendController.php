@@ -16,6 +16,7 @@ use App\Modules\Models\ApplyNow\ApplyNow;
 use App\Modules\Models\Inquiry\Inquiry;
 use App\Modules\Models\News\News;
 use App\Modules\Models\Page\Page;
+use App\Modules\Models\Booking\Booking;
 use App\Modules\Services\Client\ClientService;
 use App\Modules\Services\Country\CountryService;
 use App\Modules\Services\Course\CourseService;
@@ -26,6 +27,10 @@ use App\Modules\Services\Slider\SliderService;
 use App\Modules\Services\Team\TeamService;
 use App\Modules\Services\Testimonial\TestimonialService;
 use Illuminate\Http\Request;
+use App\Http\Requests\Front\ApplyNow\ApplyNowRequest;
+use App\Http\Requests\Front\Course\CourseRequest;
+use App\Http\Requests\Front\International\InternationalRequest;
+use App\Http\Requests\Front\Booking\BookingRequest;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Mail;
 
@@ -121,7 +126,7 @@ class FrontendController extends Controller
         $featuredNews = $this->news->featuredList('news', 4);
         return view('front.courseDetail', compact('course', 'clients', 'relatedCourses', 'testimonials', 'featuredNews'));
     }
-    public function courseSubmit(Request $request)
+    public function courseSubmit(CourseRequest $request)
     {
         $booking=CourseBooking::create($request->all());
         if ($booking) {
@@ -135,7 +140,7 @@ class FrontendController extends Controller
         }
         return 'Your Inquiry has been send to the administrator.';
     }
-    public function courseAdvisor(Request $request)
+    public function courseAdvisor(CourseRequest $request)
     {
         $advisor=CourseAdvisor::create($request->all());
         if ($advisor) {
@@ -168,7 +173,7 @@ class FrontendController extends Controller
         return view('front.international-list', compact('countries', 'courses', 'clients', 'featuredNews', 'featuredEvents', 'mostFeaturedNews', 'highlights'));
     }
 
-    public function internationalSubmit(Request $request){
+    public function internationalSubmit(InternationalRequest $request){
         $booking=InternationalBooking::create($request->all());
         if ($booking) {
             $data = array(
@@ -181,7 +186,7 @@ class FrontendController extends Controller
         }
         return 'Your Inquiry has been send to the administrator.';
     }
-    public function internationalAdvisor(Request $request)
+    public function internationalAdvisor(InternationalRequest $request)
     {
         $advisor=InternationalAdvisor::create($request->all());
         if ($advisor) {
@@ -207,6 +212,22 @@ class FrontendController extends Controller
         $internationalCourseCat = $this->country->getInternationalCourses($slug);
         return view('front.international-detail', compact('country', 'clients', 'testimonials', 'featuredNews', 'internationalCourseCat', 'featuredCourses'));
     }
+
+    public function booking(BookingRequest $request)
+    {
+        $booking=Booking::create($request->all());
+        if ($booking) {
+            $data = array(
+                'name' => $request['name'],
+                'email' => $request['email'],
+                'phone_number' => $request['phone'],
+                'message' => $request['address'],
+            );
+            Mail::to('info@bayrivercollege.ca')->send(new BookingMail($data));
+        }
+        return 'Your Inquiry has been send to the administrator.';
+    }
+
 
     public function newsList()
     {
@@ -238,7 +259,7 @@ class FrontendController extends Controller
     public function apply(){
         return view('front.apply');
     }
-    public function applySubmit(Request $request)
+    public function applySubmit(ApplyNowRequest $request)
     {
         $apply_now = ApplyNow::create($request->all());
         if ($apply_now) {

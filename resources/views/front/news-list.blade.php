@@ -1,6 +1,6 @@
 @extends('layouts.front.app')
 
-@section('title', 'Alumni')
+@section('title', 'News & Events')
 
 @section('content')
 <main class="site-content">

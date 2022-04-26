@@ -31,7 +31,8 @@ Route::middleware('visitor')->group(function () {
 
 });
 Route::post('/contact', [FrontendController::class, 'contactSubmit'])->name('contact.submit');
-Route::post('/apply-now', [FrontendController::class, 'applySubmit'])->name('apply.submit');
+Route::post('/booking', [FrontendController::class, 'booking'])->name('booking.submit');
+Route::post('/apply', [FrontendController::class, 'applySubmit'])->name('apply.submit');
 Route::post('/course', [FrontendController::class, 'courseSubmit'])->name('course.submit');
 Route::post('/contact-advisor', [FrontendController::class, 'courseAdvisor'])->name('contact.advisor');
 Route::post('/international', [FrontendController::class, 'internationalSubmit'])->name('international.submit');

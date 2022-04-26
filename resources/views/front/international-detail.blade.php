@@ -1,6 +1,6 @@
 @extends('layouts.front.app')
 
-@section('title', 'Homepage')
+@section('title', $country->title)
 
 @section('content')
 <main class="site-content">
@@ -84,20 +84,35 @@
                             <div class="book-appointment__right-holder">
                                 <div class="book-appointment__right-inner">
                                     <h2>To Know More <br>Contact To Advisor</h2>
-                                    <form id="contact2" name="contact" method="post" action="{{route('international.advisor')}}" data-parsley-validate="">
+                                    <form id="contact" name="contact" method="post" action="{{route('international.advisor')}}" data-parsley-validate="">
                                         @csrf
                                         <div class="form-item">
                                             <!--  <label for="name">Name</label>-->
-                                            <input type="text" id="name2" name="name" placeholder="Your name..">
+                                            <input type="text" id="name2" name="name" placeholder="Your name.." required="">
+                                            @error('name')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                             </span>
+                                            @enderror
                                         </div>
                                         <div class="form_two-col">
                                             <div class="form-item">
                                                 <!-- <label for="email">Email</label>-->
-                                                <input type="email" id="email2" name="email" placeholder="Email">
+                                                <input type="email" id="email2" name="email" placeholder="Email" required="">
+                                                @error('email')
+                                                <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                             </span>
+                                                @enderror
                                             </div>
                                             <div class="form-item">
                                                 <!-- <label for="phone">Phone</label>-->
                                                 <input type="text" id="phone2" name="phone" placeholder="Phone">
+                                                @error('phone')
+                                                <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                             </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <!--form_two-col-->
@@ -105,29 +120,41 @@
                                             <div class="form-item">
                                                 <!-- <label for="phone">Phone</label>-->
                                                 <select name="program">
-                                                    <option value="Program Name">Program Name </option>
-                                                    <option value="Course 2">Couser 2 </option>
-                                                    <option value="Course 3">Couser 3 </option>
-                                                    <option value="Course 4">Couser 4 </option>
+                                                    <option value="program name">Program Name </option>
+                                                    <option value="Couser 2">Couser 2 </option>
+                                                    <option value="Couser 3">Couser 3 </option>
+                                                    <option value="Couser 4">Couser 4 </option>
                                                 </select>
+                                                @error('program')
+                                                <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                             </span>
+                                                @enderror
                                             </div>
 
                                             <div class="form-item">
                                                 <!-- <label for="phone">Phone</label>-->
                                                 <select name="interest">
-                                                    <option value="Program Name">Interested In </option>
-                                                    <option value="Course 2">Class Room Leaning </option>
-                                                    <option value="Course 3">Online Learning </option>
+                                                    <option value="Interested In">Interested In </option>
+                                                    <option value="Class Room Leaning">Class Room Leaning </option>
+                                                    <option value="Online Learning">Online Learning </option>
 
                                                 </select>
-
+                                                @error('interest')
+                                                <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                             </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-item">
                                             <!-- <label for="phone">Phone</label>-->
                                             <textarea placeholder="Describe yourself here..." name="message"></textarea>
-
-
+                                            @error('message')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                             </span>
+                                            @enderror
                                         </div>
                                         <div class="form-button">
                                             <input class="button button--white" type="submit" value="Submit Now">
@@ -230,26 +257,52 @@
                             <div class="book-appointment__right-holder">
                                 <div class="book-appointment__right-inner">
                                     <h2>Ready To Book An Appointment</h2>
-                                    <form id="contact" name="contact" method="mail.php">
+                                    <form id="contact" name="contact" method="post" action="{{route('international.submit')}}" data-parsley-validate="">
+                                        @csrf
                                         <div class="form-item">
-                                            <!--  <label for="name">Name</label>-->
-                                            <input type="text" id="name" name="Name" placeholder="Your name..">
+                                            <!-- <label for="name">Name</label>-->
+                                            <input type="text" id="name" name="name" placeholder="Your Name.." required="">
+                                            @error('name')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                             </span>
+                                            @enderror
                                         </div>
                                         <div class="form-item">
-                                            <!-- <label for="email">Email</label>-->
-                                            <input type="email" id="email" name="Email" placeholder="Email">
+                                            <!--<label for="email">Email</label>-->
+                                            <input type="email" id="email" name="email" placeholder="Email" required="">
+                                            @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
                                         </div>
                                         <div class="form-item">
                                             <!-- <label for="phone">Phone</label>-->
-                                            <input type="text" id="phone" name="Phone" placeholder="Phone">
+                                            <input type="text" id="phone" name="phone" placeholder="Phone">
+                                            @error('phone')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
                                         </div>
                                         <div class="form-item">
                                             <!--  <label for="address">Address</label>-->
                                             <input type="text" id="address" name="address" placeholder="Address">
+                                            @error('address')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
                                         </div>
                                         <div class="form-item">
                                             <!-- <label for="date">Date</label>-->
                                             <input type="date" id="date" name="date" placeholder="Date">
+                                            @error('date')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
                                         </div>
 
                                         <div class="form-button">
@@ -266,49 +319,77 @@
                             <div class="book-appointment__right-holder">
                                 <div class="book-appointment__right-inner">
                                     <h2>To Know More <br>Contact To Advisor</h2>
-                                    <form id="contact4" name="contact" method="mail.php">
+                                    <form id="contact" name="contact" method="post" action="{{route('international.advisor')}}" data-parsley-validate="">
+                                        @csrf
                                         <div class="form-item">
                                             <!--  <label for="name">Name</label>-->
-                                            <input type="text" id="name4" name="Name" placeholder="Your name..">
+                                            <input type="text" id="name2" name="name" placeholder="Your name.." required="">
+                                            @error('name')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                             </span>
+                                            @enderror
                                         </div>
                                         <div class="form_two-col">
                                             <div class="form-item">
                                                 <!-- <label for="email">Email</label>-->
-                                                <input type="email" id="email4" name="Email" placeholder="Email">
+                                                <input type="email" id="email2" name="email" placeholder="Email" required="">
+                                                @error('email')
+                                                <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                             </span>
+                                                @enderror
                                             </div>
                                             <div class="form-item">
                                                 <!-- <label for="phone">Phone</label>-->
-                                                <input type="text" id="phone4" name="Phone" placeholder="Phone">
+                                                <input type="text" id="phone2" name="phone" placeholder="Phone">
+                                                @error('phone')
+                                                <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                             </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <!--form_two-col-->
                                         <div class="form_two-col">
                                             <div class="form-item">
                                                 <!-- <label for="phone">Phone</label>-->
-                                                <select>
-                                                    <option value="Program Name">Program Name </option>
-                                                    <option value="Course 2">Couser 2 </option>
-                                                    <option value="Course 3">Couser 3 </option>
-                                                    <option value="Course 4">Couser 4 </option>
+                                                <select name="program">
+                                                    <option value="program name">Program Name </option>
+                                                    <option value="Couser 2">Couser 2 </option>
+                                                    <option value="Couser 3">Couser 3 </option>
+                                                    <option value="Couser 4">Couser 4 </option>
                                                 </select>
+                                                @error('program')
+                                                <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                             </span>
+                                                @enderror
                                             </div>
 
                                             <div class="form-item">
                                                 <!-- <label for="phone">Phone</label>-->
-                                                <select>
-                                                    <option value="Program Name">Interested In </option>
-                                                    <option value="Course 2">Class Room Leaning </option>
-                                                    <option value="Course 3">Online Learning </option>
+                                                <select name="interest">
+                                                    <option value="Interested In">Interested In </option>
+                                                    <option value="Class Room Leaning">Class Room Leaning </option>
+                                                    <option value="Online Learning">Online Learning </option>
 
                                                 </select>
-
+                                                @error('interest')
+                                                <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                             </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-item">
                                             <!-- <label for="phone">Phone</label>-->
-                                            <textarea placeholder="Describe yourself here..."></textarea>
-
-
+                                            <textarea placeholder="Describe yourself here..." name="message"></textarea>
+                                            @error('message')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                             </span>
+                                            @enderror
                                         </div>
                                         <div class="form-button">
                                             <input class="button button--white" type="submit" value="Submit Now">
@@ -428,28 +509,53 @@
                             <div class="book-appointment__right-holder">
                                 <div class="book-appointment__right-inner">
                                     <h2>Ready To Book An Appointment</h2>
-                                    <form id="contact5" name="contact" method="mail.php">
+                                    <form id="contact" name="contact" method="post" action="{{route('international.submit')}}" data-parsley-validate="">
+                                        @csrf
                                         <div class="form-item">
-                                            <!--  <label for="name">Name</label>-->
-                                            <input type="text" id="name5" name="Name" placeholder="Your name..">
+                                            <!-- <label for="name">Name</label>-->
+                                            <input type="text" id="name" name="name" placeholder="Your Name.." required="">
+                                            @error('name')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                             </span>
+                                            @enderror
                                         </div>
                                         <div class="form-item">
-                                            <!-- <label for="email">Email</label>-->
-                                            <input type="email" id="email5" name="Email" placeholder="Email">
+                                            <!--<label for="email">Email</label>-->
+                                            <input type="email" id="email" name="email" placeholder="Email" required="">
+                                            @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
                                         </div>
                                         <div class="form-item">
                                             <!-- <label for="phone">Phone</label>-->
-                                            <input type="text" id="phone5" name="Phone" placeholder="Phone">
+                                            <input type="text" id="phone" name="phone" placeholder="Phone">
+                                            @error('phone')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
                                         </div>
                                         <div class="form-item">
                                             <!--  <label for="address">Address</label>-->
-                                            <input type="text" id="address5" name="address" placeholder="Address">
+                                            <input type="text" id="address" name="address" placeholder="Address">
+                                            @error('address')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
                                         </div>
                                         <div class="form-item">
                                             <!-- <label for="date">Date</label>-->
-                                            <input type="date" id="date5" name="date" placeholder="Date">
+                                            <input type="date" id="date" name="date" placeholder="Date">
+                                            @error('date')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
                                         </div>
-
                                         <div class="form-button">
                                             <input class="button button--white" type="submit" value="Submit Now">
                                         </div>
@@ -464,49 +570,77 @@
                             <div class="book-appointment__right-holder">
                                 <div class="book-appointment__right-inner">
                                     <h2>To Know More <br>Contact To Advisor</h2>
-                                    <form id="contact6" name="contact" method="mail.php">
+                                    <form id="contact" name="contact" method="post" action="{{route('international.advisor')}}" data-parsley-validate="">
+                                        @csrf
                                         <div class="form-item">
                                             <!--  <label for="name">Name</label>-->
-                                            <input type="text" id="name6" name="Name" placeholder="Your name..">
+                                            <input type="text" id="name2" name="name" placeholder="Your name.." required="">
+                                            @error('name')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                             </span>
+                                            @enderror
                                         </div>
                                         <div class="form_two-col">
                                             <div class="form-item">
                                                 <!-- <label for="email">Email</label>-->
-                                                <input type="email" id="email6" name="Email" placeholder="Email">
+                                                <input type="email" id="email2" name="email" placeholder="Email" required="">
+                                                @error('email')
+                                                <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                             </span>
+                                                @enderror
                                             </div>
                                             <div class="form-item">
                                                 <!-- <label for="phone">Phone</label>-->
-                                                <input type="text" id="phone6" name="Phone" placeholder="Phone">
+                                                <input type="text" id="phone2" name="phone" placeholder="Phone">
+                                                @error('phone')
+                                                <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                             </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <!--form_two-col-->
                                         <div class="form_two-col">
                                             <div class="form-item">
                                                 <!-- <label for="phone">Phone</label>-->
-                                                <select>
-                                                    <option value="Program Name">Program Name </option>
-                                                    <option value="Course 2">Couser 2 </option>
-                                                    <option value="Course 3">Couser 3 </option>
-                                                    <option value="Course 4">Couser 4 </option>
+                                                <select name="program">
+                                                    <option value="program name">Program Name </option>
+                                                    <option value="Couser 2">Couser 2 </option>
+                                                    <option value="Couser 3">Couser 3 </option>
+                                                    <option value="Couser 4">Couser 4 </option>
                                                 </select>
+                                                @error('program')
+                                                <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                             </span>
+                                                @enderror
                                             </div>
 
                                             <div class="form-item">
                                                 <!-- <label for="phone">Phone</label>-->
-                                                <select>
-                                                    <option value="Program Name">Interested In </option>
-                                                    <option value="Course 2">Class Room Leaning </option>
-                                                    <option value="Course 3">Online Learning </option>
+                                                <select name="interest">
+                                                    <option value="Interested In">Interested In </option>
+                                                    <option value="Class Room Leaning">Class Room Leaning </option>
+                                                    <option value="Online Learning">Online Learning </option>
 
                                                 </select>
-
+                                                @error('interest')
+                                                <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                             </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-item">
                                             <!-- <label for="phone">Phone</label>-->
-                                            <textarea placeholder="Describe yourself here..."></textarea>
-
-
+                                            <textarea placeholder="Describe yourself here..." name="message"></textarea>
+                                            @error('message')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                             </span>
+                                            @enderror
                                         </div>
                                         <div class="form-button">
                                             <input class="button button--white" type="submit" value="Submit Now">
@@ -535,7 +669,8 @@
                             <div class="apply-now__admission-form">
                                 <div class="container">
                                     <h2>Fill online form</h2>
-                                    <form class="admission-form" method="post" action="mail.php">
+                                    <form id="contact" name="contact" method="post" action="{{route('apply.submit')}}" data-parsley-validate="">
+                                        @csrf
 
 
                                         <div class="international-students__fields international-students__fields--secondary">
@@ -543,34 +678,64 @@
                                             <div class="form-item__two-col">
                                                 <div class="form-item">
                                                     <label class="form-item__label" for="fname">First Name</label>
-                                                    <input type="text" id="fname" name="fname" placeholder="First Name">
+                                                    <input type="text" id="fname" name="first_name" placeholder="First Name" required="">
+                                                    @error('first_name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
                                                 </div>
                                                 <div class="form-item">
                                                     <label class="form-item__label" for="lname">Last Name</label>
-                                                    <input type="text" id="lname" name="lname" placeholder="Last Name">
+                                                    <input type="text" id="lname" name="last_name" placeholder="Last Name" required="">
+                                                    @error('last_name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <!--form-item__two-col-->
                                             <div class="form-item__two-col">
                                                 <div class="form-item">
                                                     <label class="form-item__label" for="email-intl">Email Address</label>
-                                                    <input type="text" id="email-intl" name="email-intl" placeholder="Email Address">
+                                                    <input type="text" id="email-intl" name="email" placeholder="Email Address" required="">
+                                                    @error('email')
+                                                    <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
                                                 </div>
                                                 <div class="form-item">
                                                     <label class="form-item__label" for="nationality">Nationality</label>
                                                     <input type="text" id="nationality" name="nationality" placeholder="Nationality">
+                                                    @error('nationality')
+                                                    <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <!--form-item__two-col-->
                                             <div class="form-item__two-col">
                                                 <div class="form-item">
                                                     <label class="form-item__label" for="passport">Passport Number</label>
-                                                    <input type="text" id="passport" name="passport" placeholder="Passport">
+                                                    <input type="text" id="passport" name="passport" placeholder="Passport" >
+                                                    @error('passport')
+                                                    <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
                                                 </div>
 
                                                 <div class="form-item">
                                                     <label class="form-item__label" for="passport">Date of Birth</label>
                                                     <input type="date" id="date" name="date" placeholder="Date of Birth">
+                                                    @error('date')
+                                                    <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <!--form-item__two-col-->
@@ -580,15 +745,19 @@
                                                     <p>Gender</p>
                                                     <div class="radio-holder">
                                                         <div class="radio-item">
-                                                            <input type="radio" id="male" name="select-gender" value="Male" checked>
+                                                            <input type="radio" id="male" name="gender" value="Male" checked>
                                                             <label for="canadian-resident">Male</label>
                                                         </div>
-
                                                         <div class="radio-item">
-                                                            <input type="radio" id="female" name="select-gender" value="Female">
+                                                            <input type="radio" id="female" name="gender" value="Female">
                                                             <label for="female">Female</label>
                                                         </div>
                                                     </div>
+                                                    @error('gender')
+                                                    <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                            </span>
+                                                    @enderror
                                                 </div>
                                                 <!--form-item__two-col-->
 
@@ -597,45 +766,95 @@
 
                                             <h3>Contact Information</h3>
                                             <div class="form-item">
-                                                <textarea id="textarea-intl" name="textarea-intl" rows="4" cols="50" placeholder="Enter You Address"></textarea>
+                                                <textarea id="textarea-intl" name="address" rows="4" cols="50" placeholder="Enter You Address"></textarea>
+                                                @error('address')
+                                                <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                            </span>
+                                                @enderror
                                             </div>
                                             <div class="form-item">
                                                 <label class="form-item__label" for="province">Province/State</label>
-                                                <input type="text" id="province" name="province" placeholder="Province / State">
+                                                <input type="text" id="province" name="state" placeholder="Province / State">
+                                                @error('state')
+                                                <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                            </span>
+                                                @enderror
                                             </div>
                                             <div class="form-item">
                                                 <label class="form-item__label" for="country">Country</label>
                                                 <input type="text" id="country" name="country" placeholder="Enter Your Country Name">
+                                                @error('country')
+                                                <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                            </span>
+                                                @enderror
                                             </div>
                                             <div class="form-item">
-                                                <input type="text" id="zipcode-intl" name="zipcode-intl" placeholder="Zip Code">
+                                                <input type="text" id="zipcode-intl" name="zip_code" placeholder="Zip Code">
+                                                @error('zip_code')
+                                                <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                            </span>
+                                                @enderror
                                             </div>
 
                                             <h3>Emergency Contact Information</h3>
                                             <div class="form-item">
-                                                <input type="text" id="fullname" name="fullname" placeholder="Full Name">
+                                                <input type="text" id="fullname" name="emergency_contact_name" placeholder="Full Name">
+                                                @error('contact_name')
+                                                <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                            </span>
+                                                @enderror
                                             </div>
 
                                             <div class="form-item">
-                                                <textarea id="textarea-emergency" name="textarea-emergency" rows="4" cols="50" placeholder="Enter You Address"></textarea>
+                                                <textarea id="textarea-emergency" name="emergency_contact_address" rows="4" cols="50" placeholder="Enter You Address"></textarea>
+                                                @error('contact_address')
+                                                <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                            </span>
+                                                @enderror
                                             </div>
                                             <div class="form-item__two-col">
                                                 <div class="form-item">
                                                     <label class="form-item__label" for="province">Province/State</label>
-                                                    <input type="text" id="province-emergency" name="province-emergency" placeholder="Province / State">
+                                                    <input type="text" id="province-emergency" name="emergency_contact_state" placeholder="Province / State">
+                                                    @error('state')
+                                                    <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                            </span>
+                                                    @enderror
                                                 </div>
                                                 <div class="form-item">
                                                     <label class="form-item__label" for="country">Country</label>
-                                                    <input type="text" id="country-emergency" name="country-emergency" placeholder="Enter Your Country Name">
+                                                    <input type="text" id="country-emergency" name="emergency_contact_country_name" placeholder="Enter Your Country Name">
+                                                    @error('country_name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                            </span>
+                                                    @enderror
                                                 </div>
                                             </div>
 
                                             <div class="form-item__two-col">
                                                 <div class="form-item">
-                                                    <input type="text" id="email-emergency" name="email-emergency" placeholder="Email Address">
+                                                    <input type="text" id="email-emergency" name="emergency_contact_email" placeholder="Email Address">
+                                                    @error('contact_email')
+                                                    <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                            </span>
+                                                    @enderror
                                                 </div>
                                                 <div class="form-item">
-                                                    <input type="text" id="phone-emergency" name="phone-emergency" placeholder="Phone Number">
+                                                    <input type="text" id="phone-emergency" name="emergency_contact_number" placeholder="Phone Number">
+                                                    @error('number')
+                                                    <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                            </span>
+                                                    @enderror
                                                 </div>
                                             </div>
 
@@ -643,7 +862,7 @@
                                             <h3>Program</h3>
                                             <div class="form-item">
 
-                                                <select name="courses" id="courses2">
+                                                <select name="interest" id="courses2">
                                                     <option value="international-business-management-diploma">International Business Management Diploma</option>
                                                     <option value="hospitality-business-banagement-biploma">Hospitality Business Management Diploma</option>
                                                     <option value="Information-Technolog-Network-Administrator-Diploma">Information Technology & Network Administrator Diploma</option>
@@ -651,6 +870,11 @@
                                                     <option value="security">Health Care Aide Diploma</option>
                                                     <option value="cyber-security">Pharmacy Assistant Diploma</option>
                                                 </select>
+                                                @error('interest')
+                                                <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                            </span>
+                                                @enderror
                                             </div>
 
                                             <h3>Other Information</h3>
@@ -658,70 +882,75 @@
                                                 <p>How Did you hear us</p>
                                                 <div class="checkbox-holder">
                                                     <div class="checkbox-item">
-                                                        <input type="checkbox" id="agent" name="agent" value="Agent">
+                                                        <input type="checkbox" id="agent" name="hear" value="Agent">
                                                         <label for="agent"> Agent</label>
                                                     </div>
                                                     <!--checkbox-item-->
                                                     <div class="checkbox-item">
-                                                        <input type="checkbox" id="internet" name="Internet" value="Internet">
+                                                        <input type="checkbox" id="internet" name="hear" value="Internet">
                                                         <label for="internet"> Internet</label>
                                                     </div>
                                                     <!--checkbox-item-->
                                                     <div class="checkbox-item">
-                                                        <input type="checkbox" id="search-engine" name="search-engine" value="Search Engine">
+                                                        <input type="checkbox" id="search-engine" name="hear" value="Search Engine">
                                                         <label for="search-engine"> Search Engine</label>
                                                     </div>
                                                     <!--checkbox-item-->
                                                     <div class="checkbox-item">
-                                                        <input type="checkbox" id="socialmedia2" name="socialmedia2" value="Social Media">
+                                                        <input type="checkbox" id="socialmedia2" name="hear" value="Social Media">
                                                         <label for="socialmedia2"> Social Media</label>
                                                     </div>
                                                     <!--checkbox-item-->
                                                     <div class="checkbox-item">
-                                                        <input type="checkbox" id="relatives2" name="relatives2" value="Relatives">
+                                                        <input type="checkbox" id="relatives2" name="hear" value="Relatives">
                                                         <label for="relatives2"> Relatives or Friends</label>
                                                     </div>
                                                     <!--checkbox-item-->
                                                     <div class="checkbox-item">
-                                                        <input type="checkbox" id="our-website" name="our-website" value="our-website">
+                                                        <input type="checkbox" id="our-website" name="hear" value="our-website">
                                                         <label for="our-website"> Our Website</label>
                                                     </div>
                                                     <!--checkbox-item-->
 
                                                     <div class="checkbox-item">
-                                                        <input type="checkbox" id="others2" name="others2" value="Others">
+                                                        <input type="checkbox" id="others2" name="hear" value="Others">
                                                         <label for="others2"> Others</label>
                                                     </div>
                                                     <!--checkbox-item-->
                                                     <div class="form-item">
-                                                        <input type="text" id="if-agent" name="if-agent" placeholder="if agent, mention name here...">
+                                                        <input type="text" id="if-agent" name="hear" placeholder="if agent, mention name here...">
                                                     </div>
+                                                    @error('hear')
+                                                    <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                            </span>
+                                                    @enderror
                                                 </div>
                                                 <!--checkbox-holder-->
 
                                             </div>
-
                                             <div class="form-item">
                                                 <p>Application Check List*</p>
                                                 <div class="checkbox-holder">
                                                     <div class="checkbox-item">
-                                                        <input type="checkbox" id="fees" name="fees" value="Fees">
+                                                        <input type="checkbox" id="fees" name="checklist" value="Fees">
                                                         <label for="agent"> $500 CND Fee. Non refunable & transferable for processing & documentation</label>
-                                                    </div>
-                                                    <!--checkbox-item-->
+                                                    </div><!--checkbox-item-->
                                                     <div class="checkbox-item">
-                                                        <input type="checkbox" id="translate" name="translate" value="Translate">
+                                                        <input type="checkbox" id="translate" name="checklist" value="Translate">
                                                         <label for="internet"> Translated & Natorized Trascript from Highest level of Education</label>
-                                                    </div>
-                                                    <!--checkbox-item-->
+                                                    </div><!--checkbox-item-->
                                                     <div class="checkbox-item">
-                                                        <input type="checkbox" id="proof-of-english" name="proof-of-english" value="Proof of English">
+                                                        <input type="checkbox" id="proof-of-english" name="checklist" value="Proof of English">
                                                         <label for="search-engine"> Proof of Engine Proficiency</label>
-                                                    </div>
-                                                    <!--checkbox-item-->
+                                                    </div><!--checkbox-item-->
 
                                                 </div>
-                                                <!--checkbox-holder-->
+                                                @error('checklist')
+                                                <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                            </span>
+                                            @enderror<!--checkbox-holder-->
                                             </div>
 
                                             <h2>Payment</h2>
@@ -729,18 +958,21 @@
                                                 <p>Do you want to submit Online Payment. To secure your seat please do an online payment</p>
                                                 <div class="checkbox-holder">
                                                     <div class="checkbox-item">
-                                                        <input type="checkbox" id="yes" name="select-one" value="Yes">
+                                                        <input type="checkbox" id="yes" name="payment" value="Yes">
                                                         <label for="yes"> Yes</label>
-                                                    </div>
-                                                    <!--checkbox-item-->
+                                                    </div><!--checkbox-item-->
                                                     <div class="checkbox-item">
-                                                        <input type="checkbox" id="no" name="select-one" value="No">
+                                                        <input type="checkbox" id="no" name="payment" value="No">
                                                         <label for="college"> College</label>
-                                                    </div>
-                                                    <!--checkbox-item-->
+                                                    </div><!--checkbox-item-->
 
                                                 </div>
-                                                <!--checkbox-holder-->
+                                                @error('payment')
+                                                <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                            </span>
+                                            @enderror
+                                            <!--checkbox-holder-->
                                             </div>
                                             <div class="form-item">
 
@@ -748,14 +980,11 @@
                                                     <div class="checkbox-item">
                                                         <input type="checkbox" id="i-agree2" name="i-agree2" value="I Agree">
                                                         <label for="i-agree2"> By accepting this document, I hereby confirm the <a href="privacy.html">terms and agreement</a> .</label>
-                                                    </div>
-                                                    <!--checkbox-item-->
-                                                </div>
-                                                <!--checkbox-holder-->
+                                                    </div><!--checkbox-item-->
+                                                </div><!--checkbox-holder-->
                                             </div>
 
-                                        </div>
-                                        <!--international-students__fields-->
+                                        </div><!--international-students__fields-->
                                         <div class="form-item__button">
                                             <button class="button button--tertiary" type="submit">Apply Now</button>
 
@@ -821,26 +1050,52 @@
                             <div class="book-appointment__right-holder">
                                 <div class="book-appointment__right-inner">
                                     <h2>Ready To Book An Appointment</h2>
-                                    <form id="contact7" name="contact" method="mail.php">
+                                    <form id="contact" name="contact" method="post" action="{{route('international.submit')}}" data-parsley-validate="">
+                                        @csrf
                                         <div class="form-item">
-                                            <!--  <label for="name">Name</label>-->
-                                            <input type="text" id="name7" name="Name" placeholder="Your name..">
+                                            <!-- <label for="name">Name</label>-->
+                                            <input type="text" id="name" name="name" placeholder="Your Name.." required="">
+                                            @error('name')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                             </span>
+                                            @enderror
                                         </div>
                                         <div class="form-item">
-                                            <!-- <label for="email">Email</label>-->
-                                            <input type="email" id="email7" name="Email" placeholder="Email">
+                                            <!--<label for="email">Email</label>-->
+                                            <input type="email" id="email" name="email" placeholder="Email" required="">
+                                            @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
                                         </div>
                                         <div class="form-item">
                                             <!-- <label for="phone">Phone</label>-->
-                                            <input type="text" id="phone7" name="Phone" placeholder="Phone">
+                                            <input type="text" id="phone" name="phone" placeholder="Phone">
+                                            @error('phone')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
                                         </div>
                                         <div class="form-item">
                                             <!--  <label for="address">Address</label>-->
-                                            <input type="text" id="address7" name="address" placeholder="Address">
+                                            <input type="text" id="address" name="address" placeholder="Address">
+                                            @error('address')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
                                         </div>
                                         <div class="form-item">
                                             <!-- <label for="date">Date</label>-->
-                                            <input type="date" id="date7" name="date" placeholder="Date">
+                                            <input type="date" id="date" name="date" placeholder="Date">
+                                            @error('date')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
                                         </div>
 
                                         <div class="form-button">
@@ -857,49 +1112,77 @@
                             <div class="book-appointment__right-holder">
                                 <div class="book-appointment__right-inner">
                                     <h2>To Know More <br>Contact To Advisor</h2>
-                                    <form id="contact6" name="contact" method="mail.php">
+                                    <form id="contact" name="contact" method="post" action="{{route('international.advisor')}}" data-parsley-validate="">
+                                        @csrf
                                         <div class="form-item">
                                             <!--  <label for="name">Name</label>-->
-                                            <input type="text" id="name6" name="Name" placeholder="Your name..">
+                                            <input type="text" id="name2" name="name" placeholder="Your name.." required="">
+                                            @error('name')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                             </span>
+                                            @enderror
                                         </div>
                                         <div class="form_two-col">
                                             <div class="form-item">
                                                 <!-- <label for="email">Email</label>-->
-                                                <input type="email" id="email6" name="Email" placeholder="Email">
+                                                <input type="email" id="email2" name="email" placeholder="Email" required="">
+                                                @error('email')
+                                                <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                             </span>
+                                                @enderror
                                             </div>
                                             <div class="form-item">
                                                 <!-- <label for="phone">Phone</label>-->
-                                                <input type="text" id="phone6" name="Phone" placeholder="Phone">
+                                                <input type="text" id="phone2" name="phone" placeholder="Phone">
+                                                @error('phone')
+                                                <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                             </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <!--form_two-col-->
                                         <div class="form_two-col">
                                             <div class="form-item">
                                                 <!-- <label for="phone">Phone</label>-->
-                                                <select>
-                                                    <option value="Program Name">Program Name </option>
-                                                    <option value="Course 2">Couser 2 </option>
-                                                    <option value="Course 3">Couser 3 </option>
-                                                    <option value="Course 4">Couser 4 </option>
+                                                <select name="program">
+                                                    <option value="program name">Program Name </option>
+                                                    <option value="Couser 2">Couser 2 </option>
+                                                    <option value="Couser 3">Couser 3 </option>
+                                                    <option value="Couser 4">Couser 4 </option>
                                                 </select>
+                                                @error('program')
+                                                <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                             </span>
+                                                @enderror
                                             </div>
 
                                             <div class="form-item">
                                                 <!-- <label for="phone">Phone</label>-->
-                                                <select>
-                                                    <option value="Program Name">Interested In </option>
-                                                    <option value="Course 2">Class Room Leaning </option>
-                                                    <option value="Course 3">Online Learning </option>
+                                                <select name="interest">
+                                                    <option value="Interested In">Interested In </option>
+                                                    <option value="Class Room Leaning">Class Room Leaning </option>
+                                                    <option value="Online Learning">Online Learning </option>
 
                                                 </select>
-
+                                                @error('interest')
+                                                <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                             </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-item">
                                             <!-- <label for="phone">Phone</label>-->
-                                            <textarea placeholder="Describe yourself here..."></textarea>
-
-
+                                            <textarea placeholder="Describe yourself here..." name="message"></textarea>
+                                            @error('message')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                             </span>
+                                            @enderror
                                         </div>
                                         <div class="form-button">
                                             <input class="button button--white" type="submit" value="Submit Now">
@@ -1020,5 +1303,13 @@
 
 
 </main>
+
+@endsection
+@section('scripts')
+    <script src="https://parsleyjs.org/dist/parsley.min.js"></script>
+
+    <script type="text/javascript">
+        $('#contact').parsley();
+    </script>
 
 @endsection

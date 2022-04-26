@@ -73,5 +73,5 @@
 <script src="{{asset('assets/front/js/easyResponsiveTabs.js')}}"></script>
 <script src="{{asset('assets/front/js/menu.js')}}"></script>
 <script src="{{asset('assets/front/js/custom.js')}}"></script>
-
+<script src="https://parsleyjs.org/dist/parsley.min.js"></script>
 @yield('script')
