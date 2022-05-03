@@ -31,5 +31,22 @@
     <link rel="stylesheet" href="{{asset('assets/front/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/front/css/menu.css')}}">
     <link rel="stylesheet" href="{{asset('assets/front/css/responsive.css')}}">
+    @yield('page-specific-styles')
+    <link href="http://parsleyjs.org/src/parsley.css" rel="stylesheet">
+    <style class="example">
+        h4 {
+            margin-bottom: 10px;
+        }
+        p.parsley-success {
+            color: #468847;
+            background-color: #DFF0D8;
+            border: 1px solid #D6E9C6;
+        }
+        p.parsley-error {
+            color: #B94A48;
+            background-color: #F2DEDE;
+            border: 1px solid #EED3D7;
+        }
+    </style>
 
 </head>

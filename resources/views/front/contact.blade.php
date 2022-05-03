@@ -39,27 +39,27 @@
                 <div class="contact-us_form">
                     <h3>Contact Us</h3>
                     <div id="form-messages"></div>
-                    <form id="contact" name="contact" method="post" action="{{route('contact.submit')}}">
+                    <form id="contact" name="contact" method="post" action="{{route('contact.submit')}}" data-parsley-validate="">
                         @csrf
                         <div class=" form-item">
                             <!--  <label for="name">Name</label>-->
-                            <input type="text" id="name" name="name" placeholder="Your name.." required>
+                            <input type="text" id="name" name="name" placeholder="Your name.." required data-parsley-required-message="your name is required">
                         </div>
                         <div class="form-item">
                             <!-- <label for="email">Email</label>-->
-                            <input type="email" id="email" name="email" placeholder="Email" required>
+                            <input type="email" id="email" name="email" placeholder="Email" required data-parsley-required-message="your email is requried">
                         </div>
                         <div class="form-item">
                             <!-- <label for="phone">Phone</label>-->
-                            <input type="text" id="phone" name="phone_number" placeholder="Phone" required>
+                            <input type="text" id="phone" name="phone_number" placeholder="Phone">
                         </div>
                         <div class="form-item">
                             <!-- <label for="phone">Phone</label>-->
-                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                            <input type="text" id="subject" name="subject" placeholder="Subject" >
                         </div>
                         <div class="form-item">
                             <!--  <label for="address">Address</label>-->
-                            <textarea rows="5" cols="45" name="message" placeholder="Your Message" required></textarea>
+                            <textarea rows="5" cols="45" name="message" placeholder="Your Message" ></textarea>
                         </div>
 
 
@@ -76,4 +76,12 @@
         <iframe src="{{config('settings.site_contact_location_map')}}" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
 </main>
+@endsection
+@section('scripts')
+    <script src="https://parsleyjs.org/dist/parsley.min.js"></script>
+
+    <script type="text/javascript">
+        $('#contact').parsley();
+    </script>
+
 @endsection
