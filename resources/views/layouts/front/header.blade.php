@@ -41,9 +41,12 @@
                                 </div>
                                 <ul class="menu-section">
                                     <li class="menu-item"><a href="{{route('home')}}">Home</a></li>
+                                    @php
+                                    $program = 0;
+                                    @endphp
                                     @foreach ($programMenus as $category)
                                     @php
-                                    $program = $category->courses->count();
+                                    $program += $category->courses->count();
                                     @endphp
                                     @endforeach
                                     @if($program > 0)
@@ -65,9 +68,12 @@
                                         </div>
                                     </li>
                                     @endif
+                                    @php
+                                    $affiliated = 0;
+                                    @endphp
                                     @foreach ($affiliatedMenus as $category)
                                     @php
-                                    $affiliated = $category->courses->count();
+                                    $affiliated += $category->courses->count();
                                     @endphp
                                     @endforeach
                                     @if($affiliated > 0)
@@ -100,9 +106,12 @@
                                         </ul>
                                     </div>
                                 </li>-->
+                                    @php
+                                    $continious = 0;
+                                    @endphp
                                     @foreach ($continiousMenus as $category)
                                     @php
-                                    $continious = $category->courses->count();
+                                    $continious += $category->courses->count();
                                     @endphp
                                     @endforeach
                                     @if($continious > 0)
