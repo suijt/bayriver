@@ -14,6 +14,6 @@ class AffiliatedComposer
     {
         $view->with('affiliatedMenus', Category::whereStatus('active')->with('courses', function ($q) {
             return $q->where('is_affiliated', 'yes');
-        })->orderBy('order','asc')->get());
+        })->orderBy('order', 'asc')->get());
     }
 }

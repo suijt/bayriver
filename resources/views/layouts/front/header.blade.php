@@ -17,10 +17,10 @@
                         <li class="top-menu__button"><a href="{{config('settings.site_header_title_1_link')}}">{{config('settings.site_header_title_1')}}</a> </li>
                         <li><a href="{{config('settings.site_header_title_2_link')}}">{{config('settings.site_header_title_2')}}</a> </li>
                     </ul>
-                    <form action="mail.php" method="get" class="searchbar top-header__search">
+                    <!-- <form action="#" method="get" class="searchbar top-header__search">
                         <input type="search" placeholder="Search here" name="search" class="searchbar-input" onkeyup="buttonUp();" required>
                         <input type="submit" class="searchbar-submit" value="GO"> <span class="searchbar-icon"><i class="fa fa-search" aria-hidden="true"></i></span>
-                    </form>
+                    </form> -->
                 </div>
                 <!--top-header__rightcol-primary-->
                 <div class="navigation-section">
@@ -41,7 +41,12 @@
                                 </div>
                                 <ul class="menu-section">
                                     <li class="menu-item"><a href="{{route('home')}}">Home</a></li>
-
+                                    @foreach ($programMenus as $category)
+                                    @php
+                                    $program = $category->courses->count();
+                                    @endphp
+                                    @endforeach
+                                    @if($program > 0)
                                     <li class="menu-item-has-children">
                                         <a href="#">Program <i class="ion ion-ios-arrow-down"></i></a>
                                         <div class="menu-subs menu-mega menu-column-4">
@@ -59,6 +64,13 @@
                                             @endforeach
                                         </div>
                                     </li>
+                                    @endif
+                                    @foreach ($affiliatedMenus as $category)
+                                    @php
+                                    $affiliated = $category->courses->count();
+                                    @endphp
+                                    @endforeach
+                                    @if($affiliated > 0)
                                     <li class="menu-item-has-children">
                                         <a href="#">Affiliated Programs <i class="ion ion-ios-arrow-down"></i></a>
                                         <div class="menu-subs menu-mega menu-column-4">
@@ -76,6 +88,7 @@
                                             @endforeach
                                         </div>
                                     </li>
+                                    @endif
                                     <!--<li class="menu-item-has-children">
                                     <a href="#">Affiliated Programs <i class="ion ion-ios-arrow-down"></i></a>
                                     <div class="menu-subs menu-column-1">
@@ -87,6 +100,12 @@
                                         </ul>
                                     </div>
                                 </li>-->
+                                    @foreach ($continiousMenus as $category)
+                                    @php
+                                    $continious = $category->courses->count();
+                                    @endphp
+                                    @endforeach
+                                    @if($continious > 0)
                                     <li class="menu-item-has-children">
                                         <a href="#">Continuous Studies <i class="ion ion-ios-arrow-down"></i></a>
                                         <div class="menu-subs menu-mega menu-column-4">
@@ -104,6 +123,7 @@
                                             @endforeach
                                         </div>
                                     </li>
+                                    @endif
                                     <!-- <li class="menu-item-has-children">
                                      <a href="#">Continuing Studies <i class="ion ion-ios-arrow-down"></i></a>
                                      <div class="menu-subs menu-column-1">
