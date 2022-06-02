@@ -290,7 +290,7 @@
                     </div>
                 </div>
                 <div class="form-group row  mt-5">
-                    <label class="col-6 ">Continious Menu</label>
+                    <label class="col-6 ">Research Menu</label>
                     <div class="col-6">
                         <label class="form-check form-switch form-check-custom form-check-solid">
                             <input class="form-check-input" name="is_continious" type="checkbox" {{ old('is_continious',
