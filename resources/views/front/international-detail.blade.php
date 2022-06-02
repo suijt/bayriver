@@ -10,8 +10,8 @@
                     <p>{{$country->caption}}</p>
 
                     <div class="inner-banner__button-holder">
-                        <a href="#" class="button button--white">Register Now</a>
-                        <a href="#" class="button button--white">Book An Appointment</a>
+                        <a href="{{route('apply')}}" class="button button--white">Register Now</a>
+                        <!-- <a href="#" class="button button--white">Book An Appointment</a> -->
                     </div>
 
                 </div>
