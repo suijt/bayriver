@@ -26,7 +26,7 @@
                         <li>Courses </li>
                         <li>Fees & Schedule </li>
                         <li>Student Handbook</li>
-                        <li>Download </li>
+                        <li>Registration Form </li>
                         <li>News & Events </li>
                     </ul>
                 </div>

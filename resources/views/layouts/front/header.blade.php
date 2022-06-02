@@ -116,7 +116,7 @@
                                     @endforeach
                                     @if($continious > 0)
                                     <li class="menu-item-has-children">
-                                        <a href="#">Continuous Studies <i class="ion ion-ios-arrow-down"></i></a>
+                                        <a href="#">Research & Innovation <i class="ion ion-ios-arrow-down"></i></a>
                                         <div class="menu-subs menu-mega menu-column-4">
                                             @foreach ($continiousMenus as $category)
                                             @if($category->courses->count())
@@ -144,9 +144,9 @@
                                          </ul>
                                      </div>
                                  </li>-->
-                                    <li class="menu-item"><a href="{{route('research')}}">Research</a></li>
-                                    <li class="menu-item"><a href="{{route('alumni')}}">Alumni</a></li>
+                                    <!-- <li class="menu-item"><a href="{{route('research')}}">Research</a></li> -->
                                     <li class="menu-item"><a href="{{route('international.list')}}">International Students</a></li>
+                                    <li class="menu-item"><a href="{{route('alumni')}}">Alumni</a></li>
 
                                     <!--<li class="menu-item-has-children">
                                     <a href="international-students.html">International Students <i class="ion ion-ios-arrow-down"></i></a>

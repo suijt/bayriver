@@ -5,20 +5,14 @@
 @section('content')
 
 <main class="site-content">
-    @if(!empty(config('settings.site_apply_image')))
     <section class="inner-banner" style="background-image: url({{asset(config('settings.site_apply_image_image_path'))}})">
         <div class="inner-banner__content">
             <div class="container">
                 <h1>{{config('settings.site_apply_title')}}</h1>
                 <p>{{config('settings.site_apply_caption')}}</p>
-
-
             </div>
         </div>
-
     </section>
-    @endif
-    @if(!empty(config('settings.site_apply_map')))
     <div class="apply-now__admission-form" style="background-image: url({{asset(config('settings.site_apply_map_image_path'))}})">
         <div class="container">
             <h2>Enrollment</h2>
@@ -564,7 +558,6 @@
 
         </div>
     </div>
-    @endif
 
 </main>
 @endsection
