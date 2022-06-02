@@ -189,7 +189,7 @@
                             </div>
                             <!--checkbox-item-->
 
-                            <div class="form-item form-item__signature">
+                            <!-- <div class="form-item form-item__signature">
                                 <p>Signature</p>
                                 <div id="signature" name="hear">
                                     <canvas width="500" height="100"></canvas>
@@ -197,7 +197,7 @@
                                         <a class="btn-green" href="#" id="clearSig">Reset Signature</a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
                         </div>
                         <!--checkbox-holder-->
