@@ -106,7 +106,7 @@
                                         </ul>
                                     </div>
                                 </li>-->
-                                    @php
+                                    {{-- @php
                                     $continious = 0;
                                     @endphp
                                     @foreach ($continiousMenus as $category)
@@ -132,7 +132,7 @@
                                             @endforeach
                                         </div>
                                     </li>
-                                    @endif
+                                    @endif --}}
                                     <!-- <li class="menu-item-has-children">
                                      <a href="#">Continuing Studies <i class="ion ion-ios-arrow-down"></i></a>
                                      <div class="menu-subs menu-column-1">
@@ -144,7 +144,7 @@
                                          </ul>
                                      </div>
                                  </li>-->
-                                    <!-- <li class="menu-item"><a href="{{route('research')}}">Research</a></li> -->
+                                    @if($researchMenu)<li class="menu-item"><a href="{{route('course.detail',$researchMenu->slug)}}">Research & Innovation</a></li>@endif
                                     <li class="menu-item"><a href="{{route('international.list')}}">International Students</a></li>
                                     <li class="menu-item"><a href="{{route('alumni')}}">Alumni</a></li>
 
