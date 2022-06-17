@@ -78,7 +78,7 @@
                                     @endforeach
                                     @if($affiliated > 0)
                                     <li class="menu-item-has-children">
-                                        <a href="#">Affiliated Programs <i class="ion ion-ios-arrow-down"></i></a>
+                                        <a href="#">IPAC <i class="ion ion-ios-arrow-down"></i></a>
                                         <div class="menu-subs menu-mega menu-column-4">
                                             @foreach ($affiliatedMenus as $category)
                                             @if($category->courses->count())
