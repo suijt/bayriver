@@ -28,11 +28,11 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/front/css/slick.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/front/css/slick-theme.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/front/css/easy-responsive-tabs.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/front/css/toastr.min.css') }}">
     <link rel="stylesheet" href="{{asset('assets/front/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/front/css/menu.css')}}">
     <link rel="stylesheet" href="{{asset('assets/front/css/responsive.css')}}">
     @yield('page-specific-styles')
-    <link href="http://parsleyjs.org/src/parsley.css" rel="stylesheet">
     <style class="example">
         h4 {
             margin-bottom: 10px;

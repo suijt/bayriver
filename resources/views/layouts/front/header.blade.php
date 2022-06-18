@@ -51,7 +51,7 @@
                                     @endforeach
                                     @if($program > 0)
                                     <li class="menu-item-has-children">
-                                        <a href="#">Program <i class="ion ion-ios-arrow-down"></i></a>
+                                        <a href="#">Programs <i class="ion ion-ios-arrow-down"></i></a>
                                         <div class="menu-subs menu-mega menu-column-4">
                                             @foreach ($programMenus as $category)
                                             @if($category->courses->count())

@@ -33,6 +33,7 @@ use App\Http\Requests\Front\International\InternationalRequest;
 use App\Http\Requests\Front\Booking\BookingRequest;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Mail;
+use Kamaln7\Toastr\Facades\Toastr;
 
 class FrontendController extends Controller
 {
@@ -150,11 +151,16 @@ class FrontendController extends Controller
                 'name' => $request['name'],
                 'email' => $request['email'],
                 'phone_number' => $request['phone'],
+                'interest' => $request['interest'],
+                'program_name' => $request['program_name'],
                 'message' => $request['message'],
             );
             Mail::to('info@bayrivercollege.ca')->send(new AdvisorMail($data));
+            Toastr::success('Your Inquiry has been send to the administrator.', 'Success !!!', ["positionClass" => "toast-bottom-right"]);
+            return redirect()->back();
         }
-        return 'Your Inquiry has been send to the administrator.';
+        Toastr::error('Something went wrong please try again.', 'Failed !!!', ["positionClass" => "toast-bottom-right"]);
+        return redirect()->back();
     }
 
     public function internationalCourses()
@@ -214,7 +220,9 @@ class FrontendController extends Controller
         $testimonials = $this->testimonial->frontAll();
         $featuredNews = $this->news->featuredList('news', 4);
         $internationalCourseCat = $this->country->getInternationalCourses($slug);
-        return view('front.international-detail', compact('country', 'clients', 'testimonials', 'featuredNews', 'internationalCourseCat', 'featuredCourses'));
+        $coursesInternational = $this->course->getByType('international');
+
+        return view('front.international-detail', compact('country', 'clients', 'testimonials', 'coursesInternational', 'featuredNews', 'internationalCourseCat', 'featuredCourses'));
     }
 
     public function booking(BookingRequest $request)
@@ -225,11 +233,15 @@ class FrontendController extends Controller
                 'name' => $request['name'],
                 'email' => $request['email'],
                 'phone_number' => $request['phone'],
-                'message' => $request['address'],
+                'address' => $request['address'],
+                'date' => $request['date'],
             );
             Mail::to('info@bayrivercollege.ca')->send(new BookingMail($data));
+            Toastr::success('Your Appointment has been send to the administrator.', 'Success !!!', ["positionClass" => "toast-bottom-right"]);
+            return redirect()->back();
         }
-        return 'Your Inquiry has been send to the administrator.';
+        Toastr::error('Something went wrong please try again.', 'Failed !!!', ["positionClass" => "toast-bottom-right"]);
+        return redirect()->back();
     }
 
 
@@ -257,28 +269,68 @@ class FrontendController extends Controller
         $inquiry = Inquiry::create($request->all());
         if ($inquiry) {
             Mail::to('info@bayrivercollege.ca')->send(new InquiryMail($request->all()));
+            Toastr::success('Your Inquiry has been send to the administrator.', 'Success !!!', ["positionClass" => "toast-bottom-right"]);
+            return redirect()->back();
         }
-        return 'Your Inquiry has been send to the administrator.';
+        Toastr::error('Something went wrong please try again.', 'Failed !!!', ["positionClass" => "toast-bottom-right"]);
+        return redirect()->back();
     }
 
     public function apply()
     {
-        return view('front.apply');
+        $coursesResidental = $this->course->getByType('home');
+        $coursesInternational = $this->course->getByType('international');
+        return view('front.apply', compact('coursesResidental', 'coursesInternational'));
     }
 
     public function applySubmit(ApplyNowRequest $request)
     {
-        $apply_now = ApplyNow::create($request->all());
+        $apply_now = $this->course->applyCreate($request->all());
         if ($apply_now) {
-            $data = array(
-                'name' => $request['first_name'] . ' ' . $request['last_name'],
-                'email' => $request['email'],
-                'phone_number' => $request['phone_number'],
-                'message' => $request['address'],
-            );
-            Mail::to('info@bayrivercollege.ca')->send(new ApplyMail($data));
+            if ($request['option'] == 'residental') {
+                $data = array(
+                    'option' =>  $request['option'],
+                    'name' => $request['first_name'] . ' ' . $request['last_name'],
+                    'email' => $request['email'],
+                    'phone_number' => $request['phone_number'],
+                    'address' => $request['address'],
+                    'study' => implode(',', $request['study']),
+                    'interest' => $request['interest'],
+                    'time' => implode(',', $request['time']),
+                    'hear' => implode(',', $request['hear']),
+                );
+            } else {
+                $data = array(
+                    'option' =>  $request['option'],
+                    'name' => $request['first_name'] . ' ' . $request['last_name'],
+                    'email' => $request['email'],
+                    'nationality' => $request['nationality'],
+                    'passport_number' => $request['passport_number'],
+                    'date_of_birth' => $request['date'],
+                    'gender' => $request['gender'],
+                    'address' => $request['address'],
+                    'state' => $request['state'],
+                    'country_name' => $request['country_name'],
+                    'zip_code' => $request['zip_code'],
+                    'emergency_contact_name' => $request['emergency_contact_name'],
+                    'emergency_contact_address' => $request['emergency_contact_address'],
+                    'emergency_contact_state' => $request['emergency_contact_state'],
+                    'emergency_contact_country_name' => $request['emergency_contact_country_name'],
+                    'emergency_contact_email' => $request['emergency_contact_email'],
+                    'emergency_contact_number' => $request['emergency_contact_number'],
+                    'interest' => $request['interest'],
+                    'payment' => $request['payment'],
+                    'hear' => implode(',', $request['hear']),
+                    'checklist' => implode(',', $request['checklist']),
+
+                );
+            }
+            Mail::to('admissions@bayrivercollege.ca')->send(new ApplyMail($data));
+            Toastr::success('Your Enrollment has been send to the administrator.', 'Success !!!', ["positionClass" => "toast-bottom-right"]);
+            return redirect()->back();
         }
-        return 'Your Inquiry has been send to the administrator.';
+        Toastr::error('Something went wrong please try again.', 'Failed !!!', ["positionClass" => "toast-bottom-right"]);
+        return redirect()->back();
     }
 
     public function Page($slug)

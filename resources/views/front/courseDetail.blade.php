@@ -88,7 +88,7 @@
                                 <div class="book-appointment__right-holder">
                                     <div class="book-appointment__right-inner">
                                         <h2>Ready To Book An Appointment</h2>
-                                        <form id="contact" name="contact" method="post" action="{{route('course.submit')}}" data-parsley-validate="">
+                                        <form id="contact" name="contact" method="post" action="{{route('booking.submit')}}" data-parsley-validate="">
                                             @csrf
                                             @include('front.includes.booking')
                                         </form>

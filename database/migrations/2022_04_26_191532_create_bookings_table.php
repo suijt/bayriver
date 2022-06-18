@@ -18,7 +18,7 @@ class CreateBookingsTable extends Migration
             $table->string('name');
             $table->string('email')->nullable();
             $table->string('address')->nullable();
-            $table->unsignedDouble('phone')->nullable();
+            $table->string('phone')->nullable();
             $table->date('date')->nullable();
             $table->timestamps();
         });

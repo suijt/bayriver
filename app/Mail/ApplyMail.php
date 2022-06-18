@@ -28,7 +28,7 @@ class ApplyMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Someone Wants to Contact')
+        return $this->subject('New Admission Mail')
             ->view('mail.apply')->with('data', $this->data);
     }
 }

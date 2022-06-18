@@ -2,6 +2,7 @@
 
 namespace App\Modules\Services\Course;
 
+use App\Modules\Models\ApplyNow\ApplyNow;
 use App\Modules\Models\Course\Course;
 use App\Modules\Services\Service;
 use Carbon\Carbon;
@@ -11,10 +12,12 @@ use Yajra\DataTables\Facades\DataTables;
 class CourseService extends Service
 {
     protected $course;
+    protected $apply;
 
-    public function __construct(Course $course)
+    public function __construct(Course $course, ApplyNow $apply)
     {
         $this->course = $course;
+        $this->apply = $apply;
     }
 
 
@@ -132,6 +135,16 @@ class CourseService extends Service
     public function frontAll()
     {
         return $this->course->whereStatus('active')->orderBy('order', 'asc')->get();
+    }
+
+    public function getByType($type = null)
+    {
+        if ($type == 'home') {
+            return $this->course->whereStatus('active')->orderBy('order', 'asc')->whereIsInternational('no')->get();
+        }
+        if ($type == 'international') {
+            return $this->course->whereStatus('active')->orderBy('order', 'asc')->whereIsInternational('yes')->get();
+        }
     }
 
     /**
@@ -268,6 +281,21 @@ class CourseService extends Service
         } catch (Exception $e) {
             //$this->logger->error($e->getMessage());
             return false;
+        }
+    }
+
+    public function applyCreate(array $data)
+    {
+        try {
+            $data['study'] = isset($data['study']) ? implode(',', $data['study']) : '';
+            $data['time'] = isset($data['time']) ? implode(',', $data['time']) : '';
+            $data['hear'] = isset($data['hear']) ? implode(',', $data['hear']) : '';
+            $data['checklist'] = isset($data['checklist']) ? implode(',', $data['checklist']) : '';
+            $data['program'] = isset($data['agent_name']) ? $data['agent_name'] : '';
+            $apply = $this->apply->create($data);
+            return $apply;
+        } catch (Exception $e) {
+            return null;
         }
     }
 }

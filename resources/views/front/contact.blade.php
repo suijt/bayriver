@@ -25,14 +25,15 @@
                             <address class="contact-us__info-detail">{{config('settings.site_footer_state_number')}}</br>{{config('settings.site_footer_state')}}</address>
                         </li>
 
-                        <li><i class="fa fa-envelope"></i> <a href="mailto:{{config('settings.site_footer_email')}}" class="contact-us__info-detail"> {{config('settings.site_footer_email')}}</a></li>
+                        <li><i class="fa fa-envelope"></i> <a href="mailto:{{config('settings.site_email')}}" class="contact-us__info-detail"> {{config('settings.site_email')}}</a></li>
+                        <li><i class="fa fa-envelope"></i> <a href="mailto:{{config('settings.site_email_international')}}" class="contact-us__info-detail">For international Students Email: {{config('settings.site_email_international')}}</a></li>
                         <li><i class="fa fa-phone"></i> <a href="tel:{{config('settings.site_footer_number')}}" class="contact-us__info-detail"> {{config('settings.site_footer_number')}}</a> </li>
                     </ul>
 
                     <ul class="social-media social-media__secondary">
-                        <li><a href="{{config('settings.site_footer_icon_1_link')}}" target="_blank"> <i class="fab fa-twitter"></i></a></li>
-                        <li><a href="{{config('settings.site_footer_icon_2_link')}}" target="_blank"> <i class="fab fa-facebook-f"></i></a> </li>
-                        <li><a href="{{config('settings.site_footer_icon_3_link')}}" target="_blank"> <i class="fab fa-instagram"></i></a> </li>
+                        @if(config('settings.site_footer_icon_1_link'))<li><a href="{{config('settings.site_footer_icon_1_link')}}" target="_blank"> <i class="fab fa-twitter"></i></a></li>@endif
+                        @if(config('settings.site_footer_icon_2_link'))<li><a href="{{config('settings.site_footer_icon_2_link')}}" target="_blank"> <i class="fab fa-facebook-f"></i></a> </li>@endif
+                        @if(config('settings.site_footer_icon_3_link'))<li><a href="{{config('settings.site_footer_icon_3_link')}}" target="_blank"> <i class="fab fa-instagram"></i></a> </li>@endif
 
                     </ul>
                 </div>
@@ -55,11 +56,11 @@
                         </div>
                         <div class="form-item">
                             <!-- <label for="phone">Phone</label>-->
-                            <input type="text" id="subject" name="subject" placeholder="Subject" >
+                            <input type="text" id="subject" name="subject" placeholder="Subject">
                         </div>
                         <div class="form-item">
                             <!--  <label for="address">Address</label>-->
-                            <textarea rows="5" cols="45" name="message" placeholder="Your Message" ></textarea>
+                            <textarea rows="5" cols="45" name="message" placeholder="Your Message"></textarea>
                         </div>
 
 
@@ -78,10 +79,8 @@
 </main>
 @endsection
 @section('scripts')
-    <script src="https://parsleyjs.org/dist/parsley.min.js"></script>
-
-    <script type="text/javascript">
-        $('#contact').parsley();
-    </script>
+<script type="text/javascript">
+    $('#contact').parsley();
+</script>
 
 @endsection

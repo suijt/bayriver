@@ -7,10 +7,9 @@
                 @endif
                 <h3>{{config('settings.site_footer_title')}}</h3>
                 <ul class="social-media">
-                    <li><a href="{{config('settings.site_footer_icon_1_link')}}" target="_blank"> <i class="fab fa-twitter"></i></a></li>
-                    <li><a href="{{config('settings.site_footer_icon_2_link')}}" target="_blank"> <i class="fab fa-facebook-f"></i></a> </li>
-                    <li><a href="{{config('settings.site_footer_icon_3_link')}}" target="_blank"> <i class="fab fa-instagram"></i></a> </li>
-
+                    @if(config('settings.site_footer_icon_1_link'))<li><a href="{{config('settings.site_footer_icon_1_link')}}" target="_blank"> <i class="fab fa-twitter"></i></a></li>@endif
+                    @if(config('settings.site_footer_icon_2_link'))<li><a href="{{config('settings.site_footer_icon_2_link')}}" target="_blank"> <i class="fab fa-facebook-f"></i></a> </li>@endif
+                    @if(config('settings.site_footer_icon_3_link'))<li><a href="{{config('settings.site_footer_icon_3_link')}}" target="_blank"> <i class="fab fa-instagram"></i></a> </li>@endif
                 </ul>
             </div>
             <!--footer-col col1-->
@@ -72,6 +71,9 @@
 <script src="{{asset('assets/front/js/slick.min.js')}}"></script>
 <script src="{{asset('assets/front/js/easyResponsiveTabs.js')}}"></script>
 <script src="{{asset('assets/front/js/menu.js')}}"></script>
+<script src="{{asset('assets/admin/js/libs/toastr/toastr.min.js')}}"></script>
+<script src="{{asset('assets/front/js/parsley.min.js')}}"></script>
 <script src="{{asset('assets/front/js/custom.js')}}"></script>
-<script src="https://parsleyjs.org/dist/parsley.min.js"></script>
+{!! Toastr::render() !!}
+
 @yield('script')

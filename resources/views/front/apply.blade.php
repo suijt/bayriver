@@ -31,7 +31,7 @@
 
                     <div class="radio-item">
                         <input type="radio" id="international-student" name="option" value="international-student">
-                        <label for="international-student">International Students</label>
+                        <label for="international-student">International Student</label>
                         @error('option')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -45,10 +45,11 @@
             <!--form-item-->
             <div class="canadian-resident__fields">
                 <form id="apply" name="apply" method="post" action="{{route('apply.submit')}}" data-parsley-validate="">
+                    <input type="hidden" id="canadian-resident" name="option" value="resident">
                     @csrf
                     <div class="form-item__two-col">
                         <div class="form-item">
-                            <input type="text" id="firstname" name="first_name" placeholder="First Name" required="" data-parsley-required-message="Your first_name is required">
+                            <input type="text" id="firstname" name="first_name" placeholder="First Name" required="" data-parsley-required-message="Your First Name is required">
                             @error('first_name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -56,7 +57,7 @@
                             @enderror
                         </div>
                         <div class="form-item">
-                            <input type="text" id="lastname" name="last_name" placeholder="Last Name" required="" data-parsley-required-message="Your last_name is required">
+                            <input type="text" id="lastname" name="last_name" placeholder="Last Name" required="" data-parsley-required-message="Your Last Name is required">
                             @error('last_name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -68,7 +69,7 @@
 
                     <div class="form-item__two-col">
                         <div class="form-item">
-                            <input type="text" id="email" name="email" placeholder="Email Address" required="" data-parsley-required-message="Your email is required">
+                            <input type="text" id="email" name="email" placeholder="Email Address" required="" data-parsley-required-message="Your Email is required">
                             @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -99,17 +100,17 @@
                         <p>What is your preferred study time?*</p>
                         <div class="checkbox-holder" name="study">
                             <div class="checkbox-item">
-                                <input type="checkbox" id="morning" name="study" value="Morning">
+                                <input type="checkbox" id="morning" name="study[]" value="Morning">
                                 <label for="morning"> Morning</label>
                             </div>
                             <!--checkbox-item-->
                             <div class="checkbox-item">
-                                <input type="checkbox" id="afternoon" name="study" value="Afternoon">
+                                <input type="checkbox" id="afternoon" name="study[]" value="Afternoon">
                                 <label for="afternoon"> Afternoon</label>
                             </div>
                             <!--checkbox-item-->
                             <div class="checkbox-item">
-                                <input type="checkbox" id="evening" name="study" value="Evening">
+                                <input type="checkbox" id="evening" name="study[]" value="Evening">
                                 <label for="evening"> Evening</label>
                             </div>
                             <!--checkbox-item-->
@@ -125,12 +126,10 @@
                     <div class="form-item">
                         <p> What program are you interested in?* </p>
                         <select name="interest" id="courses">
-                            <option value="international-business-management-diploma">International Business Management Diploma</option>
-                            <option value="hospitality-business-banagement-biploma">Hospitality Business Management Diploma</option>
-                            <option value="Information-Technolog-Network-Administrator-Diploma">Information Technology & Network Administrator Diploma</option>
-                            <option value="Cyber-security-Cloud-Computing-Diploma">Cyber Security & Cloud Computing Diploma</option>
-                            <option value="security">Health Care Aide Diploma</option>
-                            <option value="cyber-security">Pharmacy Assistant Diploma</option>
+                            <option vlaue="">Select Program</option>
+                            @foreach ($coursesResidental as $course)
+                            <option value="{{$course->title}}">{{$course->title}}</option>
+                            @endforeach
                         </select>
                         @error('interest')
                         <span class="invalid-feedback" role="alert">
@@ -139,25 +138,25 @@
                         @enderror
                     </div>
                     <div class="form-item">
-                        <p>What is your preferred study time?*</p>
+                        <p>What is your level of study?*</p>
                         <div class="checkbox-holder">
                             <div class="checkbox-item">
-                                <input type="checkbox" id="highschool" name="time" value="High School">
+                                <input type="checkbox" id="highschool" name="time[]" value="High School">
                                 <label for="highschool"> High School</label>
                             </div>
                             <!--checkbox-item-->
                             <div class="checkbox-item">
-                                <input type="checkbox" id="college" name="time" value="College">
+                                <input type="checkbox" id="college" name="time[]" value="College">
                                 <label for="college"> College</label>
                             </div>
                             <!--checkbox-item-->
                             <div class="checkbox-item">
-                                <input type="checkbox" id="university" name="time" value="University">
+                                <input type="checkbox" id="university" name="time[]" value="University">
                                 <label for="university"> University</label>
                             </div>
                             <!--checkbox-item-->
                             <div class="checkbox-item">
-                                <input type="checkbox" id="others" name="time" value="Others">
+                                <input type="checkbox" id="others" name="time[]" value="Others">
                                 <label for="others"> Others</label>
                             </div>
                             <!--checkbox-item-->
@@ -174,17 +173,17 @@
                         <p>How Did you hear us</p>
                         <div class="checkbox-holder">
                             <div class="checkbox-item">
-                                <input type="checkbox" id="website" name="hear" value="Website">
+                                <input type="checkbox" id="website" name="hear[]" value="Website">
                                 <label for="website"> Website</label>
                             </div>
                             <!--checkbox-item-->
                             <div class="checkbox-item">
-                                <input type="checkbox" id="socialmedia" name="hear" value="Social Media">
+                                <input type="checkbox" id="socialmedia" name="hear[]" value="Social Media">
                                 <label for="socialmedia"> Social Media</label>
                             </div>
                             <!--checkbox-item-->
                             <div class="checkbox-item">
-                                <input type="checkbox" id="relatives" name="hear" value="Relatives">
+                                <input type="checkbox" id="relatives" name="hear[]" value="Relatives">
                                 <label for="relatives"> Relatives or Friends</label>
                             </div>
                             <!--checkbox-item-->
@@ -213,8 +212,8 @@
 
                         <div class="checkbox-holder">
                             <div class="checkbox-item">
-                                <input type="checkbox" id="i-agree" name="i-agree" value="I Agree">
-                                <label for="i-agree"> By accepting this document, I hereby confirm the <a href="privacy.html">terms and agreement</a> .</label>
+                                <input type="checkbox" id="i-agree" name="i-agree" value="I Agree" required data-parsley-required-message="Terms and Condition not accepted">
+                                <label for="i-agree"> By accepting this document, I hereby confirm the <a href="{{route('page.index','terms-and-agreement')}}">Terms and Agreement</a> .</label>
                             </div>
                             <!--checkbox-item-->
                         </div>
@@ -231,6 +230,7 @@
             <div class="international-students__fields">
                 <form id="data" name="apply" method="post" action="{{route('apply.submit')}}" data-parsley-validate="">
                     @csrf
+                    <input type="hidden" id="canadian-resident" name="option" value="international">
                     <h3>Personal Information</h3>
                     <div class="form-item__two-col">
                         <div class="form-item">
@@ -303,7 +303,7 @@
                             <div class="radio-holder">
                                 <div class="radio-item">
                                     <input type="radio" id="male" name="gender" value="Male" checked>
-                                    <label for="canadian-resident">Male</label>
+                                    <label for="male">Male</label>
                                 </div>
 
                                 <div class="radio-item">
@@ -421,12 +421,10 @@
                     <div class="form-item">
 
                         <select name="interest" id="courses2">
-                            <option value="international-business-management-diploma">International Business Management Diploma</option>
-                            <option value="hospitality-business-banagement-biploma">Hospitality Business Management Diploma</option>
-                            <option value="Information-Technolog-Network-Administrator-Diploma">Information Technology & Network Administrator Diploma</option>
-                            <option value="Cyber-security-Cloud-Computing-Diploma">Cyber Security & Cloud Computing Diploma</option>
-                            <option value="security">Health Care Aide Diploma</option>
-                            <option value="cyber-security">Pharmacy Assistant Diploma</option>
+                            <option value="">Select program</option>
+                            @foreach ($coursesInternational as $course)
+                            <option value="{{$course->title}}">{{$course->title}}</option>
+                            @endforeach
                         </select>
                         @error('interest')
                         <span class="invalid-feedback" role="alert">
@@ -440,43 +438,43 @@
                         <p>How Did you hear us</p>
                         <div class="checkbox-holder">
                             <div class="checkbox-item">
-                                <input type="checkbox" id="agent" name="hear" value="Agent">
+                                <input type="checkbox" id="agent" name="hear[]" value="Agent">
                                 <label for="agent"> Agent</label>
                             </div>
                             <!--checkbox-item-->
                             <div class="checkbox-item">
-                                <input type="checkbox" id="internet" name="hear" value="Internet">
+                                <input type="checkbox" id="internet" name="hear[]" value="Internet">
                                 <label for="internet"> Internet</label>
                             </div>
                             <!--checkbox-item-->
                             <div class="checkbox-item">
-                                <input type="checkbox" id="search-engine" name="hear" value="Search Engine">
+                                <input type="checkbox" id="search-engine" name="hear[]" value="Search Engine">
                                 <label for="search-engine"> Search Engine</label>
                             </div>
                             <!--checkbox-item-->
                             <div class="checkbox-item">
-                                <input type="checkbox" id="socialmedia2" name="hear" value="Social Media">
+                                <input type="checkbox" id="socialmedia2" name="hear[]" value="Social Media">
                                 <label for="socialmedia2"> Social Media</label>
                             </div>
                             <!--checkbox-item-->
                             <div class="checkbox-item">
-                                <input type="checkbox" id="relatives2" name="hear" value="Relatives">
+                                <input type="checkbox" id="relatives2" name="hear[]" value="Relatives">
                                 <label for="relatives2"> Relatives or Friends</label>
                             </div>
                             <!--checkbox-item-->
                             <div class="checkbox-item">
-                                <input type="checkbox" id="our-website" name="hear" value="our-website">
+                                <input type="checkbox" id="our-website" name="hear[]" value="Our Website">
                                 <label for="our-website"> Our Website</label>
                             </div>
                             <!--checkbox-item-->
 
                             <div class="checkbox-item">
-                                <input type="checkbox" id="others2" name="hear" value="Others">
+                                <input type="checkbox" id="others2" name="hear[]" value="Others">
                                 <label for="others2"> Others</label>
                             </div>
                             <!--checkbox-item-->
                             <div class="form-item">
-                                <input type="text" id="if-agent" name="hear" placeholder="if agent, mention name here...">
+                                <input type="text" id="if-agent" name="agent_name" placeholder="if agent, mention name here...">
                             </div>
                             @error('hear')
                             <span class="invalid-feedback" role="alert">
@@ -491,18 +489,18 @@
                         <p>Application Check List*</p>
                         <div class="checkbox-holder">
                             <div class="checkbox-item">
-                                <input type="checkbox" id="fees" name="checklist" value="Fees">
-                                <label for="agent"> $500 CND Fee. Non refunable & transferable for processing & documentation</label>
+                                <input type="checkbox" id="fees" name="checklist[]" value="Processing Fees">
+                                <label for="fees"> $500 CAD Fee. Non-refundable and non-transferable for processing & documentation</label>
                             </div>
                             <!--checkbox-item-->
                             <div class="checkbox-item">
-                                <input type="checkbox" id="translate" name="checklist" value="Translate">
-                                <label for="internet"> Translated & Natorized Trascript from Highest level of Education</label>
+                                <input type="checkbox" id="translate" name="checklist[]" value="Trascript">
+                                <label for="translate"> Translated & Notarized Transcript of Records from Highest level of Education</label>
                             </div>
                             <!--checkbox-item-->
                             <div class="checkbox-item">
-                                <input type="checkbox" id="proof-of-english" name="checklist" value="Proof of English">
-                                <label for="search-engine"> Proof of Engine Proficiency</label>
+                                <input type="checkbox" id="proof-of-english" name="checklist[]" value="Proof of English">
+                                <label for="proof-of-english"> Proof of English Proficiency</label>
                             </div>
                             <!--checkbox-item-->
 
@@ -518,15 +516,15 @@
                     <h2>Payment</h2>
                     <div class="form-item">
                         <p>Do you want to submit Online Payment. To secure your seat please do an online payment</p>
-                        <div class="checkbox-holder">
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="yes" name="payment" value="Yes">
-                                <label for="yes"> Yes</label>
+                        <div class="radio-holder">
+                            <div class="radio-item">
+                                <input type="radio" id="payment_yes" name="payment" value="Yes" checked>
+                                <label for="payment_yes"> Yes</label>
                             </div>
-                            <!--checkbox-item-->
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="no" name="payment" value="No">
-                                <label for="college"> College</label>
+                            <!--radio-item-->
+                            <div class="radio-item">
+                                <input type="radio" id="payment_no" name="payment" value="No">
+                                <label for="payment_no"> No</label>
                             </div>
                             <!--checkbox-item-->
 
@@ -542,8 +540,8 @@
 
                         <div class="checkbox-holder">
                             <div class="checkbox-item">
-                                <input type="checkbox" id="i-agree2" name="i-agree2" value="I Agree">
-                                <label for="i-agree2"> By accepting this document, I hereby confirm the <a href="privacy.html">terms and agreement</a> .</label>
+                                <input type="checkbox" id="i-agree2" name="i-agree2" value="I Agree" required data-parsley-required-message="Terms and Condition not accepted">
+                                <label for="i-agree2"> By accepting this document, I hereby confirm the <a href="{{route('page.index','terms-and-agreement')}}">Terms and Agreement</a> .</label>
                             </div>
                             <!--checkbox-item-->
                         </div>
@@ -562,7 +560,6 @@
 </main>
 @endsection
 @section('scripts')
-<script src="https://parsleyjs.org/dist/parsley.min.js"></script>
 
 <script type="text/javascript">
     $('#apply').parsley();

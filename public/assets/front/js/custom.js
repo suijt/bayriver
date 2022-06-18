@@ -251,70 +251,70 @@ $(document).ready(function () {
 });
 
 /* scroll to section */
-$(document).ready(function() {
-       // signature
-    var color = "#000000";
-    var context = $("canvas")[0].getContext("2d");
-    var canvas = $("canvas");
-    var lastEvent;
-    var mouseDown = false;
-    var weight = "3";
+// $(document).ready(function() {
+//        // signature
+//     var color = "#000000";
+//     var context = $("canvas")[0].getContext("2d");
+//     var canvas = $("canvas");
+//     var lastEvent;
+//     var mouseDown = false;
+//     var weight = "3";
 
-// //Bind weight val to selection on click
-    var updateWeight = function() {
-        return weight;
-    };
+// // //Bind weight val to selection on click
+//     var updateWeight = function() {
+//         return weight;
+//     };
 
-//Draw on the canvas on mouse events
-    canvas.mousedown(function(e) {
-        lastEvent = e;
-        mousedown = true;
-    }).mousemove(function(e) {
-        if (mousedown) {
-            context.beginPath();
-            context.moveTo(lastEvent.offsetX, lastEvent.offsetY);
-            context.lineTo(e.offsetX, e.offsetY);
-            context.strokeStyle = color;
-            context.lineWidth = updateWeight();
-            context.stroke();
-            lastEvent = e;
-        }
-    }).mouseup(function() {
-        mousedown = false;
-    }).mouseleave(function() {
-        canvas.mouseup();
-    });
+// //Draw on the canvas on mouse events
+//     canvas.mousedown(function(e) {
+//         lastEvent = e;
+//         mousedown = true;
+//     }).mousemove(function(e) {
+//         if (mousedown) {
+//             context.beginPath();
+//             context.moveTo(lastEvent.offsetX, lastEvent.offsetY);
+//             context.lineTo(e.offsetX, e.offsetY);
+//             context.strokeStyle = color;
+//             context.lineWidth = updateWeight();
+//             context.stroke();
+//             lastEvent = e;
+//         }
+//     }).mouseup(function() {
+//         mousedown = false;
+//     }).mouseleave(function() {
+//         canvas.mouseup();
+//     });
 
-//Download your drawing
-    var downloadImg = function() {
-        var img = canvas[0].toDataURL("image/png");
-        var $imgLink = $("#download").attr("href", img);
-    }
+// //Download your drawing
+//     var downloadImg = function() {
+//         var img = canvas[0].toDataURL("image/png");
+//         var $imgLink = $("#download").attr("href", img);
+//     }
 
-    var clearSig = function(){
-        context.clearRect(0, 0, 500, 100);
-    }
-
-
-    $("#download").click(downloadImg);
-    $("#clearSig").click(clearSig);
+//     var clearSig = function(){
+//         context.clearRect(0, 0, 500, 100);
+//     }
 
 
-    $('a[href*=#]').bind('click', function(e) {
-        e.preventDefault(); // prevent hard jump, the default behavior
-
-        var target = $(this).attr("href"); // Set the target as variable
-
-        // perform animated scrolling by getting top-position of target-element and set it as scroll target
-        $('html, body').stop().animate({
-            scrollTop: $(target).offset().top
-        }, 600, function() {
-            location.hash = target; //attach the hash (#jumptarget) to the pageurl
-        });
-
-        return false;
-    });
+//     $("#download").click(downloadImg);
+//     $("#clearSig").click(clearSig);
 
 
-});
+//     $('a[href*=#]').bind('click', function(e) {
+//         e.preventDefault(); // prevent hard jump, the default behavior
+
+//         var target = $(this).attr("href"); // Set the target as variable
+
+//         // perform animated scrolling by getting top-position of target-element and set it as scroll target
+//         $('html, body').stop().animate({
+//             scrollTop: $(target).offset().top
+//         }, 600, function() {
+//             location.hash = target; //attach the hash (#jumptarget) to the pageurl
+//         });
+
+//         return false;
+//     });
+
+
+// });
 

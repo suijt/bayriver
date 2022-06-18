@@ -28,7 +28,7 @@ class BookingMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Someone Wants to Contact')
+        return $this->subject('Appointment Booking Alert')
             ->view('mail.booking')->with('data', $this->data);
     }
 }

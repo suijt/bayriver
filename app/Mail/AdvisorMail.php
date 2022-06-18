@@ -9,26 +9,26 @@ use Illuminate\Queue\SerializesModels;
 
 class AdvisorMail extends Mailable
 {
-    use Queueable, SerializesModels;
+  use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
-    public function __construct($data=[])
-    {
-      $this->data = $data;
-    }
+  /**
+   * Create a new message instance.
+   *
+   * @return void
+   */
+  public function __construct($data = [])
+  {
+    $this->data = $data;
+  }
 
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
-    public function build()
-    {
-        return $this->subject('Someone Wants to Contact')
-            ->view('mail.advisor')->with('data', $this->data);
-    }
+  /**
+   * Build the message.
+   *
+   * @return $this
+   */
+  public function build()
+  {
+    return $this->subject('Advisor Request Alert')
+      ->view('mail.advisor')->with('data', $this->data);
+  }
 }
