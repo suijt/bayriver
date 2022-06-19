@@ -1,19 +1,19 @@
 <div class="form-item">
     <!-- <label for="name">Name</label>-->
-    <input type="text" id="name" name="name" placeholder="Your Name.." required="" data-parsley-required-message = "Your name is required" data-parsley-trigger="change focusout">
+    <input type="text" id="name" name="name" placeholder="Your Name.." required="" data-parsley-required-message="Your name is required" data-parsley-trigger="change focusout">
     @error('name')
     <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                             </span>
+        <strong>{{ $message }}</strong>
+    </span>
     @enderror
 </div>
 <div class="form-item">
     <!--<label for="email">Email</label>-->
-    <input type="email" id="email" name="email" placeholder="Email" required="" data-parsley-required-message = "Your email is required" >
+    <input type="email" id="email" name="email" placeholder="Email" required="" data-parsley-required-message="Your email is required">
     @error('email')
     <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                            </span>
+        <strong>{{ $message }}</strong>
+    </span>
     @enderror
 </div>
 <div class="form-item">
@@ -21,8 +21,8 @@
     <input type="text" id="phone" name="phone" placeholder="Phone">
     @error('phone')
     <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                            </span>
+        <strong>{{ $message }}</strong>
+    </span>
     @enderror
 </div>
 <div class="form-item">
@@ -30,8 +30,8 @@
     <input type="text" id="address" name="address" placeholder="Address">
     @error('address')
     <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                            </span>
+        <strong>{{ $message }}</strong>
+    </span>
     @enderror
 </div>
 <div class="form-item">
@@ -39,11 +39,13 @@
     <input type="date" id="date" name="date" placeholder="Date">
     @error('date')
     <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                            </span>
+        <strong>{{ $message }}</strong>
+    </span>
     @enderror
 </div>
-
+<div class="form-item">
+    <div class="g-recaptcha" id="feedback-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY')  }}"></div>
+</div>
 <div class="form-button">
     <input class="button" type="submit" value="Submit Now">
 </div>

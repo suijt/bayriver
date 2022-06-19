@@ -1,28 +1,121 @@
-
-
 @media screen and (max-width: 1260px) {
     .sticky .main-menu a {
         padding: 15px 13px 15px;
         font-size: 17px;
     }
-
-    }
+}
 /* Maximum 1200px resolution devices, it works 0- 1200) */
 @media screen and (max-width: 1200px) {
-
+    .book-appointment__left-inner:before {
+        display: none;
+    }
+    .book-appointment__left-inner:after {
+        display: none;
+    }
+    .navigation-section .menu > ul > li {
+        margin-left: 7px;
+    }
     .main-menu a {
         padding: 15px 15px 15px;
-        font-size: 18px;
-
+        font-size: 16px;
     }
+    .navigation-section .menu > ul > li > a {
+        font-size: 16px;
     }
+}
 @media screen and (min-width: 900px) and (max-width: 1200px) {
-
 }
 
 /*  0-1023px, smaller than ipad portrait */
 @media screen and (max-width: 1023px) {
+    ul.partners-carousel.partners-carousel__secondary {
+        padding-bottom: 20px;
+        margin-bottom: 10px;
+    }
+    h2 {
+        font-size: 28px;
+    }
+    h3 {
+        font-size: 22px;
+    }
+    .intro-courseintro {
+        padding: 10px 15px;
+        font-size: 23px;
+        margin-bottom: 30px;
+    }
+    .resp-arrow {
+        border-top: 12px solid #fff;
+    }
+    h2.resp-tab-active span.resp-arrow {
+        border-bottom: 12px solid #fff;
+    }
+    h2.resp-accordion {
+        font-size: 18px;
+        font-weight: 600;
+        border: 1px solid #26a9e0;
+        border-top: 0px solid #26a9e0;
+        background: #26a9e0 !important;
+        color: #fff;
+    }
+    h2.resp-tab-active {
+        border: 1px solid #3997bf;
+        border-top: 0px solid #3997bf;
+        background: #3997bf !important;
+    }
+    .course-nav__navigation li {
+        padding: 15px 20px 10px !important;
+        font-size: 18px;
+    }
+    .course-nav__detail-item .left-col {
+        width: 100%;
+        padding-right: 0px;
+    }
+    .course-nav__detail-item .right-col {
+        width: 100%;
+        margin-top: 25px;
+    }
+    .footer-col.col1,
+    .footer-col.col2,
+    .footer-col.col3,
+    .footer-col.col4 {
+        width: 50%;
+        margin-bottom: 15px;
+    }
+    .news-event__col1 {
+        width: 100%;
+        padding: 40px 0;
+    }
+    .news-event__adv {
+        width: 100%;
+    }
+    .news-event__adv a {
+        height: 450px;
+    }
+    .featured-block__col1 {
+        width: 100%;
+    }
+    .featured-block__col1-content {
+        max-width: 100%;
+        padding: 40px 20px;
+    }
+    .featured-block__col2 {
+        width: 100%;
+        padding: 30px;
+        min-height: 400px;
+        background-attachment: fixed;
+    }
+    .featured-block__col2-content {
+        max-width: 100%;
+        padding: 40px 0;
+    }
+    .banner-section h1 {
+        font-size: 36px;
+    }
 
+    .top-menu li a {
+        padding: 10px 2px;
+        font-size: 14px;
+    }
 
     /* mobile menu*/
     .mobile-menu {
@@ -33,79 +126,69 @@
         width: 100%;
     }
 
-.site-navigation .main-menu{
+    .site-navigation .main-menu {
         display: none;
     }
 
     .site-navigation.active .main-menu {
         display: block;
-
-
     }
 
     .site-navigation ul li a {
         display: inline-block;
-
     }
-    .site-navigation .main-menu > li{
-        border-bottom: 1px dotted rgba(255,255,255,0.5);
-
+    .site-navigation .main-menu > li {
+        border-bottom: 1px dotted rgba(255, 255, 255, 0.5);
     }
     .main-menu a {
         padding: 10px 15px;
     }
-    .site-navigation .main-menu{
+    .site-navigation .main-menu {
         padding: 20px 0 10px;
     }
-    .submenu{
+    .submenu {
         background-color: rgba(153, 75, 75, 0.2901960784313726);
         box-shadow: none;
         width: 100%;
     }
     .main-menu .submenu li a {
-        color:#fff;
+        color: #fff;
     }
-    .main-menu .submenu li a:hover{
+    .main-menu .submenu li a:hover {
         background: none;
     }
-    .main-menu .has-child:hover > .submenu{
+    .main-menu .has-child:hover > .submenu {
         display: none;
-
     }
-    .main-menu .submenu.active, .main-menu .has-child:hover > .submenu.active{
+    .main-menu .submenu.active,
+    .main-menu .has-child:hover > .submenu.active {
         display: block;
         position: static;
-
     }
-    .main-menu .menu-opener{
-
-
+    .main-menu .menu-opener {
     }
-    .main-menu .menu-opener.active{
+    .main-menu .menu-opener.active {
         transform: rotate(180deg);
     }
     .navigation-section {
-        margin-top:0;
-
+        margin-top: 0;
     }
     .main-menu > ul > li {
-
         display: block;
         margin-bottom: 10px;
     }
     .main-menu > ul > li > a {
         line-height: 1.4;
     }
-.menu-opener{
-    padding: 10px;
-    display: block;
-    top: 10px;
-    position: absolute;
-    height: 15px;
-    width: 15px;
-    right: 0;
-
-}
+    .menu-opener {
+        padding: 10px;
+        display: block;
+        top: 10px;
+        position: absolute;
+        height: 15px;
+        width: 15px;
+        right: 0;
+    }
     .menu-opener:before {
         content: "▾";
         font-size: 24px;
@@ -114,70 +197,151 @@
         line-height: 1;
         top: -3px;
         left: 0;
-
     }
-    .main-menu .has-child >a:after {
-      display:none;
+    .main-menu .has-child > a:after {
+        display: none;
     }
-    .sticky .site-navigation{
+    .sticky .site-navigation {
         width: calc(100% - 80px);
         text-align: right;
-         }
-    .sticky .mobile-menu{
+    }
+    .sticky .mobile-menu {
         display: inline-block;
     }
-    .sticky .main-menu{
+    .sticky .main-menu {
         text-align: left;
     }
-    .banner-section .slider .slider-item{
+    .banner-section .slider .slider-item {
         /*min-height: 500px;*/
         min-height: inherit;
     }
     .banner-section .slider-content {
         padding: 100px 0;
+        font-size: 22px;
     }
-    .footer-col {
-        width: 50%;
-       margin-bottom: 20px;
-    }
-    /* mobile menu*/
-    .footer-col.col3{
-        width: 100%;
-        margin-bottom: 0;
-    }
-    .copyright{
-        width: 100%;
 
+    .copyright {
+        width: 100%;
     }
-    .footer-credit{
+    .footer-credit {
         width: 100%;
         margin-top: 10px;
+        text-align: left;
     }
-    .site-footer iframe{
+    .site-footer iframe {
         width: 100%;
     }
+    .featured-program__sliderholder .slick-next {
+        right: 0;
+    }
+    .featured-program__sliderholder .slick-prev {
+        left: 0;
+    }
+    .site-footer {
+        word-wrap: break-word;
+    }
+    .general-page__left-col {
+        width: 100%;
+        padding-right: 0px;
+    }
+    .general-page__right-col {
+        width: 100%;
+        margin-top: 20px;
+    }
+    .media-content__thumbnail {
+        width: 100%;
+        min-height: 400px;
+    }
+    .media-content__content {
+        width: 100%;
+    }
+    .media-content.reverse .media-content__content-inner {
+        max-width: 100%;
+        padding: 40px 20px;
+    }
+    .contact-us_info {
+        width: 100%;
+        padding-bottom: 20px;
+    }
+    .contact-us_form {
+        width: 100%;
+        padding-left: 0;
+    }
+    .prenews--3cols .prenews-item {
+        width: 50%;
+        margin-bottom: 20px;
+    }
 }
-
 
 /* mobile devices, iphone, android 0-767) */
 @media screen and (max-width: 767px) {
-    .footer-col {
-        width: 100%;
-
+    .inner-banner h1 {
+        font-size: 38px;
     }
+    .prenews--3cols .prenews-item {
+        width: 100%;
+    }
+    .two-columns__thumbnail {
+        width: 100%;
+        float: none;
+        margin: 0 0 15px;
+    }
+    .related-course__item-content .button {
+        margin-top: 0px;
+    }
+    .prenews-item {
+        width: 100%;
+    }
+    .related-course h2 {
+        margin-bottom: 25px;
+    }
+    .related-course {
+        padding: 30px 0;
+    }
+    .related-course__item {
+        width: 100%;
+    }
+    .upcoming-events__lists {
+        margin: 0;
+    }
+    .upcoming-events__item {
+        width: 100%;
+    }
+    .book-appointment__right-inner {
+        max-width: 100%;
+        padding: 40px 20px;
+    }
+    .book-app__icon {
+        display: none;
+    }
+    .top-border,
+    .bottom-border {
+        display: none;
+    }
+    .book-appointment__left {
+        width: 100%;
+    }
+    .book-appointment__right {
+        width: 100%;
+    }
+    .banner-section .slider-content {
+        padding: 100px 0;
+        font-size: 18px;
+    }
+    .banner-section h1 {
+        font-size: 30px;
+    }
+
     .footer-col.col2 {
         text-align: left;
     }
-    .contact-block__col1, .contact-block__col2{
+    .contact-block__col1,
+    .contact-block__col2 {
         width: 100%;
     }
-    .contact-block__col2{
+    .contact-block__col2 {
         margin-top: 20px;
-
     }
 }
-@media screen and (max-width:568px){
-
+@media screen and (max-width: 568px) {
 }
-
-

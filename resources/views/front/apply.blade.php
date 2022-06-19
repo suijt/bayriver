@@ -219,6 +219,9 @@
                         </div>
                         <!--checkbox-holder-->
                     </div>
+                    <div class="form-item">
+                        <div class="g-recaptcha" id="feedback-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY')  }}"></div>
+                </div>
                     <div class="form-item__button">
                         <button class="button button--tertiary" type="submit">Apply Now</button>
 
@@ -546,6 +549,9 @@
                             <!--checkbox-item-->
                         </div>
                         <!--checkbox-holder-->
+                    </div>
+                    <div class="form-item">
+                        <div class="g-recaptcha" id="feedback-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY')  }}"></div>
                     </div>
                     <div class="form-item__button">
                         <button class="button button--tertiary" type="submit">Apply Now</button>

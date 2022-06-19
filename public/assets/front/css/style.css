@@ -338,7 +338,7 @@ ol li {
     width: calc(100% - 265px);
 }
 .top-header__rightcol-primary {
-    padding-right: 50px;
+    /* padding-right: 50px;*/
     position: relative;
     display: flex;
     flex-wrap: wrap;
@@ -1103,11 +1103,15 @@ textarea:focus {
     flex-wrap: wrap;
     justify-content: flex-end;
     padding-right: 50px;
+    padding-left: 20px;
 }
 .news-event-holder {
     max-width: 1024px;
 }
 .news-event__col1-holder {
+    /*margin: 0 -20px;*/
+}
+.news-event__item-holder {
     margin: 0 -20px;
 }
 .news-event__item {
@@ -1640,10 +1644,12 @@ ul.breadcrumb li a:hover {
     margin-bottom: 40px;
 }
 .related-course__holder {
-    justify-content: space-between;
+    /*justify-content: space-between;*/
+    margin: 0 -15px;
 }
 .related-course__item {
-    width: calc(33.33% - 15px);
+    width: 33.33%;
+    padding: 0 15px;
     margin-bottom: 30px;
 }
 .related-course__item-inner {
@@ -2337,37 +2343,13 @@ table th {
     font-size: 24px;
     margin-bottom: 40px;
 }
-input.parsley-success,
-select.parsley-success,
-textarea.parsley-success {
-    color: #468847;
-    background-color: #dff0d8;
-    border: 1px solid #d6e9c6;
+
+marquee a {
+    color: #fff;
 }
-
-input.parsley-error,
-select.parsley-error,
-textarea.parsley-error {
-    color: #b94a48;
-    background-color: #f2dede;
-    border: 1px solid #eed3d7;
+.table-holder {
+    overflow: scroll;
 }
-
-.parsley-errors-list {
-    margin: 2px 0 3px;
-    padding: 0;
-    list-style-type: none;
-    font-size: 0.9em;
-    line-height: 0.9em;
-    opacity: 0;
-    color: #b94a48;
-
-    transition: all 0.3s ease-in;
-    -o-transition: all 0.3s ease-in;
-    -moz-transition: all 0.3s ease-in;
-    -webkit-transition: all 0.3s ease-in;
-}
-
-.parsley-errors-list.filled {
-    opacity: 1;
+.resp-tab-content {
+    border: none;
 }

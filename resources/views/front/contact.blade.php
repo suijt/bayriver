@@ -63,7 +63,9 @@
                             <textarea rows="5" cols="45" name="message" placeholder="Your Message"></textarea>
                         </div>
 
-
+                        <div class="form-item">
+                            <div class="g-recaptcha" id="feedback-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY')  }}"></div>
+                        </div>
                         <div class="form-button">
                             <input class="button  button--tertiary" type="submit" value="Submit Now">
                         </div>

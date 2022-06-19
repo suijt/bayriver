@@ -26,6 +26,7 @@
                     <li>President Message </li>
                     <li>FAQs </li>
                     <li>Careers </li>
+                    <li>News & Events </li>
 
                 </ul>
             </div>

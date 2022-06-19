@@ -79,19 +79,16 @@
                                     @if($affiliated > 0)
                                     <li class="menu-item-has-children">
                                         <a href="#">IPAC <i class="ion ion-ios-arrow-down"></i></a>
-                                        <div class="menu-subs menu-mega menu-column-4">
-                                            @foreach ($affiliatedMenus as $category)
-                                            @if($category->courses->count())
-                                            <div class="list-item">
-                                                <h4 class="title">{{$category->name}}</h4>
-                                                <ul>
-                                                    @foreach ($category->courses as $course)
-                                                    <li><a href="{{route('course.detail',$course->slug)}}">{{$course->title}}</a></li>
-                                                    @endforeach
-                                                </ul>
-                                            </div>
-                                            @endif
-                                            @endforeach
+                                        <div class="menu-subs menu-column-1">
+                                            <ul>
+                                                @foreach ($affiliatedMenus as $category)
+                                                @if($category->courses->count())
+                                                @foreach ($category->courses as $course)
+                                                <li><a href="{{route('course.detail',$course->slug)}}">{{$course->title}}</a></li>
+                                                @endforeach
+                                                @endif
+                                                @endforeach
+                                            </ul>
                                         </div>
                                     </li>
                                     @endif
@@ -122,18 +119,18 @@
                                             @if($category->courses->count())
                                             <div class="list-item">
                                                 <h4 class="title">{{$category->name}}</h4>
-                                                <ul>
-                                                    @foreach ($category->courses as $course)
-                                                    <li><a href="{{route('course.detail',$course->slug)}}">{{$course->title}}</a></li>
-                                                    @endforeach
-                                                </ul>
-                                            </div>
-                                            @endif
-                                            @endforeach
-                                        </div>
-                                    </li>
-                                    @endif --}}
-                                    <!-- <li class="menu-item-has-children">
+                                    <ul>
+                                        @foreach ($category->courses as $course)
+                                        <li><a href="{{route('course.detail',$course->slug)}}">{{$course->title}}</a></li>
+                                        @endforeach
+                                    </ul>
+                        </div>
+                        @endif
+                        @endforeach
+                </div>
+                </li>
+                @endif --}}
+                <!-- <li class="menu-item-has-children">
                                      <a href="#">Continuing Studies <i class="ion ion-ios-arrow-down"></i></a>
                                      <div class="menu-subs menu-column-1">
                                          <ul>
@@ -144,11 +141,11 @@
                                          </ul>
                                      </div>
                                  </li>-->
-                                    @if($researchMenu)<li class="menu-item"><a href="{{route('course.detail',$researchMenu->slug)}}">Research & Innovation</a></li>@endif
-                                    <li class="menu-item"><a href="{{route('international.list')}}">International Students</a></li>
-                                    <li class="menu-item"><a href="{{route('alumni')}}">Alumni</a></li>
+                @if($researchMenu)<li class="menu-item"><a href="{{route('course.detail',$researchMenu->slug)}}">Research & Innovation</a></li>@endif
+                <li class="menu-item"><a href="{{route('international.list')}}">International Students</a></li>
+                <li class="menu-item"><a href="{{route('alumni')}}">Alumni</a></li>
 
-                                    <!--<li class="menu-item-has-children">
+                <!--<li class="menu-item-has-children">
                                     <a href="international-students.html">International Students <i class="ion ion-ios-arrow-down"></i></a>
                                     <div class="menu-subs menu-column-1">
                                         <ul>
@@ -161,24 +158,24 @@
                                         </ul>
                                     </div>
                                 </li>-->
-                                    <!-- <li class="apply-now"><a href="{{route('apply')}}">Apply Now</a></li> -->
-                                    <li class="apply-now"><a href="{{route('apply')}}">Apply Now</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-
-                        <div class="header-item-right">
-                            <button type="button" class="menu-mobile-toggle">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </button>
-                        </div>
-                    </section>
-                </div>
+                <!-- <li class="apply-now"><a href="{{route('apply')}}">Apply Now</a></li> -->
+                <li class="apply-now"><a href="{{route('apply')}}">Apply Now</a></li>
+                </ul>
+                </nav>
             </div>
+
+            <div class="header-item-right">
+                <button type="button" class="menu-mobile-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            </section>
         </div>
+    </div>
+    </div>
     </div>
     <!--top-header-->
 

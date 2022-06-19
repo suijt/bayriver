@@ -140,7 +140,7 @@
 
                         <!--table-of-contents-->
                         <!-- <figure>
-                                <img src="images/intl1.jpg.jpg" alt="">
+                                <img src="{{asset('asset/front/images/intl1.jpg.jpg" alt="">
                             </figure> -->
 
                         @if($testimonials->isNotEmpty())
@@ -675,6 +675,9 @@
                                             </div>
                                             <!--checkbox-holder-->
                                         </div>
+                                        <div class="form-item">
+                                            <div class="g-recaptcha" id="feedback-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY')  }}"></div>
+                                        </div>
                                         <div class="form-item__button">
                                             <button class="button button--tertiary" type="submit">Apply Now</button>
 
@@ -684,9 +687,9 @@
                             </div>
 
                             <ul>
-                                <li> <a href="images/INTERNATIONAL-STUDENT-APPLICATION-FORM-002.pdf" download>International Student Application Form</a></li>
-                                <li> <a href="images/Bay-River_International_TuitionFees-2022-2023-revised.pdf" download>International Student Fees</a></li>
-                                <li> <a href="images/Bay-River-College-Prospectus-1-Handbook-2-1.pdf" download>International Student Handbook </a></li>
+                                <li> <a href="{{asset('asset/front/images/INTERNATIONAL-STUDENT-APPLICATION-FORM-002.pdf')}}" download>International Student Application Form</a></li>
+                                <li> <a href="{{asset('asset/front/images/Bay-River_International_TuitionFees-2022-2023-revised.pdf')}}" download>International Student Fees</a></li>
+                                <li> <a href="{{asset('asset/front/images/Bay-River-College-Prospectus-1-Handbook-2-1.pdf')}}" download>International Student Handbook </a></li>
                                 <li> <a href="https://englishtest.duolingo.com/applicants" download>Duolingo English Test</a></li>
 
                             </ul>
