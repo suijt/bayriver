@@ -146,6 +146,9 @@ class FrontendController extends Controller
 
     public function courseAdvisor(CourseRequest $request)
     {
+        $this->validate($request, [
+            'g-recaptcha-response' => ['required', new Recaptcha()]
+        ]);
         $advisor = CourseAdvisor::create($request->all());
         if ($advisor) {
             $data = array(
@@ -271,6 +274,10 @@ class FrontendController extends Controller
 
     public function contactSubmit(Request $request)
     {
+        $this->validate($request, [
+            'g-recaptcha-response' => ['required', new Recaptcha()]
+        ]);
+
         $inquiry = Inquiry::create($request->all());
         if ($inquiry) {
             Mail::to('admissions@bayrivercollge.ca ')->send(new InquiryMail($request->all()));
@@ -290,6 +297,9 @@ class FrontendController extends Controller
 
     public function applySubmit(ApplyNowRequest $request)
     {
+        $this->validate($request, [
+            'g-recaptcha-response' => ['required', new Recaptcha()]
+        ]);
         $apply_now = $this->course->applyCreate($request->all());
         if ($apply_now) {
             if ($request['option'] == 'residental') {
