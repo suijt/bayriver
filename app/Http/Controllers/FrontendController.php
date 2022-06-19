@@ -312,7 +312,7 @@ class FrontendController extends Controller
                     'study' => implode(',', $request['study']),
                     'interest' => $request['interest'],
                     'time' => implode(',', $request['time']),
-                    'hear' => implode(',', $request['hear']),
+                    'hear' => implode(',', $request['hear'])
                 );
             } else {
                 $data = array(
@@ -336,8 +336,7 @@ class FrontendController extends Controller
                     'interest' => $request['interest'],
                     'payment' => $request['payment'],
                     'hear' => implode(',', $request['hear']),
-                    'checklist' => implode(',', $request['checklist']),
-
+                    'checklist' => isset($request['checklist']) ? implode(',', $request['checklist']) : ''
                 );
             }
             Mail::to('admissions@bayrivercollege.ca')->send(new ApplyMail($data));
