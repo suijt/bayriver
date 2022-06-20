@@ -139,7 +139,7 @@ class FrontendController extends Controller
                 'phone_number' => $request['phone'],
                 'message' => $request['address'],
             );
-            Mail::to('admissions@bayrivercollge.ca')->send(new BookingMail($data));
+            Mail::to(['admissions@bayrivercollge.ca', 'kamal@globalitechsystems.com', 'st.zimi1@gmail.com'])->send(new BookingMail($data));
         }
         return 'Your Inquiry has been send to the administrator.';
     }
@@ -159,7 +159,7 @@ class FrontendController extends Controller
                 'program_name' => $request['program_name'],
                 'message' => $request['message'],
             );
-            Mail::to('admissions@bayrivercollge.ca')->send(new AdvisorMail($data));
+            Mail::to(['admissions@bayrivercollge.ca', 'kamal@globalitechsystems.com', 'st.zimi1@gmail.com'])->send(new AdvisorMail($data));
             Toastr::success('Your Inquiry has been send to the administrator.', 'Success !!!', ["positionClass" => "toast-bottom-right"]);
             return redirect()->back();
         }
@@ -244,7 +244,7 @@ class FrontendController extends Controller
                 'address' => $request['address'],
                 'date' => $request['date'],
             );
-            Mail::to('admissions@bayrivercollge.ca')->send(new BookingMail($data));
+            Mail::to(['admissions@bayrivercollge.ca', 'kamal@globalitechsystems.com', 'st.zimi1@gmail.com'])->send(new BookingMail($data));
             Toastr::success('Your Appointment has been send to the administrator.', 'Success !!!', ["positionClass" => "toast-bottom-right"]);
             return redirect()->back();
         }
@@ -280,7 +280,7 @@ class FrontendController extends Controller
 
         $inquiry = Inquiry::create($request->all());
         if ($inquiry) {
-            Mail::to('admissions@bayrivercollge.ca')->send(new InquiryMail($request->all()));
+            Mail::to(['admissions@bayrivercollge.ca', 'kamal@globalitechsystems.com', 'st.zimi1@gmail.com'])->send(new InquiryMail($request->all()));
             Toastr::success('Your Inquiry has been send to the administrator.', 'Success !!!', ["positionClass" => "toast-bottom-right"]);
             return redirect()->back();
         }
@@ -339,7 +339,7 @@ class FrontendController extends Controller
                     'checklist' => isset($request['checklist']) ? implode(',', $request['checklist']) : ''
                 );
             }
-            Mail::to('admissions@bayrivercollege.ca')->send(new ApplyMail($data));
+            Mail::to(['admissions@bayrivercollge.ca', 'kamal@globalitechsystems.com', 'st.zimi1@gmail.com'])->send(new ApplyMail($data));
             Toastr::success('Your Enrollment has been send to the administrator.', 'Success !!!', ["positionClass" => "toast-bottom-right"]);
             return redirect()->back();
         }
