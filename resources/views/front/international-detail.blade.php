@@ -310,7 +310,7 @@
                             <div class="book-appointment__right-holder">
                                 <div class="book-appointment__right-inner">
                                     <h2>Ready To Book An Appointment</h2>
-                                    <form id="contact" name="contact" method="post" action="{{route('international.submit')}}" data-parsley-validate="">
+                                    <form id="contact" name="contact" method="post" action="{{route('booking.submit')}}" data-parsley-validate="">
                                         @csrf
                                         @include('front.includes.booking')
                                     </form>
@@ -324,7 +324,7 @@
                             <div class="book-appointment__right-holder">
                                 <div class="book-appointment__right-inner">
                                     <h2>To Know More <br>Contact To Advisor</h2>
-                                    <form id="contact" name="contact" method="post" action="{{route('international.advisor')}}" data-parsley-validate="">
+                                    <form id="contact" name="contact" method="post" action="{{route('contact.advisor')}}" data-parsley-validate="">
                                         @csrf
                                         @include('front.includes.advisor')
                                     </form>
@@ -738,7 +738,7 @@
                             <div class="book-appointment__right-holder">
                                 <div class="book-appointment__right-inner">
                                     <h2>Ready To Book An Appointment</h2>
-                                    <form id="contact" name="contact" method="post" action="{{route('international.submit')}}" data-parsley-validate="">
+                                    <form id="contact" name="contact" method="post" action="{{route('booking.submit')}}" data-parsley-validate="">
                                         @csrf
                                         @include('front.includes.booking')
                                     </form>
@@ -752,7 +752,7 @@
                             <div class="book-appointment__right-holder">
                                 <div class="book-appointment__right-inner">
                                     <h2>To Know More <br>Contact To Advisor</h2>
-                                    <form id="contact" name="contact" method="post" action="{{route('international.advisor')}}" data-parsley-validate="">
+                                    <form id="contact" name="contact" method="post" action="{{route('contact.advisor')}}" data-parsley-validate="">
                                         @csrf
                                         @include('front.includes.advisor')
                                     </form>
@@ -874,7 +874,6 @@
 
 @endsection
 @section('scripts')
-<script src="https://parsleyjs.org/dist/parsley.min.js"></script>
 
 <script type="text/javascript">
     $('#contact').parsley();
