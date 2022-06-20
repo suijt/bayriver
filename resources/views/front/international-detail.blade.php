@@ -90,10 +90,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!--ADVISOR book-appointment__right-->
-                        <!-- <div class="right-col__testimonial-video mt-20">
-                                <iframe width="560" height="315" src="https://www.youtube.com/embed/4NvmzjCb9fA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div> -->
+                        <!--ADVISOR book-appointment__right-->\
                     </div>
                 </div>
 
@@ -139,9 +136,7 @@
                         @include('layouts.front.quicklinks')
 
                         <!--table-of-contents-->
-                        <!-- <figure>
-                                <img src="{{asset('asset/front/images/intl1.jpg.jpg" alt="">
-                            </figure> -->
+                        
 
                         @if($testimonials->isNotEmpty())
                         <div class="right-col__testimonial">
