@@ -93,5 +93,45 @@ class InquiryController extends Controller
      */
     public function destroy($id)
     {
+        return $this->inquiry->delete($id, 'inquiry');
+    }
+
+    public function getAppointment()
+    {
+        return view('admin.appointment.index');
+    }
+
+    public function getAppointmentData()
+    {
+        return $this->inquiry->getAppointmentData();
+    }
+    public function destroyAppointment($id)
+    {
+        return $this->inquiry->delete($id, 'appointment');
+    }
+    public function getAdvisor()
+    {
+        return view('admin.advisor.index');
+    }
+    public function getAdvisorData()
+    {
+        return $this->inquiry->getAdvisorData();
+    }
+    public function destroyAdvisor($id)
+    {
+        return $this->inquiry->delete($id, 'advisor');
+    }
+    public function getApplication($type = null)
+    {
+        return view('admin.application.index', compact('type'));
+    }
+
+    public function getApplicationData($type = null)
+    {
+        return $this->inquiry->getApplicationData($type);
+    }
+    public function destroyApplication($id)
+    {
+        return $this->inquiry->delete($id, 'application');
     }
 }

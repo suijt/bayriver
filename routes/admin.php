@@ -82,6 +82,20 @@ Route::group([
     //Inquiry
     $router->resource('inquiry', InquiryController::class);
     $router->get('inquiry-data', [InquiryController::class, 'getAllData'])->name('inquiry.data');
+    $router->get('inquiry/{id}/destroy', [InquiryController::class, 'destroy'])->name('inquiry.destroy');
+
+    $router->get('appointment', [InquiryController::class, 'getAppointment'])->name('appointment.index');
+    $router->get('appointment-data', [InquiryController::class, 'getAppointmentData'])->name('appointment.data');
+    $router->get('appointment/{id}/destroy', [InquiryController::class, 'destroyAppointment'])->name('appointment.destroy');
+
+    $router->get('advisor', [InquiryController::class, 'getAdvisor'])->name('advisor.index');
+    $router->get('advisor-data', [InquiryController::class, 'getAdvisorData'])->name('advisor.data');
+    $router->get('advisor/{id}/destroy', [InquiryController::class, 'destroyAdvisor'])->name('advisor.destroy');
+
+    $router->get('apply/{type}', [InquiryController::class, 'getApplication'])->name('application.index');
+    $router->get('application-data/{type}', [InquiryController::class, 'getApplicationData'])->name('application.data');
+    $router->get('application/{id}/destroy', [InquiryController::class, 'destroyApplication'])->name('application.destroy');
+
 
     //Category
     $router->resource('category', CategoryController::class);

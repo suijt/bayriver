@@ -163,6 +163,54 @@
                 </div>
                 <div class="menu-item">
                     <div class="menu-item">
+                        <a class="menu-link {{ request()->is('admin/appointment') || request()->is('admin/appointment/*')
+                        ? " active" : "" }}" href="{{route('admin.appointment.index')}}">
+                            <span class="menu-icon">
+                                <i class="bi bi-pencil-square fs-3"></i>
+
+                            </span>
+                            <span class="menu-title">Appointments</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item">
+                        <a class="menu-link {{ request()->is('admin/advisor') || request()->is('admin/advisor/*')
+                        ? " active" : "" }}" href="{{route('admin.advisor.index')}}">
+                            <span class="menu-icon">
+                                <i class="bi bi-pencil-square fs-3"></i>
+
+                            </span>
+                            <span class="menu-title">Advisor</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item">
+                        <a class="menu-link {{ request()->is('admin/application') || request()->is('admin/application/resident')
+                        ? " active" : "" }}" href="{{route('admin.application.index','resident')}}">
+                            <span class="menu-icon">
+                                <i class="bi bi-pencil-square fs-3"></i>
+
+                            </span>
+                            <span class="menu-title">Applications</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item">
+                        <a class="menu-link {{ request()->is('admin/application') || request()->is('admin/application/international')
+                        ? " active" : "" }}" href="{{route('admin.application.index','international')}}">
+                            <span class="menu-icon">
+                                <i class="bi bi-pencil-square fs-3"></i>
+
+                            </span>
+                            <span class="menu-title">International Applications</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item">
                         <a class="menu-link {{ request()->is('admin/page') || request()->is('admin/page/*')
                         ? " active" : "" }}" href="{{route('admin.page.index')}}">
                             <span class="menu-icon">

@@ -1,6 +1,6 @@
 @extends('layouts.admin.app')
 
-@section('title', 'Inquiry')
+@section('title', 'Application')
 
 @section('breadcrumb')
 <div class="toolbar" id="kt_toolbar">
@@ -12,7 +12,7 @@
                 <a href="{{route('admin.dashboard') }}" class="text-muted">Dashboard</a>
             </li>
             <li class="breadcrumb-item text-muted">
-                <a href="{{ route('admin.inquiry.index')}}" class="text-muted">Inquiry</a>
+                <a href="{{ route('admin.inquiry.index')}}" class="text-muted">Application</a>
             </li>
             <li class="breadcrumb-item text-active">
                 <a href="#" class="text-active">Listing</a>
@@ -23,7 +23,7 @@
         <div class="d-flex align-items-center py-1">
             <!--begin::Button-->
             <!-- <a href="{{route('admin.inquiry.create')}}" class="btn btn-sm btn-primary" id="kt_toolbar_primary_button">Create
-                Inquiry</a> -->
+                Application</a> -->
             <!--end::Button-->
         </div>
         <!--end::Actions-->
@@ -51,23 +51,54 @@
         <div class="card card-custom">
             <div class="card-header flex-wrap py-5">
                 <div class="card-title">
-                    <h3 class="card-label">Inquiry List</h3>
+                    <h3 class="card-label">Application List</h3>
                 </div>
             </div>
             <div class="card-body">
                 <!--begin: Datatable-->
                 <table class="table table-separate table-head-custom table-checkable" id="tableData">
+                    @if($type == 'resident')
                     <thead>
                         <tr>
                             <th>S.No.</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Phone</th>
-                            <th>Subject</th>
-                            <th>Message</th>
+                            <th>Address</th>
+                            <th>Study Preference</th>
+                            <th>Interest</th>
+                            <th>Level of Study</th>
+                            <th>Found us from</th>
                             <th>Action</th>
                         </tr>
                     </thead>
+                    @else
+                    <thead>
+                        <tr>
+                            <th>S.No.</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Nationality</th>
+                            <th>Passport Number</th>
+                            <th>Date of Birth</th>
+                            <th>Gender</th>
+                            <th>Address</th>
+                            <th>Province</th>
+                            <th>Country</th>
+                            <th>Zip Code</th>
+                            <th>Emergency Contact Name</th>
+                            <th>Emergency Contact Address</th>
+                            <th>Emergency Contact Province</th>
+                            <th>Emergency Contact Country</th>
+                            <th>Emergency Contact Email</th>
+                            <th>Emergency Contact Number</th>
+                            <th>Program</th>
+                            <th>Checklist</th>
+                            <th>Found us from</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    @endif
                     <tbody>
                     </tbody>
                 </table>
@@ -99,44 +130,115 @@
 
                 // begin first table
                 var table1 = table.DataTable({
-                    responsive: true,
                     searchDelay: 500,
                     processing: true,
                     serverSide: true,
                     order: [
                         [0, 'desc']
                     ],
-                    stateSave: true,
                     ajax: {
-                        url: "{{ route('admin.inquiry.data') }}",
+                        url: "{{ route('admin.application.data',$type) }}",
                     },
+                    @if($type == 'resident')
                     columns: [{
                             "data": "DT_RowIndex",
                             orderable: true,
                             searchable: false
                         }, {
-                            "data": "name"
+                            "data": "full_name"
                         },
                         {
                             "data": "email"
                         },
                         {
-                            "data": "phone"
+                            "data": "phone_number"
                         },
                         {
-                            "data": "subject"
+                            "data": "address"
                         },
                         {
-                            "data": "message"
+                            "data": "study"
+                        },
+                        {
+                            "data": "interest"
+                        },
+                        {
+                            "data": "time"
+                        },
+                        {
+                            "data": "hear"
                         },
                         {
                             "data": "actions"
                         },
                     ],
-                    columnDefs: [{
-                        targets: -1,
-                        className: 'float-end'
-                    }],
+                    @else
+                    columns: [{
+                            "data": "DT_RowIndex",
+                            orderable: true,
+                            searchable: false
+                        }, {
+                            "data": "full_name"
+                        },
+                        {
+                            "data": "email"
+                        },
+                        {
+                            "data": "nationality"
+                        },
+                        {
+                            "data": "passport_number"
+                        },
+                        {
+                            "data": "date"
+                        },
+                        {
+                            "data": "gender"
+                        },
+                        {
+                            "data": "address"
+                        },
+                        {
+                            "data": "state"
+                        },
+                        {
+                            "data": "country_name"
+                        },
+                        {
+                            "data": "zip_code"
+                        },
+                        {
+                            "data": "emergency_contact_name"
+                        },
+                        {
+                            "data": "emergency_contact_address"
+                        },
+                        {
+                            "data": "emergency_contact_state"
+                        },
+                        {
+                            "data": "emergency_contact_country_name"
+                        },
+                        {
+                            "data": "emergency_contact_email"
+                        },
+                        {
+                            "data": "emergency_contact_number"
+                        },
+                        {
+                            "data": "program"
+                        },
+                        {
+                            "data": "checklist"
+                        },
+                        {
+                            "data": "hear"
+                        },
+                        {
+                            "data": "actions"
+                        },
+                    ],
+                    @endif
 
                 });
 

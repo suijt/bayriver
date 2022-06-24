@@ -1,6 +1,6 @@
 @extends('layouts.admin.app')
 
-@section('title', 'Inquiry')
+@section('title', 'Appointments')
 
 @section('breadcrumb')
 <div class="toolbar" id="kt_toolbar">
@@ -12,7 +12,7 @@
                 <a href="{{route('admin.dashboard') }}" class="text-muted">Dashboard</a>
             </li>
             <li class="breadcrumb-item text-muted">
-                <a href="{{ route('admin.inquiry.index')}}" class="text-muted">Inquiry</a>
+                <a href="{{ route('admin.inquiry.index')}}" class="text-muted">Appointments</a>
             </li>
             <li class="breadcrumb-item text-active">
                 <a href="#" class="text-active">Listing</a>
@@ -23,7 +23,7 @@
         <div class="d-flex align-items-center py-1">
             <!--begin::Button-->
             <!-- <a href="{{route('admin.inquiry.create')}}" class="btn btn-sm btn-primary" id="kt_toolbar_primary_button">Create
-                Inquiry</a> -->
+                Appointments</a> -->
             <!--end::Button-->
         </div>
         <!--end::Actions-->
@@ -51,7 +51,7 @@
         <div class="card card-custom">
             <div class="card-header flex-wrap py-5">
                 <div class="card-title">
-                    <h3 class="card-label">Inquiry List</h3>
+                    <h3 class="card-label">Appointment List</h3>
                 </div>
             </div>
             <div class="card-body">
@@ -63,8 +63,8 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>Phone</th>
-                            <th>Subject</th>
-                            <th>Message</th>
+                            <th>Address</th>
+                            <th>Date</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -108,7 +108,7 @@
                     ],
                     stateSave: true,
                     ajax: {
-                        url: "{{ route('admin.inquiry.data') }}",
+                        url: "{{ route('admin.appointment.data') }}",
                     },
                     columns: [{
                             "data": "DT_RowIndex",
@@ -124,19 +124,15 @@
                             "data": "phone"
                         },
                         {
-                            "data": "subject"
+                            "data": "address"
                         },
                         {
-                            "data": "message"
+                            "data": "date"
                         },
                         {
                             "data": "actions"
                         },
                     ],
-                    columnDefs: [{
-                        targets: -1,
-                        className: 'float-end'
-                    }],
 
                 });
 
