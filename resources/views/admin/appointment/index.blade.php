@@ -61,6 +61,7 @@
                         <tr>
                             <th>S.No.</th>
                             <th>Name</th>
+                            <th>Program</th>
                             <th>Email</th>
                             <th>Phone</th>
                             <th>Address</th>
@@ -116,6 +117,9 @@
                             searchable: false
                         }, {
                             "data": "name"
+                        },
+                        {
+                            "data": "program"
                         },
                         {
                             "data": "email"

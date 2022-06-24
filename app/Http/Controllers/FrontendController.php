@@ -83,6 +83,7 @@ class FrontendController extends Controller
         $testimonials = $this->testimonial->frontAll();
         $clients = $this->client->frontAll();
         $courses = $this->course->featuredCourse();
+        $allCourses = $this->course->frontAll();
         $mostFeaturedNews = $this->news->getMostFeatured();
         if ($mostFeaturedNews) {
             $featuredNews = $this->news->featuredList('news', 2, $mostFeaturedNews->id);
@@ -93,7 +94,7 @@ class FrontendController extends Controller
         $featuredEvents = $this->news->featuredList('event', 3);
         $highlights = $this->news->highlightList();
 
-        return view('front.index', compact('sliders', 'teams', 'testimonials', 'clients', 'courses', 'featuredNews', 'featuredEvents', 'mostFeaturedNews', 'highlights', 'categories'));
+        return view('front.index', compact('sliders', 'teams', 'testimonials', 'clients', 'courses', 'featuredNews', 'featuredEvents', 'mostFeaturedNews', 'highlights', 'categories', 'allCourses'));
     }
 
     public function about()
@@ -236,9 +237,9 @@ class FrontendController extends Controller
 
     public function booking(BookingRequest $request)
     {
-        $this->validate($request, [
-            'g-recaptcha-response' => ['required', new Recaptcha()]
-        ]);
+        // $this->validate($request, [
+        //     'g-recaptcha-response' => ['required', new Recaptcha()]
+        // ]);
         try {
             $booking = Booking::create($request->all());
             if ($booking) {

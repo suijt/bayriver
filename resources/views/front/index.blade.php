@@ -78,7 +78,7 @@
                     <h2>Ready To Book An Appointment</h2>
                     <form id="contact" name="contact" method="post" action="{{route('booking.submit')}}" data-parsley-validate="">
                         @csrf
-                        @include('front.includes.booking')
+                        @include('front.includes.booking',['type'=>'front'])
                     </form>
 
                 </div>
