@@ -338,7 +338,7 @@ ol li {
     width: calc(100% - 265px);
 }
 .top-header__rightcol-primary {
-   /* padding-right: 50px;*/
+    /* padding-right: 50px;*/
     position: relative;
     display: flex;
     flex-wrap: wrap;
@@ -1112,7 +1112,7 @@ textarea:focus {
     /*margin: 0 -20px;*/
 }
 .news-event__item-holder {
-    margin: 0 -20px
+    margin: 0 -20px;
 }
 .news-event__item {
     width: 50%;
@@ -2344,12 +2344,16 @@ table th {
     margin-bottom: 40px;
 }
 
-marquee a{
-    color:#fff;
+marquee a {
+    color: #fff;
 }
-.table-holder{
+.table-holder {
     overflow: scroll;
 }
-.resp-tab-content{
-    border:none;
+.resp-tab-content {
+    border: none;
+}
+.form-item option {
+    background: #fafafa;
+    color: #000;
 }
