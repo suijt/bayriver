@@ -22,7 +22,7 @@
             <div class="container">
                 <ul class="hor_1 resp-tabs-list course-nav__navigation">
                     <li>Overview </li>
-                    <li>Prerequesite </li>
+                    <li>Admission </li>
                     <li>Financial </li>
                     <li>Industrial Acceptance </li>
                 </ul>
@@ -84,32 +84,31 @@
                         </section>
                         @endif
                         <!--logo-carousel-->
-                        <div class="book-appointment__right">
+                        {{--<div class="book-appointment__right">
                             <div class="book-appointment__right-holder">
                                 <div class="book-appointment__right-inner">
                                     <h2>Ready To Book An Appointment</h2>
                                     <form id="contact" name="contact" method="post" action="{{route('booking.submit')}}" data-parsley-validate="">
-                                        @csrf
-                                        @include('front.includes.booking',['type'=>'detail'])
-                                    </form>
-
-                                </div>
-                            </div>
-                        </div>
-                        <!--STD book-appointment__right-->
-
-                        {{--<div class="book-appointment__right advisorform">
-                                <div class="book-appointment__right-holder">
-                                    <div class="book-appointment__right-inner">
-                                        <h2>To Know More <br>Contact To Advisor</h2>
-                                        <form id="contact" name="contact" method="post" action="{{route('contact.advisor')}}" data-parsley-validate="">
                         @csrf
-                        @include('front.includes.advisor')
+                        @include('front.includes.booking',['type'=>'detail'])
                         </form>
 
                     </div>
                 </div>
             </div>--}}
+            <!--STD book-appointment__right-->
+
+            <div class="book-appointment__right advisorform">
+                <div class="book-appointment__right-holder">
+                    <div class="book-appointment__right-inner">
+                        <h2>{{config('settings.site_appointment_title')}}</h2>
+                        <form id="contact" name="contact" method="post" action="{{route('contact.advisor')}}" data-parsley-validate="">
+                            @csrf
+                            @include('front.includes.advisor')
+                        </form>
+                    </div>
+                </div>
+            </div>
             <!--ADVISOR book-appointment__right-->
         </div>
     </div>

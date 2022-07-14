@@ -80,8 +80,7 @@
                         <label>Study Option
                         </label>
                         <select name="study_option" id="" class="form-control">
-                            <option value="Online" @if(isset($course) && $course->study_option == 'online') selected @endif>Online/In Person</option>
-                            <option value="Online/In Person" @if(isset($course) && $course->study_option == 'online') selected @endif>Online/In Person</option>
+                            <option value="Online" @if(isset($course) && $course->study_option == 'online') selected @endif>Online</option>
                             <option value="In Class" @if(isset($course) && $course->study_option == 'in_class') selected @endif>In Class</option>
                             <option value="Hybrid" @if(isset($course) && $course->study_option == 'hybrid') selected @endif>Hybrid</option>
                         </select>

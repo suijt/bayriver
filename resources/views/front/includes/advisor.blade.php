@@ -29,7 +29,8 @@
     </div>
 </div>
 <!--form_two-col-->
-<div class="form-item">
+<input type="hidden" name="program" value="@if(isset($course->title)){{ $course->title }}@elseif(isset($country->title)){{$country->title }} @endif">
+{{--<div class="form-item">
     <!-- <label for="phone">Phone</label>-->
     <select name="interest">
         <option value="Interested In">Interested In </option>
@@ -40,12 +41,12 @@
     @error('interest')
     <span class="invalid-feedback" role="alert">
         <strong>{{ $message }}</strong>
-    </span>
-    @enderror
-</div>
+</span>
+@enderror
+</div>--}}
 <div class="form-item">
     <!-- <label for="phone">Phone</label>-->
-    <textarea placeholder="Describe yourself here..." name="message"></textarea>
+    <textarea placeholder="Message" name="message"></textarea>
     @error('message')
     <span class="invalid-feedback" role="alert">
         <strong>{{ $message }}</strong>

@@ -158,11 +158,10 @@ class FrontendController extends Controller
                     'name' => $request['name'],
                     'email' => $request['email'],
                     'phone_number' => $request['phone'],
-                    'interest' => $request['interest'],
-                    'program_name' => $request['program_name'],
+                    'program' => $request['program'],
                     'message' => $request['message'],
                 );
-                // Mail::to('admissions@bayrivercollge.ca')->send(new AdvisorMail($data));
+                Mail::to('admissions@bayrivercollge.ca')->send(new AdvisorMail($data));
                 Toastr::success('Your Inquiry has been send to the administrator.', 'Success !!!', ["positionClass" => "toast-bottom-right"]);
                 return redirect()->back();
             }

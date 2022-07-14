@@ -64,7 +64,6 @@
                             <th>Email</th>
                             <th>Phone</th>
                             <th>Program</th>
-                            <th>Interest</th>
                             <th>Message</th>
                             <th>Action</th>
                         </tr>
@@ -124,9 +123,6 @@
                         },
                         {
                             "data": "program"
-                        },
-                        {
-                            "data": "interest"
                         },
                         {
                             "data": "message"
